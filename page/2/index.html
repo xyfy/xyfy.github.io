@@ -170,6 +170,116 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.52dzd.com/2019/07/31/windows下控制台代理设置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Author">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心雨纷扬的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/31/windows下控制台代理设置/" class="post-title-link" itemprop="url">windows下控制台代理设置</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-31 09:59:37" itemprop="dateCreated datePublished" datetime="2019-07-31T09:59:37+08:00">2019-07-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-12 16:35:30" itemprop="dateModified" datetime="2020-09-12T16:35:30+08:00">2020-09-12</time>
+              </span>
+
+          
+            <span id="/2019/07/31/windows下控制台代理设置/" class="post-meta-item leancloud_visitors" data-flag-title="windows下控制台代理设置" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/07/31/windows下控制台代理设置/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/07/31/windows下控制台代理设置/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><a href="#powershell%e8%ae%be%e7%bd%ae%e4%bb%a3%e7%90%86">PowerShell设置代理</a></li>
+<li><a href="#%e5%91%bd%e4%bb%a4%e8%a1%8c%e8%ae%be%e7%bd%ae%e4%bb%a3%e7%90%86">命令行设置代理</a></li>
+</ul>
+<h2 id="PowerShell设置代理"><a href="#PowerShell设置代理" class="headerlink" title="PowerShell设置代理"></a>PowerShell设置代理</h2><ul>
+<li>设置代理</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh winhttp <span class="built_in">set</span> proxy <span class="string">"127.0.0.1:1080"</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>恢复默认</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh winhttp reset proxy</span><br></pre></td></tr></table></figure>
+
+<p>注意要在管理员模式运行，不然提示权限不足。</p>
+<h2 id="命令行设置代理"><a href="#命令行设置代理" class="headerlink" title="命令行设置代理"></a>命令行设置代理</h2><ul>
+<li>设置代理</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#HTTP 代理设置：</span></span><br><span class="line"><span class="built_in">set</span> http_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> https_proxy=http://127.0.0.1:1080</span><br><span class="line"><span class="comment"># SOCKS5 代理设置：</span></span><br><span class="line"><span class="built_in">set</span> http_proxy=socks5://127.0.0.1:1080</span><br><span class="line"><span class="built_in">set</span> https_proxy=socks5://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="comment">#  如果有用户名密码</span></span><br><span class="line"><span class="built_in">set</span> http_proxy_user=user</span><br><span class="line"><span class="built_in">set</span> http_proxy_pass=pass</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> https_proxy_user=user</span><br><span class="line"><span class="built_in">set</span> https_proxy_pass=pass</span><br><span class="line"></span><br><span class="line"><span class="comment"># 不走代理的ＩＰ</span></span><br><span class="line"><span class="comment"># set NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Ubuntu 下命令为 export</span></span><br><span class="line"><span class="comment"># export http_proxy=http://127.0.0.1:1080</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>恢复默认</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 恢复</span></span><br><span class="line"><span class="built_in">set</span> http_proxy=</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> https_proxy=</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.52dzd.com/2019/06/14/使用.Net Core 2.2创建windows服务/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1767,103 +1877,6 @@ None`</pre>
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.52dzd.com/2011/02/25/Sql2005以上重建事务日志文件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Author">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心雨纷扬的博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2011/02/25/Sql2005以上重建事务日志文件/" class="post-title-link" itemprop="url">Sql2005以上重建事务日志文件</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2011-02-25 20:02:36" itemprop="dateCreated datePublished" datetime="2011-02-25T20:02:36+08:00">2011-02-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-12 16:35:30" itemprop="dateModified" datetime="2020-09-12T16:35:30+08:00">2020-09-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/未分类/" itemprop="url" rel="index">
-                    <span itemprop="name">未分类</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/2011/02/25/Sql2005以上重建事务日志文件/" class="post-meta-item leancloud_visitors" data-flag-title="Sql2005以上重建事务日志文件" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2011/02/25/Sql2005以上重建事务日志文件/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2011/02/25/Sql2005以上重建事务日志文件/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>有时候我们手头上的数据库可能只剩下了mdf文件，而日志文件丢失了或者损坏了， 那么你可以尝试使用以下方法重建事务日志，注意sql 2K不是这个语句 </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">USE</span> <span class="keyword">master</span>; GOCREATE DATABASE nuke ON </span><br><span class="line">(FILENAME = 'H:\\Mdf-<span class="keyword">BackUp</span>\\Nuke.mdf<span class="string">'), --数据库文件所在</span></span><br><span class="line"><span class="string">(FILENAME = '</span>H:\\Mdf-<span class="keyword">BackUp</span>\\Nuke\_Log.ldf<span class="string">')---指定重建的日志文件路径 FOR ATTACH\_REBUILD_LOGGO</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1934,7 +1947,7 @@ None`</pre>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1943,7 +1956,7 @@ None`</pre>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
