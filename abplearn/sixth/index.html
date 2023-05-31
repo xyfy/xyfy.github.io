@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/purple/pace-theme-loading-bar.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.52dzd.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Abp vNext 学习第六弹 - 授权，定义权限，使用权限">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Abp vNext 学习(6)">
+<meta property="og:url" content="https://www.52dzd.com/abplearn/sixth/index.html">
+<meta property="og:site_name" content="心雨纷扬的博客">
+<meta property="og:description" content="Abp vNext 学习第六弹 - 授权，定义权限，使用权限">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-15T08:52:43.000Z">
+<meta property="article:modified_time" content="2023-05-31T23:32:09.022Z">
+<meta property="article:author" content="Xyfy">
+<meta property="article:tag" content="Abp vNext">
+<meta property="article:tag" content="DDD">
+<meta property="article:tag" content="BookStore">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.52dzd.com/abplearn/sixth/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.52dzd.com/abplearn/sixth/","path":"abplearn/sixth/","title":"Abp vNext 学习(6)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Abp vNext 学习(6) | 心雨纷扬的博客</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JSVQ39TS9E"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-JSVQ39TS9E","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+<script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5923374708970560" crossorigin="anonymous"></script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">心雨纷扬的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个简单的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Abp-vNext-%E5%AD%A6%E4%B9%A0%E7%AC%AC%E5%85%AD%E5%BC%B9-%E6%8E%88%E6%9D%83"><span class="nav-number">1.</span> <span class="nav-text">Abp vNext 学习第六弹 - 授权</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%83%E9%99%90"><span class="nav-number">1.1.</span> <span class="nav-text">权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E5%90%8D%E7%A7%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">权限名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.2.</span> <span class="nav-text">权限定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2"><span class="nav-number">1.1.3.</span> <span class="nav-text">权限管理界面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%88%E6%9D%83"><span class="nav-number">1.2.</span> <span class="nav-text">授权</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82-%E5%92%8C-HTTP-API"><span class="nav-number">1.2.1.</span> <span class="nav-text">应用层 和 HTTP API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Razor-%E9%A1%B5%E9%9D%A2"><span class="nav-number">1.2.2.</span> <span class="nav-text">Razor 页面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E6%96%B0%E5%BB%BA%E5%9B%BE%E4%B9%A6%E6%8C%89%E9%92%AE"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">隐藏新建图书按钮</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript%E7%AB%AF"><span class="nav-number">1.2.3.</span> <span class="nav-text">JavaScript端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8F%9C%E5%8D%95%E9%A1%B9"><span class="nav-number">1.2.4.</span> <span class="nav-text">菜单项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo-Codes"><span class="nav-number">1.3.</span> <span class="nav-text">Demo Codes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E7%AB%A0"><span class="nav-number">1.4.</span> <span class="nav-text">下一章</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xyfy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3h5Znk=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xyfy"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOmJlbmd1YWhhb0BnbWFpbC5jb20=" title="E-Mail → mailto:benguahao@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.52dzd.com/abplearn/sixth/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xyfy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Abp vNext 学习(6) | 心雨纷扬的博客">
+      <meta itemprop="description" content="Abp vNext 学习第六弹 - 授权，定义权限，使用权限">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Abp vNext 学习(6)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-12-15 16:52:43" itemprop="dateCreated datePublished" datetime="2022-12-15T16:52:43+08:00">2022-12-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-06-01 07:32:09" itemprop="dateModified" datetime="2023-06-01T07:32:09+08:00">2023-06-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Abp/" itemprop="url" rel="index"><span itemprop="name">Abp</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/abplearn/sixth/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="abplearn/sixth/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+            <div class="post-description">Abp vNext 学习第六弹 - 授权，定义权限，使用权限</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Abp-vNext-学习第六弹-授权"><a href="#Abp-vNext-学习第六弹-授权" class="headerlink" title="Abp vNext 学习第六弹 - 授权"></a>Abp vNext 学习第六弹 - 授权</h1><p>参考上一篇 ：<a href="/abplearn/fifth/" title="Abp vNext 学习(5)">Abp vNext 学习(5)</a>.</p>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><p>ABP框架提供了一个基于ASP.NET Core授权基础架构的授权系统. 基于标准授权基础架构的一个主要功能是添加了 <strong>权限系统</strong>, 这个系统允许定义权限并且根据角色, 用户或客户端启用&#x2F;禁用权限.</p>
+<h3 id="权限名称"><a href="#权限名称" class="headerlink" title="权限名称"></a>权限名称</h3><p>权限必须有唯一的名称 (一个 <code>字符串</code>). 最好的方法是把它定义为一个 <code>常量</code>, 这样我们就可以重用这个权限名称了.</p>
+<p>打开 <code>.Application.Contracts</code> 项目中的 <code>BookStorePermissions</code> 类 (位于 Permissions 文件夹) 并替换为以下代码:</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">Acme.BookStore.Permissions</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">BookStorePermissions</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">string</span> GroupName = <span class="string">&quot;BookStore&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">Books</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">string</span> Default = GroupName + <span class="string">&quot;.Books&quot;</span>;</span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">string</span> Create = Default + <span class="string">&quot;.Create&quot;</span>;</span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">string</span> Edit = Default + <span class="string">&quot;.Edit&quot;</span>;</span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">string</span> Delete = Default + <span class="string">&quot;.Delete&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>权限名称具有层次结构. 例如, “创建图书” 权限被定义为 <code>BookStore.Books.Create</code>. ABP不强制必须如此, 但是建议这么做     ·.</p>
+<h3 id="权限定义"><a href="#权限定义" class="headerlink" title="权限定义"></a>权限定义</h3><p>在使用权限前必须定义它们.</p>
+<p>打开 <code>.Application.Contracts</code> 项目中的 <code>BookStorePermissionDefinitionProvider</code> 类 (位于 <code>Permissions</code> 文件夹) 并替换为以下代码:</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Acme.BookStore.Localization;</span><br><span class="line"><span class="keyword">using</span> Volo.Abp.Authorization.Permissions;</span><br><span class="line"><span class="keyword">using</span> Volo.Abp.Localization;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Acme.BookStore.Permissions</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BookStorePermissionDefinitionProvider</span> : <span class="title">PermissionDefinitionProvider</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Define</span>(<span class="params">IPermissionDefinitionContext context</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">var</span> bookStoreGroup = context.AddGroup(BookStorePermissions.GroupName, L(<span class="string">&quot;Permission:BookStore&quot;</span>));</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> booksPermission = bookStoreGroup.AddPermission(BookStorePermissions.Books.Default, L(<span class="string">&quot;Permission:Books&quot;</span>));</span><br><span class="line">            booksPermission.AddChild(BookStorePermissions.Books.Create, L(<span class="string">&quot;Permission:Books.Create&quot;</span>));</span><br><span class="line">            booksPermission.AddChild(BookStorePermissions.Books.Edit, L(<span class="string">&quot;Permission:Books.Edit&quot;</span>));</span><br><span class="line">            booksPermission.AddChild(BookStorePermissions.Books.Delete, L(<span class="string">&quot;Permission:Books.Delete&quot;</span>));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> LocalizableString <span class="title">L</span>(<span class="params"><span class="built_in">string</span> name</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> LocalizableString.Create&lt;BookStoreResource&gt;(name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个类定义了一个 <strong>权限组</strong> (在UI上分组权限, 下文会看到) 和 权限组中的4个权限. 而且, <strong>创建</strong>, <strong>编辑</strong> 和 <strong>删除</strong> 是 <code>ß</code> 权限的子权限. 仅当父权限被选择时, 子权限才能被选择.</p>
+<p>最后, 编辑本地化文件 (<code>.Domain.Shared</code> 项目的 <code>Localization/BookStore</code> 文件夹中的 <code>en.json</code>) 定义上面使用的本地化键:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;Permission:BookStore&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Book Store&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;Permission:Books&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Book Management&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;Permission:Books.Create&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Creating new books&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;Permission:Books.Edit&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Editing the books&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;Permission:Books.Delete&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Deleting the books&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>本地化键名可以是任意的, 并没有强制的规则. 但我们推荐上面使用的约定. 简体中文翻译请打开<code>zh-Hans.json</code>文件 ,并将”<code>Texts</code>“对象中对应的值替换为中文.</p>
+</blockquote>
+<h3 id="权限管理界面"><a href="#权限管理界面" class="headerlink" title="权限管理界面"></a>权限管理界面</h3><p>完成权限定义后, 可以在权限管理模态窗口看到它们.</p>
+<p>在管理 -&gt; Identity -&gt; 角色 页面, 选择admin角色的 权限 操作, 打开权限管理模态窗口</p>
+<p>授予你希望的权限并保存.</p>
+<blockquote>
+<p>提示: 如果运行 <code>.DbMigrator</code> 应用程序, 新权限会被自动授予admin.</p>
+</blockquote>
+<h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><p>现在, 你可以使用权限授权图书管理.</p>
+<h3 id="应用层-和-HTTP-API"><a href="#应用层-和-HTTP-API" class="headerlink" title="应用层 和 HTTP API"></a>应用层 和 HTTP API</h3><p>打开 <code>BookAppService</code> 类, 设置策略名称为上面定义的权限名称.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> Acme.BookStore.Permissions;</span><br><span class="line"><span class="keyword">using</span> Volo.Abp.Application.Dtos;</span><br><span class="line"><span class="keyword">using</span> Volo.Abp.Application.Services;</span><br><span class="line"><span class="keyword">using</span> Volo.Abp.Domain.Repositories;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Acme.BookStore.Books</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BookAppService</span> :</span><br><span class="line">        <span class="title">CrudAppService</span>&lt;</span><br><span class="line">            <span class="title">Book</span>, //<span class="title">The</span> <span class="title">Book</span> <span class="title">entity</span></span><br><span class="line">            <span class="title">BookDto</span>, //<span class="title">Used</span> <span class="title">to</span> <span class="title">show</span> <span class="title">books</span></span><br><span class="line">            <span class="title">Guid</span>, //<span class="title">Primary</span> <span class="title">key</span> <span class="title">of</span> <span class="title">the</span> <span class="title">book</span> <span class="title">entity</span></span><br><span class="line">            <span class="title">PagedAndSortedResultRequestDto</span>, //<span class="title">Used</span> <span class="title">for</span> <span class="title">paging</span>/<span class="title">sorting</span></span><br><span class="line">            <span class="title">CreateUpdateBookDto</span>&gt;, <span class="comment">//Used to create/update a book</span></span><br><span class="line">        <span class="title">IBookAppService</span> <span class="comment">//implement the IBookAppService</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">BookAppService</span>(<span class="params">IRepository&lt;Book, Guid&gt; repository</span>)</span></span><br><span class="line"><span class="function">            : <span class="title">base</span>(<span class="params">repository</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            GetPolicyName = BookStorePermissions.Books.Default;</span><br><span class="line">            GetListPolicyName = BookStorePermissions.Books.Default;</span><br><span class="line">            CreatePolicyName = BookStorePermissions.Books.Create;</span><br><span class="line">            UpdatePolicyName = BookStorePermissions.Books.Edit;</span><br><span class="line">            DeletePolicyName = BookStorePermissions.Books.Delete;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>加入代码到构造器. 基类中的 <code>CrudAppService</code> 自动在CRUD操作中使用这些权限. 这不仅实现了 <strong>应用服务</strong> 的安全性, 也实现了 <strong>HTTP API</strong> 安全性, 因为如前解释的, HTTP API 自动使用这些服务。</p>
+<blockquote>
+<p>在稍后开发作者管理功能时, 你将会看到声明式授权, 使用 <code>[Authorize(...)]</code> 特性.</p>
+</blockquote>
+<h3 id="Razor-页面"><a href="#Razor-页面" class="headerlink" title="Razor 页面"></a>Razor 页面</h3><p>虽然安全的 HTTP API和应用服务阻止未授权用户使用服务, 但他们依然可以导航到图书管理页面. 虽然当页面发起第一个访问服务器的AJAX请求时会收到授权异常, 但为了更好的用户体验和安全性, 我们应该对页面进行授权.</p>
+<p>打开 <code>BookStoreWebModule</code> 在 <code>ConfigureServices</code> 方法中加入以下代码:</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Configure&lt;RazorPagesOptions&gt;(options =&gt;</span><br><span class="line">&#123;</span><br><span class="line">    options.Conventions.AuthorizePage(<span class="string">&quot;/Books/Index&quot;</span>, BookStorePermissions.Books.Default);</span><br><span class="line">    options.Conventions.AuthorizePage(<span class="string">&quot;/Books/CreateModal&quot;</span>, BookStorePermissions.Books.Create);</span><br><span class="line">    options.Conventions.AuthorizePage(<span class="string">&quot;/Books/EditModal&quot;</span>, BookStorePermissions.Books.Edit);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>现在未授权用户会被重定向至<strong>登录页面</strong>.</p>
+<h4 id="隐藏新建图书按钮"><a href="#隐藏新建图书按钮" class="headerlink" title="隐藏新建图书按钮"></a>隐藏新建图书按钮</h4><p>图书管理页面有一个 <em>新建图书</em> 按钮, 当用户没有 <em>图书新建</em> 权限时就不可见的.</p>
+<p>打开 <code>Pages/Books/Index.cshtml</code> 文件, 替换内容为以下代码:</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">@page</span><br><span class="line">@using Acme.BookStore.Localization</span><br><span class="line">@using Acme.BookStore.Permissions</span><br><span class="line">@using Acme.BookStore.Web.Pages.Books</span><br><span class="line">@using Microsoft.AspNetCore.Authorization</span><br><span class="line">@using Microsoft.Extensions.Localization</span><br><span class="line">@model IndexModel</span><br><span class="line">@inject IStringLocalizer&lt;BookStoreResource&gt; L</span><br><span class="line">@inject IAuthorizationService AuthorizationService</span><br><span class="line">@section scripts</span><br><span class="line">&#123;</span><br><span class="line">    &lt;abp-script src=<span class="string">&quot;/Pages/Books/Index.js&quot;</span>/&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;abp-card&gt;</span><br><span class="line">    &lt;abp-card-header&gt;</span><br><span class="line">        &lt;abp-row&gt;</span><br><span class="line">            &lt;abp-column size-md=<span class="string">&quot;_6&quot;</span>&gt;</span><br><span class="line">                &lt;abp-card-title&gt;@L[<span class="string">&quot;Books&quot;</span>]&lt;/abp-card-title&gt;</span><br><span class="line">            &lt;/abp-column&gt;</span><br><span class="line">            &lt;abp-column size-md=<span class="string">&quot;_6&quot;</span> <span class="keyword">class</span>=<span class="string">&quot;text-right&quot;</span>&gt;</span><br><span class="line">                @if (<span class="keyword">await</span> AuthorizationService.IsGrantedAsync(BookStorePermissions.Books.Create))</span><br><span class="line">                &#123;</span><br><span class="line">                    &lt;abp-button id=<span class="string">&quot;NewBookButton&quot;</span></span><br><span class="line">                                text=<span class="string">&quot;@L[&quot;</span>NewBook<span class="string">&quot;].Value&quot;</span></span><br><span class="line">                                icon=<span class="string">&quot;plus&quot;</span></span><br><span class="line">                                button-type=<span class="string">&quot;Primary&quot;</span>/&gt;</span><br><span class="line">                &#125;</span><br><span class="line">            &lt;/abp-column&gt;</span><br><span class="line">        &lt;/abp-row&gt;</span><br><span class="line">    &lt;/abp-card-header&gt;</span><br><span class="line">    &lt;abp-card-body&gt;</span><br><span class="line">        &lt;abp-table striped-rows=<span class="string">&quot;true&quot;</span> id=<span class="string">&quot;BooksTable&quot;</span>&gt;&lt;/abp-table&gt;</span><br><span class="line">    &lt;/abp-card-body&gt;</span><br><span class="line">&lt;/abp-card&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>加入 <code>@inject IAuthorizationService AuthorizationService</code> 以访问授权服务.</li>
+<li>使用 <code>@if (await AuthorizationService.IsGrantedAsync(BookStorePermissions.Books.Create))</code> 检查<em>图书创建</em>权限, 条件显示 <strong>新建图书</strong> 按钮.</li>
+</ul>
+<h3 id="JavaScript端"><a href="#JavaScript端" class="headerlink" title="JavaScript端"></a>JavaScript端</h3><p>图书管理页面中的图书表格每行都有操作按钮. 操作按钮包括 <strong>编辑</strong> 和 <strong>删除</strong> 操作:</p>
+<p>如果用户没有权限, 应该隐藏相关的操作. 表格行中的操作有一个 <code>visible</code> 属性, 可以设置为 <code>false</code> 隐藏操作项.</p>
+<p>打开 <code>.Web</code> 项目中的 <code>Pages/Books/Index.js</code>, 为 <code>Edit</code> 操作加入 <code>visible</code> 属性:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">text</span>: <span class="title function_">l</span>(<span class="string">&#x27;Edit&#x27;</span>),</span><br><span class="line">    <span class="attr">visible</span>: abp.<span class="property">auth</span>.<span class="title function_">isGranted</span>(<span class="string">&#x27;BookStore.Books.Edit&#x27;</span>), <span class="comment">//CHECK for the PERMISSION</span></span><br><span class="line">    <span class="attr">action</span>: <span class="keyword">function</span> (<span class="params">data</span>) &#123;</span><br><span class="line">        editModal.<span class="title function_">open</span>(&#123; <span class="attr">id</span>: data.<span class="property">record</span>.<span class="property">id</span> &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对 <code>Delete</code> 操作进行同样的操作:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">visible</span>: abp.<span class="property">auth</span>.<span class="title function_">isGranted</span>(<span class="string">&#x27;BookStore.Books.Delete&#x27;</span>),</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>abp.auth.isGranted(...)</code> 检查前面定义的权限.</li>
+<li><code>visible</code> 也可以是一个返回 <code>bool</code> 值的函数. 这个函数可以稍后根据某些条件计算.</li>
+</ul>
+<h3 id="菜单项"><a href="#菜单项" class="headerlink" title="菜单项"></a>菜单项</h3><p>即使我们在图书管理页面的所有层都控制了权限, 应用程序的主菜单依然会显示. 我们应该隐藏用户没有权限的菜单项.</p>
+<p>打开 <code>BookStoreMenuContributor</code> 类, 找到下面的代码:</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">context.Menu.AddItem(</span><br><span class="line">    <span class="keyword">new</span> ApplicationMenuItem(</span><br><span class="line">        <span class="string">&quot;BooksStore&quot;</span>,</span><br><span class="line">        l[<span class="string">&quot;Menu:BookStore&quot;</span>],</span><br><span class="line">        icon: <span class="string">&quot;fa fa-book&quot;</span></span><br><span class="line">    ).AddItem(</span><br><span class="line">        <span class="keyword">new</span> ApplicationMenuItem(</span><br><span class="line">            <span class="string">&quot;BooksStore.Books&quot;</span>,</span><br><span class="line">            l[<span class="string">&quot;Menu:Books&quot;</span>],</span><br><span class="line">            url: <span class="string">&quot;/Books&quot;</span></span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>替换为以下代码:</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bookStoreMenu = <span class="keyword">new</span> ApplicationMenuItem(</span><br><span class="line">    <span class="string">&quot;BooksStore&quot;</span>,</span><br><span class="line">    l[<span class="string">&quot;Menu:BookStore&quot;</span>],</span><br><span class="line">    icon: <span class="string">&quot;fa fa-book&quot;</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">context.Menu.AddItem(bookStoreMenu);</span><br><span class="line"></span><br><span class="line"><span class="comment">//CHECK the PERMISSION</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">await</span> context.IsGrantedAsync(BookStorePermissions.Books.Default))</span><br><span class="line">&#123;</span><br><span class="line">    bookStoreMenu.AddItem(<span class="keyword">new</span> ApplicationMenuItem(</span><br><span class="line">        <span class="string">&quot;BooksStore.Books&quot;</span>,</span><br><span class="line">        l[<span class="string">&quot;Menu:Books&quot;</span>],</span><br><span class="line">        url: <span class="string">&quot;/Books&quot;</span></span><br><span class="line">    ));</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Demo-Codes"><a href="#Demo-Codes" class="headerlink" title="Demo Codes"></a>Demo Codes</h2><blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3h5ZnkvQWJwLUxlYXJuLTIwMjIvY29tbWl0LzRiYWUyNjFkOWMzNzllODRkZWM0NjJhYmE3MjUwNWM4NWYxODA5NmQ=">github commit<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<h2 id="下一章"><a href="#下一章" class="headerlink" title="下一章"></a>下一章</h2><p>参阅的<a href="/abplearn/seventh/" title="Abp vNext 学习(7)">Abp vNext 学习(7)</a>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Xyfy 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Xyfy 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Xyfy
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.52dzd.com/abplearn/sixth/" title="Abp vNext 学习(6)">https://www.52dzd.com/abplearn/sixth/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Abp-vNext/" rel="tag"><i class="fa fa-tag"></i> Abp vNext</a>
+              <a href="/tags/DDD/" rel="tag"><i class="fa fa-tag"></i> DDD</a>
+              <a href="/tags/BookStore/" rel="tag"><i class="fa fa-tag"></i> BookStore</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/abplearn/fifth/" rel="prev" title="Abp vNext 学习(5)">
+                  <i class="fa fa-chevron-left"></i> Abp vNext 学习(5)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/change-hexo-permalink-with301/" rel="next" title="Hexo Change Permanent Link Format With Backward Compatibility">
+                  Hexo Change Permanent Link Format With Backward Compatibility <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbg==">粤ICP备18091900号 </span>
+  </div>
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xyfy</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3h5Znk=" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zindex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"52dzd","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

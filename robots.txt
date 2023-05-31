@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/ 
+Allow: /resources/ 
+Disallow: /vendors/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: https://www.52dzd.com/sitemap.xml
+Sitemap: https://www.52dzd.com/sitemap.txt
+Sitemap: https://www.52dzd.com/baidusitemap.xml
