@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -166,6 +166,129 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://www.52dzd.com/elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-Ubuntu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xyfy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-Ubuntu/" class="post-title-link" itemprop="url">elastic安装过程-Ubuntu</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-05 18:47:00" itemprop="dateCreated datePublished" datetime="2018-10-05T18:47:00+08:00">2018-10-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-06-01 07:32:09" itemprop="dateModified" datetime="2023-06-01T07:32:09+08:00">2023-06-01</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-Ubuntu/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="elastic安装过程-Ubuntu/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="elastic安装过程-Ubuntu"><a href="#elastic安装过程-Ubuntu" class="headerlink" title="elastic安装过程-Ubuntu"></a>elastic安装过程-Ubuntu</h1><ul>
+<li><a href="#elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-ubuntu">elastic安装过程-Ubuntu</a><ul>
+<li><a href="#%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BDjdk%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85%E8%BF%99%E9%87%8C%E5%8F%AA%E4%BB%8B%E7%BB%8Djdk7%E7%9A%84jdk8-%E7%9A%84%E5%8E%9F%E7%90%86%E5%AE%8C%E5%85%A8%E4%B8%80%E8%87%B4">直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)</a><ul>
+<li><a href="#%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BDjdk">官网下载JDK</a></li>
+<li><a href="#%E8%A7%A3%E5%8E%8B%E7%BC%A9%E6%94%BE%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95%E4%BB%A5jdk-7u60-linux-x64gz%E4%B8%BA%E4%BE%8B">解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例)</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">修改环境变量</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4jdk-%E7%89%88%E6%9C%AC">设置系统默认jdk 版本</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B5%8B%E8%AF%95jdk">测试jdk</a></li>
+<li><a href="#%E4%B8%8B%E8%BD%BDelasticsearch">下载elasticsearch</a></li>
+<li><a href="#%E5%90%AF%E5%8A%A8elasticsearch">启动elasticsearch</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E9%94%99%E8%AF%AF">安装错误</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E5%99%A8">安装中文分词器</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="直接下载jdk压缩包方式安装-这里只介绍jdk7的-jdk8-的原理完全一致"><a href="#直接下载jdk压缩包方式安装-这里只介绍jdk7的-jdk8-的原理完全一致" class="headerlink" title="直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)"></a>直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)</h2><p>分为下面5个步骤</p>
+<h3 id="官网下载JDK"><a href="#官网下载JDK" class="headerlink" title="官网下载JDK"></a>官网下载JDK</h3><p>地址: <span class="exturl" data-url="aHR0cDovL3d3dy5vcmFjbGUuY29tL3RlY2huZXR3b3JrL2FydGljbGVzL2phdmFzZS9pbmRleC1qc3AtMTM4MzYzLmh0bWw=">http://www.oracle.com/technetwork/articles/javase/index-jsp-138363.html<i class="fa fa-external-link-alt"></i></span> , 选择相应的 .gz包下载</p>
+<h3 id="解压缩-放到指定目录-以jdk-7u60-linux-x64-gz为例"><a href="#解压缩-放到指定目录-以jdk-7u60-linux-x64-gz为例" class="headerlink" title="解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例)"></a>解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例)</h3><ol>
+<li><p>创建目录:</p>
+<p> <code>sudo mkdir /usr/lib/jvm</code></p>
+</li>
+<li><p>解压缩到该目录:</p>
+<p> <code>sudo tar -zxvf jdk-7u60-linux-x64.gz -C /usr/lib/jvm</code></p>
+</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-Ubuntu/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1182,106 +1305,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://www.52dzd.com/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8F%96%E5%89%8D%E5%87%A0%E5%88%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xyfy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心雨纷扬的博客">
-      <meta itemprop="description" content>
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心雨纷扬的博客">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8F%96%E5%89%8D%E5%87%A0%E5%88%97/" class="post-title-link" itemprop="url">多表查询取前几列</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2011-02-25 09:29:53" itemprop="dateCreated datePublished" datetime="2011-02-25T09:29:53+08:00">2011-02-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-06-01 07:32:09" itemprop="dateModified" datetime="2023-06-01T07:32:09+08:00">2023-06-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8F%96%E5%89%8D%E5%87%A0%E5%88%97/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="多表查询取前几列/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>环境:有一张Global_CollectInfo_tb来存放有关收藏的记录包括收藏者ID,收藏的记录的主表ID,收藏的记录在具体副表里的ID,收藏记录在主表里的ID,具体的数据记录放在各个副表里. Global_TableDetail_tb里存放有关表的具体信息,包括列名,列类型, </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">USE \[cys\] GO </span><br><span class="line"><span class="comment">/****** 对象:  StoredProcedure \[dbo\].\[getMyCollectList\_sp\]    脚本日期: 07/15/2010 08:46:24 ******/</span> </span><br><span class="line"><span class="keyword">SET</span> ANSI\_NULLS <span class="keyword">ON</span> GO <span class="keyword">SET</span> QUOTED\_IDENTIFIER <span class="keyword">ON</span> GO <span class="comment">-- ============================================= </span></span><br><span class="line"><span class="comment">-- Author:  dzd -- Create date: 2010-7-14 -- Description: 收藏库多表查询 -- ============================================= </span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">PROCEDURE</span> \[dbo\].\[getMyCollectList\_sp\] </span><br><span class="line"><span class="comment">-- Add the parameters for the stored procedure here </span></span><br><span class="line"><span class="variable">@UserId</span> nvarchar(<span class="number">50</span>) <span class="keyword">AS</span> <span class="comment">--定义sql语句变量 </span></span><br><span class="line"><span class="keyword">declare</span> <span class="variable">@nsql</span> nvarchar(<span class="number">2000</span>) <span class="keyword">DECLARE</span> <span class="variable">@strOrder</span> <span class="type">varchar</span>(<span class="number">400</span>); <span class="comment">-- 排序类型 DECLARE @StrGetFields varchar(1000);</span></span><br><span class="line"><span class="comment">-- 需要返回的列 </span></span><br><span class="line"><span class="comment">--定义临时表 </span></span><br><span class="line"><span class="keyword">create</span>  <span class="keyword">TABLE</span> #t(\[id\] nvarchar(<span class="number">50</span>),\[字段<span class="number">1</span>\] nvarchar(<span class="number">500</span>),\[字段<span class="number">2</span>\] nvarchar(<span class="number">500</span>),\[字段<span class="number">3</span>\] nvarchar(<span class="number">500</span>),\[字段<span class="number">4</span>\] nvarchar(<span class="number">500</span>),\[字段<span class="number">5</span>\] nvarchar(<span class="number">500</span>),\[来源表\] nvarchar(<span class="number">500</span>)) </span><br><span class="line"><span class="comment">--定义游标</span></span><br><span class="line"> <span class="keyword">DECLARE</span> tnames\_cursor <span class="keyword">CURSOR</span> <span class="keyword">FOR</span> <span class="keyword">SELECT</span>     <span class="keyword">Global</span>\_TableDetail\_tb.TableName,<span class="keyword">Global</span>\_TableDetail\_tb.TableDetailId <span class="keyword">FROM</span>         <span class="keyword">Global</span>\_TableDetail\_tb <span class="keyword">INNER</span> <span class="keyword">JOIN</span>  <span class="keyword">Global</span>\_CollectInfo\_tb <span class="keyword">ON</span> <span class="keyword">Global</span>\_TableDetail\_tb.TableDetailId <span class="operator">=</span> <span class="keyword">Global</span>\_CollectInfo\_tb.CollectTableId <span class="keyword">WHERE</span>     (<span class="keyword">Global</span>\_CollectInfo\_tb.CollectorId <span class="operator">=</span> <span class="variable">@UserId</span>) <span class="keyword">and</span> <span class="keyword">Global</span>\_TableDetail\_tb.IsShow<span class="operator">=</span><span class="string">&#x27;true&#x27;</span> <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">Global</span>\_TableDetail\_tb.TableName,<span class="keyword">Global</span>\_TableDetail\_tb.TableDetailId </span><br><span class="line"> <span class="comment">--打开游标</span></span><br><span class="line">  <span class="keyword">OPEN</span> tnames\_cursor <span class="keyword">declare</span> <span class="variable">@TableName</span> nvarchar(<span class="number">100</span>),<span class="variable">@TableDetailId</span> nvarchar(<span class="number">100</span>) <span class="keyword">FETCH</span> next <span class="keyword">from</span> tnames\_cursor <span class="keyword">into</span> <span class="variable">@TableName</span>,<span class="variable">@TableDetailId</span> while @<span class="variable">@fetch</span>\_status<span class="operator">=</span><span class="number">0</span> <span class="keyword">begin</span> <span class="keyword">select</span> top <span class="number">5</span> <span class="variable">@StrGetFields</span><span class="operator">=</span>isnull(<span class="variable">@StrGetFields</span><span class="operator">+</span><span class="string">&#x27;,&#x27;</span>,<span class="string">&#x27;&#x27;</span>)<span class="operator">+</span><span class="keyword">case</span> <span class="keyword">when</span> ColumnType <span class="operator">=</span><span class="string">&#x27;date&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;convert(nvarchar(100), &#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">end</span> <span class="operator">+</span> ColumnName<span class="operator">+</span> <span class="keyword">case</span> <span class="keyword">when</span> ColumnType <span class="operator">=</span><span class="string">&#x27;date&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;,120)&#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">end</span> <span class="keyword">from</span> <span class="keyword">Global</span>\_ColumnConfiger\_tb <span class="keyword">where</span> [TableId<span class="operator">=</span><span class="variable">@TableDetailId</span>](TableId<span class="operator">=</span><span class="variable">@TableDetailId</span>) <span class="keyword">order</span> <span class="keyword">by</span> ColumnIndex <span class="keyword">asc</span> <span class="keyword">SET</span> <span class="variable">@nsql</span> <span class="operator">=</span> <span class="string">&#x27;SELECT id,&#x27;</span> [<span class="operator">+</span><span class="variable">@StrGetFields</span>](mailto:<span class="operator">+</span><span class="variable">@StrGetFields</span>) <span class="operator">+</span><span class="string">&#x27;,TableName FROM  Global\_TableDetail\_tb INNER JOIN Global\_CollectInfo\_tb ON Global\_TableDetail\_tb.TableDetailId = Global\_CollectInfo\_tb.CollectTableId INNER JOIN &#x27;</span> <span class="operator">+</span> <span class="variable">@TableName</span> <span class="operator">+</span> <span class="string">&#x27;_副表 ON Global\_CollectInfo\_tb.CollectRecordId = &#x27;</span><span class="operator">+</span> <span class="variable">@TableName</span><span class="operator">+</span><span class="string">&#x27;_副表.id WHERE (Global\_CollectInfo\_tb.CollectorId = [&#x27;&#x27;&#x27;</span><span class="operator">+</span><span class="variable">@UserId</span><span class="operator">+</span><span class="string">&#x27;&#x27;&#x27;](&#x27;&#x27;&#x27;</span><span class="operator">+</span><span class="variable">@UserId</span><span class="operator">+</span><span class="string">&#x27;&#x27;&#x27;)) AND (Global\_TableDetail\_tb.IsShow = &#x27;&#x27;true&#x27;&#x27;)&#x27;</span></span><br><span class="line">  </span><br><span class="line">  print(<span class="variable">@nsql</span>) <span class="keyword">insert</span> <span class="keyword">into</span> #t </span><br><span class="line">  <span class="keyword">execute</span>(<span class="variable">@nsql</span>) <span class="keyword">set</span> <span class="variable">@StrGetFields</span> <span class="operator">=</span> <span class="keyword">null</span> <span class="keyword">FETCH</span> next <span class="keyword">from</span>  tnames\_cursor <span class="keyword">into</span> <span class="variable">@TableName</span>,<span class="variable">@TableDetailId</span> <span class="keyword">end</span> <span class="keyword">CLOSE</span> tnames\_cursor <span class="keyword">DEALLOCATE</span> tnames_cursor <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> #t</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1297,7 +1320,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

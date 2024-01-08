@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -166,6 +166,106 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://www.52dzd.com/windows%E5%88%A0%E9%99%A4%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xyfy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/windows%E5%88%A0%E9%99%A4%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">windows删除无法访问的文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-01-04 14:48:11" itemprop="dateCreated datePublished" datetime="2020-01-04T14:48:11+08:00">2020-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-06-01 07:32:09" itemprop="dateModified" datetime="2023-06-01T07:32:09+08:00">2023-06-01</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/windows%E5%88%A0%E9%99%A4%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E6%96%87%E4%BB%B6/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="windows删除无法访问的文件/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="windows删除无法访问的文件"><a href="#windows删除无法访问的文件" class="headerlink" title="windows删除无法访问的文件"></a>windows删除无法访问的文件</h1><h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>通过文件&#x2F;文件夹的属性的安全选项卡，无法修改所有者和权限</p>
+<p>界面上提示：win10 你没有权限查看或编辑这个对象</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>按下 （Windows 徽标键 +X键），点击“命令提示符（管理员）”，复制以下命令并在命令提示符中点击鼠标右键，点击“粘贴”，随后按回车键（Enter）执行：</p>
+<p><code>del  /Q &#39;待删除文件路径&#39;</code></p>
+<p>命令完成后重新启动计算机，查看截图3.png是否依然存在，如果存在，再次打开命令提示符（管理员）复制以下命令并粘贴执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ATTRIB 待删除文件路径&gt;%temp%\pngA.txt &amp; FSUTIL usn readdata 待删除文件路径&gt;&gt;%temp%\pngA.txt &amp; icacls 待删除文件路径&gt;&gt;%temp%\pngA.txt &amp; %temp%\pngA.txt</span><br></pre></td></tr></table></figure>
+
+<p>我试过执行完第一个命令，然后重启电脑就正常了。</p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hbnN3ZXJzLm1pY3Jvc29mdC5jb20vemgtaGFucy93aW5kb3dzL2ZvcnVtL2FsbC93aW4xMC81MjUzNGFiZC02YzQyLTQxY2QtOGY4ZS0xNGJkYTQxMzJkNGM=">https://answers.microsoft.com/zh-hans/windows/forum/all/win10/52534abd-6c42-41cd-8f8e-14bda4132d4c<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1561,129 +1661,6 @@ None`</pre>
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://www.52dzd.com/elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-Ubuntu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xyfy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心雨纷扬的博客">
-      <meta itemprop="description" content>
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心雨纷扬的博客">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-Ubuntu/" class="post-title-link" itemprop="url">elastic安装过程-Ubuntu</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-10-05 18:47:00" itemprop="dateCreated datePublished" datetime="2018-10-05T18:47:00+08:00">2018-10-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-06-01 07:32:09" itemprop="dateModified" datetime="2023-06-01T07:32:09+08:00">2023-06-01</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-Ubuntu/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="elastic安装过程-Ubuntu/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="elastic安装过程-Ubuntu"><a href="#elastic安装过程-Ubuntu" class="headerlink" title="elastic安装过程-Ubuntu"></a>elastic安装过程-Ubuntu</h1><ul>
-<li><a href="#elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-ubuntu">elastic安装过程-Ubuntu</a><ul>
-<li><a href="#%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BDjdk%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85%E8%BF%99%E9%87%8C%E5%8F%AA%E4%BB%8B%E7%BB%8Djdk7%E7%9A%84jdk8-%E7%9A%84%E5%8E%9F%E7%90%86%E5%AE%8C%E5%85%A8%E4%B8%80%E8%87%B4">直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)</a><ul>
-<li><a href="#%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BDjdk">官网下载JDK</a></li>
-<li><a href="#%E8%A7%A3%E5%8E%8B%E7%BC%A9%E6%94%BE%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95%E4%BB%A5jdk-7u60-linux-x64gz%E4%B8%BA%E4%BE%8B">解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例)</a></li>
-<li><a href="#%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">修改环境变量</a></li>
-<li><a href="#%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4jdk-%E7%89%88%E6%9C%AC">设置系统默认jdk 版本</a></li>
-</ul>
-</li>
-<li><a href="#%E6%B5%8B%E8%AF%95jdk">测试jdk</a></li>
-<li><a href="#%E4%B8%8B%E8%BD%BDelasticsearch">下载elasticsearch</a></li>
-<li><a href="#%E5%90%AF%E5%8A%A8elasticsearch">启动elasticsearch</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85%E9%94%99%E8%AF%AF">安装错误</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E5%99%A8">安装中文分词器</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="直接下载jdk压缩包方式安装-这里只介绍jdk7的-jdk8-的原理完全一致"><a href="#直接下载jdk压缩包方式安装-这里只介绍jdk7的-jdk8-的原理完全一致" class="headerlink" title="直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)"></a>直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)</h2><p>分为下面5个步骤</p>
-<h3 id="官网下载JDK"><a href="#官网下载JDK" class="headerlink" title="官网下载JDK"></a>官网下载JDK</h3><p>地址: <span class="exturl" data-url="aHR0cDovL3d3dy5vcmFjbGUuY29tL3RlY2huZXR3b3JrL2FydGljbGVzL2phdmFzZS9pbmRleC1qc3AtMTM4MzYzLmh0bWw=">http://www.oracle.com/technetwork/articles/javase/index-jsp-138363.html<i class="fa fa-external-link-alt"></i></span> , 选择相应的 .gz包下载</p>
-<h3 id="解压缩-放到指定目录-以jdk-7u60-linux-x64-gz为例"><a href="#解压缩-放到指定目录-以jdk-7u60-linux-x64-gz为例" class="headerlink" title="解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例)"></a>解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例)</h3><ol>
-<li><p>创建目录:</p>
-<p> <code>sudo mkdir /usr/lib/jvm</code></p>
-</li>
-<li><p>解压缩到该目录:</p>
-<p> <code>sudo tar -zxvf jdk-7u60-linux-x64.gz -C /usr/lib/jvm</code></p>
-</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-Ubuntu/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1699,7 +1676,7 @@ None`</pre>
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
