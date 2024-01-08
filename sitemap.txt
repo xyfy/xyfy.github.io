@@ -70,6 +70,7 @@ https://www.52dzd.com/tags/kubectl/
 https://www.52dzd.com/tags/MASA-masastack-helm/
 https://www.52dzd.com/tags/MASA-Framework/
 https://www.52dzd.com/tags/CQRS/
+https://www.52dzd.com/tags/AI/
 https://www.52dzd.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/
 https://www.52dzd.com/categories/certbot/
 https://www.52dzd.com/categories/hexo/
