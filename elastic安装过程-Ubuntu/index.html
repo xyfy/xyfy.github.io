@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -280,7 +280,7 @@
 <li><p>使环境变量马上生效<br> source ~&#x2F;.bashrc</p>
 </li>
 </ol>
-<h3 id="设置系统默认jdk-版本"><a href="#设置系统默认jdk-版本" class="headerlink" title="设置系统默认jdk 版本"></a>设置系统默认jdk 版本</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.7.0_60/bin/java 300  </span><br><span class="line">sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.7.0_60/bin/javac 300  </span><br><span class="line">sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk1.7.0_60/bin/jar 300</span><br><span class="line">sudo update-alternatives --install /usr/bin/javah javah /usr/lib/jvm/jdk1.7.0_60/bin/javah 300   </span><br><span class="line">sudo update-alternatives --install /usr/bin/javap javap /usr/lib/jvm/jdk1.7.0_60/bin/javap 300</span><br></pre></td></tr></table></figure>
+<h3 id="设置系统默认jdk-版本"><a href="#设置系统默认jdk-版本" class="headerlink" title="设置系统默认jdk 版本"></a>设置系统默认jdk 版本</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.7.0_60/bin/java 300  </span><br><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.7.0_60/bin/javac 300  </span><br><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk1.7.0_60/bin/jar 300</span><br><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/javah javah /usr/lib/jvm/jdk1.7.0_60/bin/javah 300   </span><br><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/javap javap /usr/lib/jvm/jdk1.7.0_60/bin/javap 300</span><br></pre></td></tr></table></figure>
 
 <p>  　然后执行:<code>sudo update-alternatives --config java</code></p>
 <pre><code>若是初次安装jdk,会有下面的提示
@@ -301,7 +301,7 @@
 <h2 id="安装错误"><a href="#安装错误" class="headerlink" title="安装错误"></a>安装错误</h2><ul>
 <li><p>max file descriptors [4096] for elasticsearch process is too low</p>
 <p>解决办法：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/security/limits.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在最后面追加下面内容</span></span><br><span class="line">*** - nofile 65536</span><br><span class="line">***  是启动ES的用户</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/security/limits.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在最后面追加下面内容</span></span><br><span class="line">*** - nofile 65536</span><br><span class="line">***  是启动ES的用户</span><br></pre></td></tr></table></figure>
 
 <p>Ubuntu ignores the limits.conf file for processes started by init.d. To enable the limits.conf file, edit &#x2F;etc&#x2F;pam.d&#x2F;su and uncomment the following line:</p>
 <p><code>#session    required   pam_limits.so</code></p>
@@ -372,13 +372,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/TFS2010%E5%8F%96%E6%B6%88%E9%94%81%E5%AE%9A/" rel="prev" title="TFS2010 取消锁定">
-                  <i class="fa fa-angle-left"></i> TFS2010 取消锁定
+                <a href="/elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-Win7/" rel="prev" title="elastic安装过程-Win7">
+                  <i class="fa fa-angle-left"></i> elastic安装过程-Win7
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-Win7/" rel="next" title="elastic安装过程-Win7">
-                  elastic安装过程-Win7 <i class="fa fa-angle-right"></i>
+                <a href="/hexo%E6%90%AD%E5%BB%BA/" rel="next" title="hexo搭建">
+                  hexo搭建 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

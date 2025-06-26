@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -275,14 +275,14 @@
 <td>Gitlab配置文件存储</td>
 </tr>
 </tbody></table>
-<h3 id="使用Docker-引擎安装GitLab"><a href="#使用Docker-引擎安装GitLab" class="headerlink" title="使用Docker 引擎安装GitLab"></a>使用Docker 引擎安装GitLab</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --detach \</span><br><span class="line">  --hostname source.52dzd.com \</span><br><span class="line">  --publish 443:443 --publish 80:80 --publish 22:22 \</span><br><span class="line">  --name gitlab \</span><br><span class="line">  --restart always \</span><br><span class="line">  --volume <span class="variable">$GITLAB_HOME</span>/config:/etc/gitlab:Z \</span><br><span class="line">  --volume <span class="variable">$GITLAB_HOME</span>/logs:/var/log/gitlab:Z \</span><br><span class="line">  --volume <span class="variable">$GITLAB_HOME</span>/data:/var/opt/gitlab:Z \</span><br><span class="line">  gitlab/gitlab-ee:latest</span><br></pre></td></tr></table></figure>
+<h3 id="使用Docker-引擎安装GitLab"><a href="#使用Docker-引擎安装GitLab" class="headerlink" title="使用Docker 引擎安装GitLab"></a>使用Docker 引擎安装GitLab</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> docker run --detach \</span><br><span class="line">  --hostname source.52dzd.com \</span><br><span class="line">  --publish 443:443 --publish 80:80 --publish 22:22 \</span><br><span class="line">  --name gitlab \</span><br><span class="line">  --restart always \</span><br><span class="line">  --volume <span class="variable">$GITLAB_HOME</span>/config:/etc/gitlab:Z \</span><br><span class="line">  --volume <span class="variable">$GITLAB_HOME</span>/logs:/var/log/gitlab:Z \</span><br><span class="line">  --volume <span class="variable">$GITLAB_HOME</span>/data:/var/opt/gitlab:Z \</span><br><span class="line">  gitlab/gitlab-ee:latest</span><br></pre></td></tr></table></figure>
 
 <p>如果你使用的是 SELinux,请使用以下命令替换:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --detach \</span><br><span class="line">  --hostname source.52dzd.com \</span><br><span class="line">  --publish 443:443 --publish 80:80 --publish 22:22 \</span><br><span class="line">  --name gitlab \</span><br><span class="line">  --restart always \</span><br><span class="line">  --volume <span class="variable">$GITLAB_HOME</span>/config:/etc/gitlab:Z \</span><br><span class="line">  --volume <span class="variable">$GITLAB_HOME</span>/logs:/var/log/gitlab:Z \</span><br><span class="line">  --volume <span class="variable">$GITLAB_HOME</span>/data:/var/opt/gitlab:Z \</span><br><span class="line">  gitlab/gitlab-ee:latest</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> docker run --detach \</span><br><span class="line">  --hostname source.52dzd.com \</span><br><span class="line">  --publish 443:443 --publish 80:80 --publish 22:22 \</span><br><span class="line">  --name gitlab \</span><br><span class="line">  --restart always \</span><br><span class="line">  --volume <span class="variable">$GITLAB_HOME</span>/config:/etc/gitlab:Z \</span><br><span class="line">  --volume <span class="variable">$GITLAB_HOME</span>/logs:/var/log/gitlab:Z \</span><br><span class="line">  --volume <span class="variable">$GITLAB_HOME</span>/data:/var/opt/gitlab:Z \</span><br><span class="line">  gitlab/gitlab-ee:latest</span><br></pre></td></tr></table></figure>
 
 <p>使用 <code>sudo docker logs -f gitlab</code> 来跟踪启动进程，这个过程需要较长时间.</p>
 <p>访问对应域名：<code>source.52dzd.com</code>，使用<code>root</code>用户名登录，密码使用以下命令来查看</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker <span class="built_in">exec</span> -it gitlab grep <span class="string">&#x27;Password:&#x27;</span> /etc/gitlab/initial_root_password</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> docker <span class="built_in">exec</span> -it gitlab grep <span class="string">&#x27;Password:&#x27;</span> /etc/gitlab/initial_root_password</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <blockquote>
@@ -301,7 +301,7 @@
 <h2 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h2><ul>
 <li>进入docker容器</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker <span class="built_in">exec</span> -it gitlab /bin/bash</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> docker <span class="built_in">exec</span> -it gitlab /bin/bash</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>创建文件  <code> vi license.rb</code></p>
