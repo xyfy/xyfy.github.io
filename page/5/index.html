@@ -125,12 +125,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -166,6 +166,109 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://www.52dzd.com/IIS%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E5%8F%91%E7%94%9F%E6%84%8F%E5%A4%96%E9%94%99%E8%AF%AF0x8ffe2740%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xyfy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/IIS%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E5%8F%91%E7%94%9F%E6%84%8F%E5%A4%96%E9%94%99%E8%AF%AF0x8ffe2740%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">IIS服务启动发生意外错误0x8ffe2740的解决方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2011-02-25 09:36:53" itemprop="dateCreated datePublished" datetime="2011-02-25T09:36:53+08:00">2011-02-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-06-01 07:32:09" itemprop="dateModified" datetime="2023-06-01T07:32:09+08:00">2023-06-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/IIS%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E5%8F%91%E7%94%9F%E6%84%8F%E5%A4%96%E9%94%99%E8%AF%AF0x8ffe2740%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="IIS服务启动发生意外错误0x8ffe2740的解决方法/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>如果系统中存在端口冲突就有可能发生本情况. IIS默认使用80端口进行HTTP通信. 如果除IIS外的应用程序正在运行并且正在相同的IP地址上使用80端口,在您试图使用IIS管理器启动网站时您也可能收到该错误讯息. 解决办法</p>
+<ol>
+<li>直接修改网站的端口,不再绑定80，而切换其他端口,如果这样就不会有问题了,但是如果访问网站的时候就得加上端口号,很麻烦</li>
+<li>使用工具查看谁在占用TCP80端口：一般占用该端口的是网站服务器,比如我装了两个Web服务器,IIS 5.1和Apache+php+Mysql,如果你先启用了默认配置的Apache(你的IIS网站没有启动)那么,你的TCP80端口就会被占用,导致IIS启动时发生0x8ffe2740错误。停止了PHP服务器你的IIS又可以启动了。当然，不光光是网站会占用这个端口的，今天早上我就发现了一个奇怪的事情，我没有启动我的PHP服务器，但是还是发生了这个错误，很奇怪啊，我使用了360安全卫士的常用–&gt;高级工具–&gt;网络连接查看器,看到skype个破东西居然占着我宝贵的80端口,是可忍孰不可忍,马上把它退出了,然后启动我的IIS,OK,成功启动。唉，一无是处的Skype尽给我找麻烦，为了防止下次还被skype占用，可以在skype设置里的高级里的连接选项里，去掉将80端口与443端口作为备用端口的选项。我使用的skype是5.0国际</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -247,7 +350,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>前台 <code>&lt;script&gt; var a = &#39;&#39;; a = &#39;&lt;%# PrintStr()%&gt;&#39;; alert(a); &lt;/script&gt;</code> 值得注意的是这个调用的方法不能是private或者internal的. 如果PrintStr()该方法是有返回值的时候需要在page_load里加入Page.DataBind()方法,不然不会成功返回值的 方法需要传参数的话,不知道咋搞了</p>
+          <p>前台 <code>&lt;script&gt; var a = ''; a = '&lt;%# PrintStr()%&gt;'; alert(a); &lt;/script&gt;</code> 值得注意的是这个调用的方法不能是private或者internal的. 如果PrintStr()该方法是有返回值的时候需要在page_load里加入Page.DataBind()方法,不然不会成功返回值的 方法需要传参数的话,不知道咋搞了</p>
 
       
     </div>
@@ -346,7 +449,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>表ChooseAuthorize和membership的User表,联合查询 </p>
+          <p>表ChooseAuthorize和membership的User表,联合查询</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span> </span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 取得当前登陆用户收藏授权记录的用户集合 </span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span> </span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span> </span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DataTable <span class="title">GetAuthorizeUserList</span>()</span> &#123; </span><br><span class="line">  <span class="built_in">string</span> uid = <span class="keyword">new</span> ChooseAuthorizeInfo().GetCurrentUserId(); </span><br><span class="line">  Aggregate AuthorizerId = <span class="keyword">new</span> Aggregate(ChooseAuthorize.AuthorizerIdColumn, <span class="string">&quot;AuthorizerId&quot;</span>, AggregateFunction.GroupBy); </span><br><span class="line">  Aggregate RealName = <span class="keyword">new</span> Aggregate(UserInfo.RealNameColumn, <span class="string">&quot;RealName&quot;</span>, AggregateFunction.GroupBy); </span><br><span class="line">  Aggregate ReceiverId = <span class="keyword">new</span> Aggregate(ChooseAuthorize.ReceiverIdColumn, <span class="string">&quot;ReceiverId&quot;</span>, AggregateFunction.GroupBy); </span><br><span class="line">  DataTable dt = <span class="keyword">new</span> Select(ChooseAuthorize.Columns.ReceiverId, UserInfo.Columns.RealName).From&lt;ChooseAuthorize&gt;().InnerJoin(UserInfo.UserIdColumn, ChooseAuthorize.ReceiverIdColumn).Where(ChooseAuthorize.Columns.AuthorizerId).IsEqualTo(uid).ExecuteDataSet().Tables[<span class="number">0</span>];</span><br><span class="line">   <span class="keyword">return</span> dt; </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -446,7 +549,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>环境:有一张Global_CollectInfo_tb来存放有关收藏的记录包括收藏者ID,收藏的记录的主表ID,收藏的记录在具体副表里的ID,收藏记录在主表里的ID,具体的数据记录放在各个副表里. Global_TableDetail_tb里存放有关表的具体信息,包括列名,列类型, </p>
+          <p>环境:有一张Global_CollectInfo_tb来存放有关收藏的记录包括收藏者ID,收藏的记录的主表ID,收藏的记录在具体副表里的ID,收藏记录在主表里的ID,具体的数据记录放在各个副表里. Global_TableDetail_tb里存放有关表的具体信息,包括列名,列类型,</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">USE \[cys\] GO </span><br><span class="line"><span class="comment">/****** 对象:  StoredProcedure \[dbo\].\[getMyCollectList\_sp\]    脚本日期: 07/15/2010 08:46:24 ******/</span> </span><br><span class="line"><span class="keyword">SET</span> ANSI\_NULLS <span class="keyword">ON</span> GO <span class="keyword">SET</span> QUOTED\_IDENTIFIER <span class="keyword">ON</span> GO <span class="comment">-- ============================================= </span></span><br><span class="line"><span class="comment">-- Author:  dzd -- Create date: 2010-7-14 -- Description: 收藏库多表查询 -- ============================================= </span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">PROCEDURE</span> \[dbo\].\[getMyCollectList\_sp\] </span><br><span class="line"><span class="comment">-- Add the parameters for the stored procedure here </span></span><br><span class="line"><span class="variable">@UserId</span> nvarchar(<span class="number">50</span>) <span class="keyword">AS</span> <span class="comment">--定义sql语句变量 </span></span><br><span class="line"><span class="keyword">declare</span> <span class="variable">@nsql</span> nvarchar(<span class="number">2000</span>) <span class="keyword">DECLARE</span> <span class="variable">@strOrder</span> <span class="type">varchar</span>(<span class="number">400</span>); <span class="comment">-- 排序类型 DECLARE @StrGetFields varchar(1000);</span></span><br><span class="line"><span class="comment">-- 需要返回的列 </span></span><br><span class="line"><span class="comment">--定义临时表 </span></span><br><span class="line"><span class="keyword">create  TABLE</span> #t(\[id\] nvarchar(<span class="number">50</span>),\[字段<span class="number">1</span>\] nvarchar(<span class="number">500</span>),\[字段<span class="number">2</span>\] nvarchar(<span class="number">500</span>),\[字段<span class="number">3</span>\] nvarchar(<span class="number">500</span>),\[字段<span class="number">4</span>\] nvarchar(<span class="number">500</span>),\[字段<span class="number">5</span>\] nvarchar(<span class="number">500</span>),\[来源表\] nvarchar(<span class="number">500</span>)) </span><br><span class="line"><span class="comment">--定义游标</span></span><br><span class="line"> <span class="keyword">DECLARE</span> tnames\_cursor <span class="keyword">CURSOR</span> <span class="keyword">FOR</span> <span class="keyword">SELECT</span>     <span class="keyword">Global</span>\_TableDetail\_tb.TableName,<span class="keyword">Global</span>\_TableDetail\_tb.TableDetailId <span class="keyword">FROM</span>         <span class="keyword">Global</span>\_TableDetail\_tb <span class="keyword">INNER</span> <span class="keyword">JOIN</span>  <span class="keyword">Global</span>\_CollectInfo\_tb <span class="keyword">ON</span> <span class="keyword">Global</span>\_TableDetail\_tb.TableDetailId <span class="operator">=</span> <span class="keyword">Global</span>\_CollectInfo\_tb.CollectTableId <span class="keyword">WHERE</span>     (<span class="keyword">Global</span>\_CollectInfo\_tb.CollectorId <span class="operator">=</span> <span class="variable">@UserId</span>) <span class="keyword">and</span> <span class="keyword">Global</span>\_TableDetail\_tb.IsShow<span class="operator">=</span><span class="string">&#x27;true&#x27;</span> <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">Global</span>\_TableDetail\_tb.TableName,<span class="keyword">Global</span>\_TableDetail\_tb.TableDetailId </span><br><span class="line"> <span class="comment">--打开游标</span></span><br><span class="line">  <span class="keyword">OPEN</span> tnames\_cursor <span class="keyword">declare</span> <span class="variable">@TableName</span> nvarchar(<span class="number">100</span>),<span class="variable">@TableDetailId</span> nvarchar(<span class="number">100</span>) <span class="keyword">FETCH</span> next <span class="keyword">from</span> tnames\_cursor <span class="keyword">into</span> <span class="variable">@TableName</span>,<span class="variable">@TableDetailId</span> while @<span class="variable">@fetch</span>\_status<span class="operator">=</span><span class="number">0</span> <span class="keyword">begin</span> <span class="keyword">select</span> top <span class="number">5</span> <span class="variable">@StrGetFields</span><span class="operator">=</span>isnull(<span class="variable">@StrGetFields</span><span class="operator">+</span><span class="string">&#x27;,&#x27;</span>,<span class="string">&#x27;&#x27;</span>)<span class="operator">+</span><span class="keyword">case</span> <span class="keyword">when</span> ColumnType <span class="operator">=</span><span class="string">&#x27;date&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;convert(nvarchar(100), &#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">end</span> <span class="operator">+</span> ColumnName<span class="operator">+</span> <span class="keyword">case</span> <span class="keyword">when</span> ColumnType <span class="operator">=</span><span class="string">&#x27;date&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;,120)&#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">end</span> <span class="keyword">from</span> <span class="keyword">Global</span>\_ColumnConfiger\_tb <span class="keyword">where</span> [TableId<span class="operator">=</span><span class="variable">@TableDetailId</span>](TableId<span class="operator">=</span><span class="variable">@TableDetailId</span>) <span class="keyword">order</span> <span class="keyword">by</span> ColumnIndex <span class="keyword">asc</span> <span class="keyword">SET</span> <span class="variable">@nsql</span> <span class="operator">=</span> <span class="string">&#x27;SELECT id,&#x27;</span> [<span class="operator">+</span><span class="variable">@StrGetFields</span>](mailto:<span class="operator">+</span><span class="variable">@StrGetFields</span>) <span class="operator">+</span><span class="string">&#x27;,TableName FROM  Global\_TableDetail\_tb INNER JOIN Global\_CollectInfo\_tb ON Global\_TableDetail\_tb.TableDetailId = Global\_CollectInfo\_tb.CollectTableId INNER JOIN &#x27;</span> <span class="operator">+</span> <span class="variable">@TableName</span> <span class="operator">+</span> <span class="string">&#x27;_副表 ON Global\_CollectInfo\_tb.CollectRecordId = &#x27;</span><span class="operator">+</span> <span class="variable">@TableName</span><span class="operator">+</span><span class="string">&#x27;_副表.id WHERE (Global\_CollectInfo\_tb.CollectorId = [&#x27;&#x27;&#x27;</span><span class="operator">+</span><span class="variable">@UserId</span><span class="operator">+</span><span class="string">&#x27;&#x27;&#x27;](&#x27;&#x27;&#x27;</span><span class="operator">+</span><span class="variable">@UserId</span><span class="operator">+</span><span class="string">&#x27;&#x27;&#x27;)) AND (Global\_TableDetail\_tb.IsShow = &#x27;&#x27;true&#x27;&#x27;)&#x27;</span></span><br><span class="line">  </span><br><span class="line">  print(<span class="variable">@nsql</span>) <span class="keyword">insert into</span> #t </span><br><span class="line">  <span class="keyword">execute</span>(<span class="variable">@nsql</span>) <span class="keyword">set</span> <span class="variable">@StrGetFields</span> <span class="operator">=</span> <span class="keyword">null</span> <span class="keyword">FETCH</span> next <span class="keyword">from</span>  tnames\_cursor <span class="keyword">into</span> <span class="variable">@TableName</span>,<span class="variable">@TableDetailId</span> <span class="keyword">end</span> <span class="keyword">CLOSE</span> tnames\_cursor <span class="keyword">DEALLOCATE</span> tnames_cursor <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> #t</span><br></pre></td></tr></table></figure>
 
       
@@ -546,18 +649,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我在开发过程中发现有需要根据数据库传来的表的不同,产生不同的gridview的列,但是,其中根据数据表生成的列是要放到几个模板列之间的.前台代码如下 </p>
+          <p>我在开发过程中发现有需要根据数据库传来的表的不同,产生不同的gridview的列,但是,其中根据数据表生成的列是要放到几个模板列之间的.前台代码如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;divGv&quot; style=&quot;margin: 0 auto; text-align: center;&quot; runat=&quot;server&quot;&gt; </span><br><span class="line">&lt;asp:GridView ID=&quot;gvList&quot; runat=&quot;server&quot; AutoGenerateColumns=&quot;False&quot; OnRowCommand=&quot;gvList\_RowCommand&quot; OnRowCreated=&quot;gvList\_RowCreated&quot; OnRowDataBound=&quot;gvList\_RowDataBound&quot; DataKeyNames=&quot;id&quot;&gt; </span><br><span class="line">&lt;Columns&gt;</span><br><span class="line">&lt;asp:TemplateField&gt;</span><br><span class="line">&lt;ItemTemplate&gt; </span><br><span class="line">&lt;/ItemTemplate&gt; </span><br><span class="line">&lt;/asp:TemplateField&gt;</span><br><span class="line">&lt;asp:TemplateField HeaderText=&quot;序号&quot;&gt; </span><br><span class="line">&lt;ItemTemplate&gt; &lt;/ItemTemplate&gt;</span><br><span class="line">&lt;/asp:TemplateField&gt;</span><br><span class="line">&lt;asp:TemplateField HeaderText=&quot;管理&quot;&gt;</span><br><span class="line"> &lt;ItemTemplate&gt;&lt;/ItemTemplate&gt;</span><br><span class="line"> &lt;/asp:TemplateField&gt;</span><br><span class="line"> &lt;/Columns&gt;</span><br><span class="line"> &lt;/asp:GridView&gt; &lt;webdiyer:AspNetPager ID=&quot;AspNetPager1&quot; runat=&quot;server&quot; ShowBoxThreshold=&quot;10&quot; NumericButtonCount=&quot;8&quot; OnPageChanging=&quot;AspNetPager1\_PageChanging&quot; SubmitButtonClass=&quot;saveBtn&quot;&gt; &lt;/webdiyer:AspNetPager&gt;</span><br><span class="line"> &lt;/div&gt; </span><br></pre></td></tr></table></figure>
-
-<p>后台代码相当多,可能有人说为什么前台里的模板列里没有控件呢?这个是因为我现在要做的是插入列,使用的是insert,如果是使用了add,那么这个是可以直接在前台完全写好模板列的,也没有下面的这么麻烦了,贴出后台代码,希望有人可以给出更简单的办法. </p>
+<p>后台代码相当多,可能有人说为什么前台里的模板列里没有控件呢?这个是因为我现在要做的是插入列,使用的是insert,如果是使用了add,那么这个是可以直接在前台完全写好模板列的,也没有下面的这么麻烦了,贴出后台代码,希望有人可以给出更简单的办法.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">//创建及设置字段 </span><br><span class="line">public void setfields() &#123; </span><br><span class="line">  int recordCount = 0; string tabname = getTabName(); </span><br><span class="line">//取得一次分页数据,以用来确定列 </span><br><span class="line">string where=&quot;where 1=1&quot;;</span><br><span class="line"> DataTable dt = ColumnConfigerInfo.GetValueByTableName(AspNetPager1.PageSize,AspNetPager1.CurrentPageIndex,tabname,where,out recordCount); </span><br><span class="line"> //设置总记录数 </span><br><span class="line"> AspNetPager1.RecordCount = recordCount; </span><br><span class="line"> int num = dt.Columns.Count; </span><br><span class="line"> //循环插入列,并绑定字段 </span><br><span class="line"> for (int i = 3; i &lt; num; i++) &#123;</span><br><span class="line">    BoundField cc = new BoundField();</span><br><span class="line">    cc.DataField = dt.Columns[i].ColumnName;</span><br><span class="line">    cc.HeaderText = dt.Columns[i].ColumnName;</span><br><span class="line">    cc.ItemStyle.Wrap = false; //</span><br><span class="line">    if(dt.Columns[i\].ColumnName.Equals(&quot;外键&quot;)) </span><br><span class="line">    &#123; </span><br><span class="line">          //隐藏掉该列</span><br><span class="line">       cc.Visible = false;</span><br><span class="line">    &#125; </span><br><span class="line">    //判断是否是时间类型的列 </span><br><span class="line">    if (dt.Columns[i].DataType.Name == &quot;DateTime&quot;) &#123; </span><br><span class="line">      //设置时间格式</span><br><span class="line">       cc.DataFormatString = &quot;&#123;0:yyyy-MM-dd&#125;&quot;; cc.HtmlEncode = false; &#125; cc.ReadOnly = true; gvList.Columns.Insert(i-1, cc); </span><br><span class="line">    &#125; </span><br><span class="line">    //绑定分页控件,数据源,</span><br><span class="line">    Gridview,aspnetpager UI.BindCtrl(recordCount, dt.DefaultView, gvList, AspNetPager1); &#125; </span><br><span class="line">    /// &lt;summary&gt; </span><br><span class="line">    /// 取得表名 </span><br><span class="line">    /// &lt;/summary&gt; </span><br><span class="line">    /// &lt;returns&gt;&lt;/returns&gt; </span><br><span class="line">    private string getTabName() &#123; </span><br><span class="line">      int tabid = int.Parse(lbltabId.Text);</span><br><span class="line">      TableDetailInfo tab = new TableDetailInfo(tabid); </span><br><span class="line">      string tabname = tab.TableName; </span><br><span class="line">      return tabname; </span><br><span class="line">      &#125; </span><br></pre></td></tr></table></figure>
-
 <pre><code>     看到这里,是不是觉得很简单呢?错了.麻烦的在后面呢.这个使用了列的insert方法后,进行翻页的时候模板列如果本来在前台写了控件的就会消失,这个还不知道原因,网上找了找,据说是微软的bug.所以我追加下面的代码来解决这个问题 
 </code></pre>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">         //行创建时候添加模板列的控件 </span><br><span class="line">protected void gvList_RowCreated(object sender, GridViewRowEventArgs e) &#123; </span><br><span class="line">  if (e.Row.RowType == DataControlRowType.Header) &#123; </span><br><span class="line">    int cc = gvList.Columns.Count; </span><br><span class="line">    CheckBox cb = new CheckBox(); </span><br><span class="line">    cb.ID = &quot;ckbAll&quot;; </span><br><span class="line">    e.Row.Cells[0].Controls.Add(cb); </span><br><span class="line">    cb.AutoPostBack = true; </span><br><span class="line">    cb.CheckedChanged += new EventHandler(cb_CheckedChanged); &#125; </span><br><span class="line">    if (e.Row.RowType == DataControlRowType.DataRow) &#123; </span><br><span class="line">      int cc=gvList.Columns.Count; </span><br><span class="line">      CheckBox ckb = new CheckBox(); </span><br><span class="line">      ckb.ID = &quot;ckbDetail&quot;; </span><br><span class="line">      e.Row.Cells[0].Controls.Add(ckb); </span><br><span class="line">      LinkButton lbtn1 = new LinkButton(); </span><br><span class="line">      lbtn1.Text = &quot; [收藏] &quot;; </span><br><span class="line">      lbtn1.CommandName = &quot;collect&quot;; </span><br><span class="line">      e.Row.Cells[cc - 1].Controls.Add(lbtn1); </span><br><span class="line">      lbtn1.CommandArgument = e.Row.RowIndex.ToString(); </span><br><span class="line">      LinkButton lbtn2 = new LinkButton(); </span><br><span class="line">      lbtn2.CommandName = &quot;attention&quot;; </span><br><span class="line">      e.Row.Cells[cc - 1].Controls.Add(lbtn2); lbtn2.Text = &quot; [中标] &quot;; lbtn2.CommandArgument = e.Row.RowIndex.ToString(); </span><br><span class="line">      LinkButton lbtn3 = new LinkButton(); </span><br><span class="line">      lbtn3.CommandName = &quot;compare&quot;; </span><br><span class="line">      e.Row.Cells[cc - 1].Controls.Add(lbtn3); </span><br><span class="line">      lbtn3.Text = &quot; [比对] &quot;; </span><br><span class="line">      lbtn3.CommandArgument = e.Row.RowIndex.ToString(); </span><br><span class="line">      LinkButton lbtn4 = new LinkButton(); </span><br><span class="line">      lbtn4.CommandName = &quot;detail&quot;; </span><br><span class="line">      e.Row.Cells[cc - 1].Controls.Add(lbtn4); </span><br><span class="line">      lbtn4.Text = &quot; [查看详细] &quot;; </span><br><span class="line">      lbtn4.CommandArgument = e.Row.RowIndex.ToString(); &#125; &#125; </span><br></pre></td></tr></table></figure>
 <p>其中类似<code>lbtn4.CommandArgument = e.Row.RowIndex.ToString();</code>的代码是绑定行值,以方便后面进行操作 而</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if (e.Row.RowType == DataControlRowType.Header) &#123;</span><br><span class="line">   int cc = gvList.Columns.Count; </span><br><span class="line">   CheckBox cb = new CheckBox();</span><br><span class="line">    cb.ID = &quot;ckbAll&quot;; </span><br><span class="line">    e.Row.Cells[0].Controls.Add(cb); </span><br><span class="line">    cb.AutoPostBack = true; </span><br><span class="line">    cb.CheckedChanged += new EventHandler(cb_CheckedChanged); </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-<p>  则是为了生成全选按钮,并订阅CheckedChanged事件.以用来激发下面的事件,来全选上所有复选框 </p>
+<p>则是为了生成全选按钮,并订阅CheckedChanged事件.以用来激发下面的事件,来全选上所有复选框</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">protected void cb_CheckedChanged(object sender, EventArgs e) &#123; </span><br><span class="line">  for (int i = 0; i &lt; gvList.Rows.Count; i++) &#123; </span><br><span class="line">    CheckBox ckb = (CheckBox)gvList.Rows[i].Cells[0].Controls[0] as CheckBox; CheckBox ckbAll = sender as CheckBox; </span><br><span class="line">    if (ckbAll.Checked) &#123; </span><br><span class="line">      ckb.Checked = true; </span><br><span class="line">      &#125; else &#123; </span><br><span class="line">        ckb.Checked = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -724,6 +825,8 @@
 
   
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js","integrity":"sha256-mm3Re3y7xlvh+yCD+l/Zs1d+PU0AEad93MkWvljfm/s="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
 
 

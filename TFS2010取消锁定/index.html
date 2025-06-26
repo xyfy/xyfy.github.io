@@ -129,12 +129,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -251,17 +251,19 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>最近这段时间，开始使用TFS2010进行项目的源码管理，在使用过程中，发现了不些问题，由于开发人员的操作失误，经常导致了源码中的文件被锁定，而在开发人员的PC机上又不能把锁定的文件签入到TFS中，刚开始遇到这个问题时，想通过管理员帐号来“取消锁定”，但在“源代码管理器”中，管理员帐号也没有权限操作“取消锁定”。遇到这种文件被锁定的事，是相当的郁闷。 郁闷归郁闷，问题还是得要解决，所以baidu、google了不少资料，原来“取消锁定”是不能通过界面来操作的，而是要使用TFS的命令来实现解锁操作，在不断的摸索和参考其它文章，总算把这个头痛的问题解决了，为了方便以后解决同样的问题、也为了其他同志在遇到这相相似的问题时有一个解决方案，故把我解决的过程记录一下。 </p>
+    <div class="post-body" itemprop="articleBody"><p>最近这段时间，开始使用TFS2010进行项目的源码管理，在使用过程中，发现了不些问题，由于开发人员的操作失误，经常导致了源码中的文件被锁定，而在开发人员的PC机上又不能把锁定的文件签入到TFS中，刚开始遇到这个问题时，想通过管理员帐号来“取消锁定”，但在“源代码管理器”中，管理员帐号也没有权限操作“取消锁定”。遇到这种文件被锁定的事，是相当的郁闷。 郁闷归郁闷，问题还是得要解决，所以baidu、google了不少资料，原来“取消锁定”是不能通过界面来操作的，而是要使用TFS的命令来实现解锁操作，在不断的摸索和参考其它文章，总算把这个头痛的问题解决了，为了方便以后解决同样的问题、也为了其他同志在遇到这相相似的问题时有一个解决方案，故把我解决的过程记录一下。</p>
 <ol>
-<li><p>CMD到TFS的命令</p>
+<li>
+<p>CMD到TFS的命令</p>
 <ul>
-<li>A：32位操作系统：c:&#x2F;program files&#x2F;microsoft visual studio 10.0&#x2F;common7&#x2F;ide。 </li>
-<li>B：64位操作系统：c:&#x2F;program files(x86)&#x2F;microsoft visual studio 10.0&#x2F;common7&#x2F;ide。</li>
+<li>A：32位操作系统：c:/program files/microsoft visual studio 10.0/common7/ide。</li>
+<li>B：64位操作系统：c:/program files(x86)/microsoft visual studio 10.0/common7/ide。</li>
 </ul>
 </li>
-<li><p>执行tf undo解锁命令 如：</p>
+<li>
+<p>执行tf undo解锁命令 如：</p>
 <p><code>c:\\program files (x86)\\microsoft visual studio 10.0\\common7\\ide\\tf undo /workspace:testing-pc;test\_user $/works/ias.works/ias.mvcimp/controllers/homecontroller.cs</code></p>
-<p>注：testing_pc：表示锁定文件的工作区；test_user：表示的是锁定文件的用户。譬如我自己的PC机上的工作区是：BEA-PC，我的TFS登录帐号是：tfs001。则：tf undo &#x2F;workspace:BEA-PC;tfs001</p>
+<p>注：testing_pc：表示锁定文件的工作区；test_user：表示的是锁定文件的用户。譬如我自己的PC机上的工作区是：BEA-PC，我的TFS登录帐号是：tfs001。则：tf undo /workspace:BEA-PC;tfs001</p>
 </li>
 </ol>
 
@@ -374,6 +376,8 @@
 
   
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js","integrity":"sha256-mm3Re3y7xlvh+yCD+l/Zs1d+PU0AEad93MkWvljfm/s="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
 
 

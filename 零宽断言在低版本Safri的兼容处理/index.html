@@ -120,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%B6%E5%AE%BD%E6%96%AD%E8%A8%80%E5%9C%A8%E4%BD%8E%E7%89%88%E6%9C%ACSafri%E7%9A%84%E5%85%BC%E5%AE%B9%E5%A4%84%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">零宽断言在低版本Safri的兼容处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">解决方案：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">1.2.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">零宽断言在低版本Safri的兼容处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">解决方案：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">1.2.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -133,12 +133,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -256,21 +256,24 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="零宽断言在低版本Safri的兼容处理"><a href="#零宽断言在低版本Safri的兼容处理" class="headerlink" title="零宽断言在低版本Safri的兼容处理"></a>零宽断言在低版本Safri的兼容处理</h1><p> 在使用正则表达式时，有时我们需要捕获的内容前后必须是特定内容，但又不捕获这些特定内容的时候，零宽断言就起到作用了</p>
-<p> 如若在Safari浏览器看到了如下报错，导致整个页面都是空白状态，不要怀疑，就是你的正则使用了零宽断言</p>
+    <div class="post-body" itemprop="articleBody"><h1>零宽断言在低版本Safri的兼容处理</h1>
+<p>在使用正则表达式时，有时我们需要捕获的内容前后必须是特定内容，但又不捕获这些特定内容的时候，零宽断言就起到作用了</p>
+<p>如若在Safari浏览器看到了如下报错，导致整个页面都是空白状态，不要怀疑，就是你的正则使用了零宽断言</p>
 <p>SyntaxError: Invalid regular expression: invalid group specifier name</p>
-<h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><ul>
-<li><p>不再使用零宽断言即可</p>
-<p> <img src="/images/202312/1.png"></p>
+<h2 id="解决方案：">解决方案：</h2>
+<ul>
+<li>
+<p>不再使用零宽断言即可</p>
+<p><img src="/images/202312/1.png" alt></p>
 </li>
-<li><p>使用new RegExp</p>
+<li>
+<p>使用new RegExp</p>
 </li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 错误格式</span></span><br><span class="line"><span class="keyword">let</span> regExp = <span class="regexp">/(?&lt;!\d*\.\d*)(\d)(?=(\d&#123;3&#125;)+(?!\d))/g</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改为下面的格式即可</span></span><br><span class="line"><span class="keyword">let</span> regExp = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&quot;(?&lt;!\\d*\\.\\d*)(\\d)(?=(\\d&#123;3&#125;)+(?!\\d))&quot;</span>, <span class="string">&#x27;g&#x27;</span>);</span><br><span class="line"></span><br><span class="line">注意两点:</span><br><span class="line"><span class="number">1.</span>用<span class="comment">//包裹改为用&quot;&quot;包裹</span></span><br><span class="line"><span class="number">2.</span>\d等元字符改为\\d</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbWFpbHl1YW4vcC8xNDc4NDQ2NC5odG1s">【正则】正则表达式-零宽断言（?&#x3D;,?&lt;&#x3D;,?!,?&lt;!）及常见报错<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="参考文献">参考文献</h2>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbWFpbHl1YW4vcC8xNDc4NDQ2NC5odG1s">【正则】正则表达式-零宽断言（?=,?&lt;=,?!,?&lt;!）及常见报错<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
 
     </div>
@@ -385,6 +388,8 @@
 
   
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js","integrity":"sha256-mm3Re3y7xlvh+yCD+l/Zs1d+PU0AEad93MkWvljfm/s="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
 
 

@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.52dzd.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="elastic安装过程-Ubuntu elastic安装过程-Ubuntu 直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致) 官网下载JDK 解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例) 修改环境变量 设置系统默认jdk 版本   测试jdk 下载elasticsearch 启动elasticsearch 安装错误 安装中文分词器    直">
+    <meta name="description" content="elastic安装过程-Ubuntu  elastic安装过程-Ubuntu  直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)  官网下载JDK 解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例) 修改环境变量 设置系统默认jdk 版本   测试jdk 下载elasticsearch 启动elasticsearch 安装错误 安装中文分词器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="elastic安装过程-Ubuntu">
 <meta property="og:url" content="https://www.52dzd.com/elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-Ubuntu/index.html">
 <meta property="og:site_name" content="心雨纷扬的博客">
-<meta property="og:description" content="elastic安装过程-Ubuntu elastic安装过程-Ubuntu 直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致) 官网下载JDK 解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例) 修改环境变量 设置系统默认jdk 版本   测试jdk 下载elasticsearch 启动elasticsearch 安装错误 安装中文分词器    直">
+<meta property="og:description" content="elastic安装过程-Ubuntu  elastic安装过程-Ubuntu  直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)  官网下载JDK 解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例) 修改环境变量 设置系统默认jdk 版本   测试jdk 下载elasticsearch 启动elasticsearch 安装错误 安装中文分词器">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-10-05T10:47:00.000Z">
 <meta property="article:modified_time" content="2023-05-31T23:32:09.000Z">
@@ -118,7 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-Ubuntu"><span class="nav-number">1.</span> <span class="nav-text">elastic安装过程-Ubuntu</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BDjdk%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85-%E8%BF%99%E9%87%8C%E5%8F%AA%E4%BB%8B%E7%BB%8Djdk7%E7%9A%84-jdk8-%E7%9A%84%E5%8E%9F%E7%90%86%E5%AE%8C%E5%85%A8%E4%B8%80%E8%87%B4"><span class="nav-number">1.1.</span> <span class="nav-text">直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BDJDK"><span class="nav-number">1.1.1.</span> <span class="nav-text">官网下载JDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B%E7%BC%A9-%E6%94%BE%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95-%E4%BB%A5jdk-7u60-linux-x64-gz%E4%B8%BA%E4%BE%8B"><span class="nav-number">1.1.2.</span> <span class="nav-text">解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.1.3.</span> <span class="nav-text">修改环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4jdk-%E7%89%88%E6%9C%AC"><span class="nav-number">1.1.4.</span> <span class="nav-text">设置系统默认jdk 版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95jdk"><span class="nav-number">1.2.</span> <span class="nav-text">测试jdk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDelasticsearch"><span class="nav-number">1.3.</span> <span class="nav-text">下载elasticsearch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8elasticsearch"><span class="nav-number">1.4.</span> <span class="nav-text">启动elasticsearch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%94%99%E8%AF%AF"><span class="nav-number">1.5.</span> <span class="nav-text">安装错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E5%99%A8"><span class="nav-number">1.6.</span> <span class="nav-text">安装中文分词器</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">elastic安装过程-Ubuntu</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BDjdk%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85-%E8%BF%99%E9%87%8C%E5%8F%AA%E4%BB%8B%E7%BB%8Djdk7%E7%9A%84-jdk8-%E7%9A%84%E5%8E%9F%E7%90%86%E5%AE%8C%E5%85%A8%E4%B8%80%E8%87%B4"><span class="nav-number">1.1.</span> <span class="nav-text">直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BDJDK"><span class="nav-number">1.1.1.</span> <span class="nav-text">官网下载JDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B%E7%BC%A9-%E6%94%BE%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95-%E4%BB%A5jdk-7u60-linux-x64-gz%E4%B8%BA%E4%BE%8B"><span class="nav-number">1.1.2.</span> <span class="nav-text">解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.1.3.</span> <span class="nav-text">修改环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4jdk-%E7%89%88%E6%9C%AC"><span class="nav-number">1.1.4.</span> <span class="nav-text">设置系统默认jdk 版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95jdk"><span class="nav-number">1.2.</span> <span class="nav-text">测试jdk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDelasticsearch"><span class="nav-number">1.3.</span> <span class="nav-text">下载elasticsearch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8elasticsearch"><span class="nav-number">1.4.</span> <span class="nav-text">启动elasticsearch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%94%99%E8%AF%AF"><span class="nav-number">1.5.</span> <span class="nav-text">安装错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E5%99%A8"><span class="nav-number">1.6.</span> <span class="nav-text">安装中文分词器</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -131,12 +131,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -244,9 +244,12 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="elastic安装过程-Ubuntu"><a href="#elastic安装过程-Ubuntu" class="headerlink" title="elastic安装过程-Ubuntu"></a>elastic安装过程-Ubuntu</h1><ul>
-<li><a href="#elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-ubuntu">elastic安装过程-Ubuntu</a><ul>
-<li><a href="#%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BDjdk%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85%E8%BF%99%E9%87%8C%E5%8F%AA%E4%BB%8B%E7%BB%8Djdk7%E7%9A%84jdk8-%E7%9A%84%E5%8E%9F%E7%90%86%E5%AE%8C%E5%85%A8%E4%B8%80%E8%87%B4">直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)</a><ul>
+    <div class="post-body" itemprop="articleBody"><h1>elastic安装过程-Ubuntu</h1>
+<ul>
+<li><a href="#elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-ubuntu">elastic安装过程-Ubuntu</a>
+<ul>
+<li><a href="#%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BDjdk%E5%8E%8B%E7%BC%A9%E5%8C%85%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85%E8%BF%99%E9%87%8C%E5%8F%AA%E4%BB%8B%E7%BB%8Djdk7%E7%9A%84jdk8-%E7%9A%84%E5%8E%9F%E7%90%86%E5%AE%8C%E5%85%A8%E4%B8%80%E8%87%B4">直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)</a>
+<ul>
 <li><a href="#%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BDjdk">官网下载JDK</a></li>
 <li><a href="#%E8%A7%A3%E5%8E%8B%E7%BC%A9%E6%94%BE%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95%E4%BB%A5jdk-7u60-linux-x64gz%E4%B8%BA%E4%BE%8B">解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例)</a></li>
 <li><a href="#%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">修改环境变量</a></li>
@@ -261,64 +264,78 @@
 </ul>
 </li>
 </ul>
-<h2 id="直接下载jdk压缩包方式安装-这里只介绍jdk7的-jdk8-的原理完全一致"><a href="#直接下载jdk压缩包方式安装-这里只介绍jdk7的-jdk8-的原理完全一致" class="headerlink" title="直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)"></a>直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)</h2><p>分为下面5个步骤</p>
-<h3 id="官网下载JDK"><a href="#官网下载JDK" class="headerlink" title="官网下载JDK"></a>官网下载JDK</h3><p>地址: <span class="exturl" data-url="aHR0cDovL3d3dy5vcmFjbGUuY29tL3RlY2huZXR3b3JrL2FydGljbGVzL2phdmFzZS9pbmRleC1qc3AtMTM4MzYzLmh0bWw=">http://www.oracle.com/technetwork/articles/javase/index-jsp-138363.html<i class="fa fa-external-link-alt"></i></span> , 选择相应的 .gz包下载</p>
-<h3 id="解压缩-放到指定目录-以jdk-7u60-linux-x64-gz为例"><a href="#解压缩-放到指定目录-以jdk-7u60-linux-x64-gz为例" class="headerlink" title="解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例)"></a>解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例)</h3><ol>
-<li><p>创建目录:</p>
-<p> <code>sudo mkdir /usr/lib/jvm</code></p>
+<h2 id="直接下载jdk压缩包方式安装-这里只介绍jdk7的-jdk8-的原理完全一致">直接下载jdk压缩包方式安装(这里只介绍jdk7的,jdk8 的原理完全一致)</h2>
+<p>分为下面5个步骤</p>
+<h3 id="官网下载JDK">官网下载JDK</h3>
+<p>地址: <span class="exturl" data-url="aHR0cDovL3d3dy5vcmFjbGUuY29tL3RlY2huZXR3b3JrL2FydGljbGVzL2phdmFzZS9pbmRleC1qc3AtMTM4MzYzLmh0bWw=">http://www.oracle.com/technetwork/articles/javase/index-jsp-138363.html<i class="fa fa-external-link-alt"></i></span> , 选择相应的 .gz包下载</p>
+<h3 id="解压缩-放到指定目录-以jdk-7u60-linux-x64-gz为例">解压缩,放到指定目录(以jdk-7u60-linux-x64.gz为例)</h3>
+<ol>
+<li>
+<p>创建目录:</p>
+<p><code>sudo mkdir /usr/lib/jvm</code></p>
 </li>
-<li><p>解压缩到该目录:</p>
-<p> <code>sudo tar -zxvf jdk-7u60-linux-x64.gz -C /usr/lib/jvm</code></p>
+<li>
+<p>解压缩到该目录:</p>
+<p><code>sudo tar -zxvf jdk-7u60-linux-x64.gz -C /usr/lib/jvm</code></p>
 </li>
 </ol>
 <span id="more"></span>
-<h3 id="修改环境变量"><a href="#修改环境变量" class="headerlink" title="修改环境变量"></a>修改环境变量</h3><p><code>sudo vim ~/.bashrc</code></p>
+<h3 id="修改环境变量">修改环境变量</h3>
+<p><code>sudo vim ~/.bashrc</code></p>
 <ol>
-<li><p>文件的末尾追加下面内容:</p>
+<li>
+<p>文件的末尾追加下面内容:</p>
    <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#set oracle jdk environment</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jdk1.7.0_60  <span class="comment">## 这里要注意目录要换成自己解压的jdk 目录</span></span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre  </span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib  </span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span>  </span><br></pre></td></tr></table></figure>
 </li>
-<li><p>使环境变量马上生效<br> source ~&#x2F;.bashrc</p>
+<li>
+<p>使环境变量马上生效<br>
+source ~/.bashrc</p>
 </li>
 </ol>
-<h3 id="设置系统默认jdk-版本"><a href="#设置系统默认jdk-版本" class="headerlink" title="设置系统默认jdk 版本"></a>设置系统默认jdk 版本</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.7.0_60/bin/java 300  </span><br><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.7.0_60/bin/javac 300  </span><br><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk1.7.0_60/bin/jar 300</span><br><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/javah javah /usr/lib/jvm/jdk1.7.0_60/bin/javah 300   </span><br><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/javap javap /usr/lib/jvm/jdk1.7.0_60/bin/javap 300</span><br></pre></td></tr></table></figure>
-
-<p>  　然后执行:<code>sudo update-alternatives --config java</code></p>
+<h3 id="设置系统默认jdk-版本">设置系统默认jdk 版本</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.7.0_60/bin/java 300  </span><br><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.7.0_60/bin/javac 300  </span><br><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk1.7.0_60/bin/jar 300</span><br><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/javah javah /usr/lib/jvm/jdk1.7.0_60/bin/javah 300   </span><br><span class="line"><span class="built_in">sudo</span> update-alternatives --install /usr/bin/javap javap /usr/lib/jvm/jdk1.7.0_60/bin/javap 300</span><br></pre></td></tr></table></figure>
+<p>然后执行:<code>sudo update-alternatives --config java</code></p>
 <pre><code>若是初次安装jdk,会有下面的提示
 </code></pre>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">There is only one alternative in link group java (providing /usr/bin/java): </span><br><span class="line"> /usr/lib/jvm/jdk1.7.0_60/bin/java</span><br></pre></td></tr></table></figure>
-
 <pre><code>否则,选择合适的jdk
 </code></pre>
-<h2 id="测试jdk"><a href="#测试jdk" class="headerlink" title="测试jdk"></a>测试jdk</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br><span class="line"><span class="comment">#显示如下</span></span><br><span class="line">java version <span class="string">&quot;1.7.0_60&quot;</span></span><br><span class="line">  Java(TM) SE Runtime Environment (build 1.7.0_60-b19)</span><br><span class="line">  Java HotSpot(TM) 64-Bit Server VM (build 24.60-b09, mixed mode)</span><br></pre></td></tr></table></figure>
-
+<h2 id="测试jdk">测试jdk</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br><span class="line"><span class="comment">#显示如下</span></span><br><span class="line">java version <span class="string">&quot;1.7.0_60&quot;</span></span><br><span class="line">  Java(TM) SE Runtime Environment (build 1.7.0_60-b19)</span><br><span class="line">  Java HotSpot(TM) 64-Bit Server VM (build 24.60-b09, mixed mode)</span><br></pre></td></tr></table></figure>
 <pre><code>jdk 安装成功
 </code></pre>
 <hr>
-<h2 id="下载elasticsearch"><a href="#下载elasticsearch" class="headerlink" title="下载elasticsearch"></a>下载elasticsearch</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.4.tar.gz</span><br><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.4.tar.gz.sha512</span><br><span class="line">shasum -a 512 -c elasticsearch-6.2.4.tar.gz.sha512 </span><br><span class="line">tar -xzf elasticsearch-6.2.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> elasticsearch-6.2.4/</span><br></pre></td></tr></table></figure>
-
-<h2 id="启动elasticsearch"><a href="#启动elasticsearch" class="headerlink" title="启动elasticsearch"></a>启动elasticsearch</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Running Elasticsearch from the command line</span></span><br><span class="line">./bin/elasticsearch</span><br><span class="line"><span class="comment"># Running as a daemon</span></span><br><span class="line">./bin/elasticsearch -d -p pid</span><br><span class="line"><span class="comment">#To shut down Elasticsearch, kill the process ID recorded in the pid file:</span></span><br><span class="line"><span class="built_in">kill</span> `<span class="built_in">cat</span> pid`</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装错误"><a href="#安装错误" class="headerlink" title="安装错误"></a>安装错误</h2><ul>
-<li><p>max file descriptors [4096] for elasticsearch process is too low</p>
+<h2 id="下载elasticsearch">下载elasticsearch</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.4.tar.gz</span><br><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.4.tar.gz.sha512</span><br><span class="line">shasum -a 512 -c elasticsearch-6.2.4.tar.gz.sha512 </span><br><span class="line">tar -xzf elasticsearch-6.2.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> elasticsearch-6.2.4/</span><br></pre></td></tr></table></figure>
+<h2 id="启动elasticsearch">启动elasticsearch</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Running Elasticsearch from the command line</span></span><br><span class="line">./bin/elasticsearch</span><br><span class="line"><span class="comment"># Running as a daemon</span></span><br><span class="line">./bin/elasticsearch -d -p pid</span><br><span class="line"><span class="comment">#To shut down Elasticsearch, kill the process ID recorded in the pid file:</span></span><br><span class="line"><span class="built_in">kill</span> `<span class="built_in">cat</span> pid`</span><br></pre></td></tr></table></figure>
+<h2 id="安装错误">安装错误</h2>
+<ul>
+<li>
+<p>max file descriptors [4096] for elasticsearch process is too low</p>
 <p>解决办法：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/security/limits.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在最后面追加下面内容</span></span><br><span class="line">*** - nofile 65536</span><br><span class="line">***  是启动ES的用户</span><br></pre></td></tr></table></figure>
-
-<p>Ubuntu ignores the limits.conf file for processes started by init.d. To enable the limits.conf file, edit &#x2F;etc&#x2F;pam.d&#x2F;su and uncomment the following line:</p>
+<p>Ubuntu ignores the limits.conf file for processes started by init.d. To enable the limits.conf file, edit /etc/pam.d/su and uncomment the following line:</p>
 <p><code>#session    required   pam_limits.so</code></p>
 </li>
-<li><p>max virtual memory areas vm.max_count [65530] likely too low,increase to at least [26244]</p>
+<li>
+<p>max virtual memory areas vm.max_count [65530] likely too low,increase to at least [26244]</p>
 <p>解决办法</p>
-<p>  <code>sudo sysctl -w vm.max_map_count=262144</code></p>
+<p><code>sudo sysctl -w vm.max_map_count=262144</code></p>
 </li>
-<li><p>默认情况下，Elastic 只允许本机访问，如果需要远程访问，可以修改 Elastic 安装目录的config&#x2F;elasticsearch.yml文件，去掉network.host的注释，将它的值改成0.0.0.0，然后重新启动 Elastic。</p>
+<li>
+<p>默认情况下，Elastic 只允许本机访问，如果需要远程访问，可以修改 Elastic 安装目录的config/elasticsearch.yml文件，去掉network.host的注释，将它的值改成0.0.0.0，然后重新启动 Elastic。</p>
 </li>
 </ul>
-<h2 id="安装中文分词器"><a href="#安装中文分词器" class="headerlink" title="安装中文分词器"></a>安装中文分词器</h2><ol>
-<li><p>执行命令</p>
-<p>   <code>./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.2.4/elasticsearch-analysis-ik-6.2.4.zip</code></p>
+<h2 id="安装中文分词器">安装中文分词器</h2>
+<ol>
+<li>
+<p>执行命令</p>
+<p><code>./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.2.4/elasticsearch-analysis-ik-6.2.4.zip</code></p>
 </li>
-<li><p>配置IK[仅供v5.0以下版本使用]</p>
-<p> 执行以下CURL</p>
+<li>
+<p>配置IK[仅供v5.0以下版本使用]</p>
+<p>执行以下CURL</p>
    <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">curl -XPOST <span class="string">&#x27;http://localhost:9200/_all/_close&#x27;</span> </span><br><span class="line">curl -XPUT <span class="string">&#x27;http://localhost:9200/_all/_settings?preserve_existing=true&#x27;</span> -d <span class="string">&#x27;&#123;</span></span><br><span class="line"><span class="string">  &quot;index.analysis.analyzer.default.type&quot; : &quot;ik_max_word&quot;,</span></span><br><span class="line"><span class="string">  &quot;index.analysis.analyzer.ik.alias&quot; : [</span></span><br><span class="line"><span class="string">    &quot;ik_analyzer&quot;</span></span><br><span class="line"><span class="string">  ],</span></span><br><span class="line"><span class="string">  &quot;index.analysis.analyzer.ik.type&quot; : &quot;org.elasticsearch.index.analysis.IkAnalyzerProvider&quot;,</span></span><br><span class="line"><span class="string">  &quot;index.analysis.analyzer.ik_max_word.type&quot; : &quot;ik_max_word&quot;,</span></span><br><span class="line"><span class="string">  &quot;index.analysis.analyzer.ik_max_word.use_smart&quot; : &quot;false&quot;,</span></span><br><span class="line"><span class="string">  &quot;index.analysis.analyzer.ik_smart.type&quot; : &quot;ik_max_word&quot;,</span></span><br><span class="line"><span class="string">  &quot;index.analysis.analyzer.ik_smart.use_smart&quot; : &quot;true&quot;</span></span><br><span class="line"><span class="string">&#125;&#x27;</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 
@@ -434,6 +451,8 @@
 
   
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js","integrity":"sha256-mm3Re3y7xlvh+yCD+l/Zs1d+PU0AEad93MkWvljfm/s="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
 
 

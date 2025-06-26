@@ -129,12 +129,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -254,8 +254,8 @@
     <div class="post-body" itemprop="articleBody"><p>大家以前应该碰到过这样的情况： 在作业或者项目数据库中，创建和映射了数据库帐号aspuser，当你重装了数据库，或者备份了到另外的服务器上去还原的时候，你的aspuser帐号不能对数据库正常访问了，即使在数据库的登录帐号中创建了相同的aspuser帐号，也不行。 今天在嘉为培训的时候，主将老师谈到这个问题，提供了很好的方案：</p>
 <p>–报告孤立用户 Exec sp_change_users_login ‘Report’</p>
 <p>执行这个存储过程可以查出数据库中，存在相同问题的帐号的列表</p>
-<p>–修复用户与已经存在的登录账号间的映射 Exec sp_change_users_login ‘Auto_Fix’,’aspuser’ –通过更新用户，共修复了 1 个孤立用户。这个就是修复帐号的存储过程（前提是数据库登录帐号中有aspuser）</p>
-<p>–创建登录并修复用户与登录账号间的映射 <strong>Exec sp_change_users_login ‘Auto_Fix’,’aspuser’,null,’000000’</strong></p>
+<p>–修复用户与已经存在的登录账号间的映射 Exec sp_change_users_login ‘Auto_Fix’,‘aspuser’ --通过更新用户，共修复了 1 个孤立用户。这个就是修复帐号的存储过程（前提是数据库登录帐号中有aspuser）</p>
+<p>–创建登录并修复用户与登录账号间的映射 <strong>Exec sp_change_users_login ‘Auto_Fix’,‘aspuser’,null,‘000000’</strong></p>
 <p>创建aspuser帐号的同时，对帐号进行修复，一举两得</p>
 
     </div>
@@ -367,6 +367,8 @@
 
   
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js","integrity":"sha256-mm3Re3y7xlvh+yCD+l/Zs1d+PU0AEad93MkWvljfm/s="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
 
 

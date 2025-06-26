@@ -129,12 +129,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -252,7 +252,7 @@
     
     
     <div class="post-body" itemprop="articleBody"><p><code>@: item.content </code></p>
-<p>用过ASP.NET MVC的人都知道，这是MVC的基本输出的方式，但是最近我在写一个页面的时候，却碰上了一个问题，我需要在一个div中输出一个<code>&lt;br /&gt;</code>标签，然而他却直接把<code>&lt;br /&gt;</code>给输了出来，这确实让人很郁闷。 我看了一下代码，原来在输出的时候，这种方式直接把&lt;和&gt;给变换成了<code>&amp;lt;</code>和<code>&amp;gt;</code>，所以我想尽任何编码解码的方式想要把这个给还原出来，然而什么都没有效果。   在不断摸索之后我发现了简单的不能再简单的方法</p>
+<p><span class="exturl" data-url="aHR0cDovL3huLS1BU1AtYnMxaHo5NGkuTkVU">用过ASP.NET<i class="fa fa-external-link-alt"></i></span> MVC的人都知道，这是MVC的基本输出的方式，但是最近我在写一个页面的时候，却碰上了一个问题，我需要在一个div中输出一个<code>&lt;br /&gt;</code>标签，然而他却直接把<code>&lt;br /&gt;</code>给输了出来，这确实让人很郁闷。 我看了一下代码，原来在输出的时候，这种方式直接把&lt;和&gt;给变换成了<code>&amp;lt;</code>和<code>&amp;gt;</code>，所以我想尽任何编码解码的方式想要把这个给还原出来，然而什么都没有效果。   在不断摸索之后我发现了简单的不能再简单的方法</p>
 <p><code>@(&quot;&lt;h1&gt;asdfasd&lt;/h1&gt;&quot;)</code></p>
 <p><code> @(new HtmlString( &quot;&lt;h1&gt;asdfasd&lt;/h1&gt;&quot;))</code></p>
 <p><code> @(Html.Encode(&quot;&lt;h1&gt;asdfasd&lt;/h1&gt;&quot;))</code></p>
@@ -366,6 +366,8 @@
 
   
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js","integrity":"sha256-mm3Re3y7xlvh+yCD+l/Zs1d+PU0AEad93MkWvljfm/s="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
 
 
