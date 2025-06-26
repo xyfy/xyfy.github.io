@@ -125,12 +125,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -166,6 +166,116 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://www.52dzd.com/certbotforaliyun/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xyfy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/certbotforaliyun/" class="post-title-link" itemprop="url">Apply cert for domain</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-12-06 19:38:00" itemprop="dateCreated datePublished" datetime="2022-12-06T19:38:00+08:00">2022-12-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-06-01 07:32:09" itemprop="dateModified" datetime="2023-06-01T07:32:09+08:00">2023-06-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/certbot/" itemprop="url" rel="index"><span itemprop="name">certbot</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/certbotforaliyun/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="certbotforaliyun/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Apply-cert-for-domain"><a href="#Apply-cert-for-domain" class="headerlink" title="Apply cert for domain"></a>Apply cert for domain</h1><p>this article is apply cert for domain on ubuntu 22.04</p>
+<h2 id="Install-nginx"><a href="#Install-nginx" class="headerlink" title="Install nginx"></a>Install nginx</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nginx</span><br></pre></td></tr></table></figure>
+
+<h2 id="Install-snap"><a href="#Install-snap" class="headerlink" title="Install snap"></a>Install snap</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo snap install core</span><br><span class="line">sudo snap refresh core</span><br><span class="line"><span class="comment"># Remove certbot-auto and any Certbot OS packages</span></span><br><span class="line">sudo apt-get remove certbot</span><br></pre></td></tr></table></figure>
+
+<h2 id="Install-certbot"><a href="#Install-certbot" class="headerlink" title="Install certbot"></a>Install certbot</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Install Certbot</span></span><br><span class="line">sudo snap install --classic certbot</span><br><span class="line">sudo <span class="built_in">ln</span> -s /snap/bin/certbot /usr/bin/certbot</span><br><span class="line">sudo snap <span class="built_in">set</span> certbot trust-plugin-with-root=ok</span><br><span class="line"><span class="comment">#Install correct DNS plugin</span></span><br><span class="line">sudo snap install certbot-dns-aliyun</span><br><span class="line">sudo snap <span class="built_in">set</span> certbot trust-plugin-with-root=ok</span><br><span class="line">sudo snap connect certbot:plugin certbot-dns-aliyun</span><br><span class="line">/snap/bin/certbot plugins</span><br></pre></td></tr></table></figure>
+
+<h2 id="Set-up-DNS-credentials-of-aliyun"><a href="#Set-up-DNS-credentials-of-aliyun" class="headerlink" title="Set up DNS credentials of aliyun"></a>Set up DNS credentials of aliyun</h2><p>Go to <span class="exturl" data-url="aHR0cHM6Ly9yYW0uY29uc29sZS5hbGl5dW4uY29tLw==">https://ram.console.aliyun.com<i class="fa fa-external-link-alt"></i></span> Apply AliYun child account And Set <strong>AliyunDNSFullAccess</strong> permission。Then create <strong>AccessKey</strong> for child account。</p>
+<p>create <strong>certbot-dns-aliyun</strong> config：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; /home/ubuntu/aliyun.ini &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">dns_aliyun_access_key = 12345678</span></span><br><span class="line"><span class="string">dns_aliyun_access_key_secret = 1234567890abcdef1234567890abcdef</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">chmod</span> 600 /home/ubuntu/aliyun.ini</span><br></pre></td></tr></table></figure>
+
+<h2 id="Apply-cert-for-nginx"><a href="#Apply-cert-for-nginx" class="headerlink" title="Apply cert for nginx"></a>Apply cert for nginx</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot -i nginx -a dns-aliyun  </span><br><span class="line">  --certbot-dns-aliyun:dns-aliyun-credentials /home/ubuntu/aliyun.ini </span><br><span class="line">  -d xyfy.loan </span><br><span class="line">  -d <span class="string">&quot;*.xyfy.loan&quot;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1125,104 +1235,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://www.52dzd.com/%E9%80%9A%E7%94%A8%E7%9A%84%E6%9E%9A%E4%B8%BE%E9%81%8D%E5%8E%86%E8%8E%B7%E5%8F%96%E6%9E%9A%E4%B8%BE%E5%80%BC%E5%92%8C%E6%9E%9A%E4%B8%BE%E5%90%8D%E5%AD%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xyfy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心雨纷扬的博客">
-      <meta itemprop="description" content>
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心雨纷扬的博客">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E9%80%9A%E7%94%A8%E7%9A%84%E6%9E%9A%E4%B8%BE%E9%81%8D%E5%8E%86%E8%8E%B7%E5%8F%96%E6%9E%9A%E4%B8%BE%E5%80%BC%E5%92%8C%E6%9E%9A%E4%B8%BE%E5%90%8D%E5%AD%97/" class="post-title-link" itemprop="url">通用的枚举遍历获取枚举值和枚举名字</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-02 17:48:57" itemprop="dateCreated datePublished" datetime="2020-04-02T17:48:57+08:00">2020-04-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-06-01 07:32:09" itemprop="dateModified" datetime="2023-06-01T07:32:09+08:00">2023-06-01</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/%E9%80%9A%E7%94%A8%E7%9A%84%E6%9E%9A%E4%B8%BE%E9%81%8D%E5%8E%86%E8%8E%B7%E5%8F%96%E6%9E%9A%E4%B8%BE%E5%80%BC%E5%92%8C%E6%9E%9A%E4%B8%BE%E5%90%8D%E5%AD%97/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="通用的枚举遍历获取枚举值和枚举名字/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="通用枚举遍历"><a href="#通用枚举遍历" class="headerlink" title="通用枚举遍历"></a>通用枚举遍历</h1><p>如果你确认你的枚举类型是 int32，可以使用以下方法</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 将一个指定的枚举定义(Int)转换成集合对象.</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;typeparam name=&quot;T&quot;&gt;</span><span class="doctag">&lt;/typeparam&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ToList</span>&lt;<span class="title">T</span>&gt;() <span class="keyword">where</span> T:Enum</span></span><br><span class="line">&#123;</span><br><span class="line">    Array datas = Enum.GetValues(<span class="keyword">typeof</span>(T));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; datas.Length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">object</span> <span class="keyword">value</span> = datas.GetValue(i);</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;&#123;0,-9&#125; &#123;1&#125;&quot;</span>, <span class="keyword">value</span> + <span class="string">&quot;:&quot;</span>,</span><br><span class="line">                              (<span class="built_in">int</span>)<span class="keyword">value</span>);</span><br><span class="line">        <span class="comment">//需要注意的是这里的强转(int)value ,所以这里需要你事先确认枚举基础类型，如果是byte，此处会抛出异常</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E9%80%9A%E7%94%A8%E7%9A%84%E6%9E%9A%E4%B8%BE%E9%81%8D%E5%8E%86%E8%8E%B7%E5%8F%96%E6%9E%9A%E4%B8%BE%E5%80%BC%E5%92%8C%E6%9E%9A%E4%B8%BE%E5%90%8D%E5%AD%97/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1237,7 +1249,7 @@
   </div>
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
