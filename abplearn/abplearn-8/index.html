@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.52dzd.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="本篇将介绍 Abp 框架中的依赖注入（DI）机制及服务生命周期管理，帮助你在实际开发中更好地理解和应用 Abp 的 IoC 容器。 1. Abp 的依赖注入简介 Abp 框架内置了强大的依赖注入系统，默认基于 Microsoft.Extensions.DependencyInjection，支持属性注入、构造函数注入、方法注入等多种方式。  自动注册：继承自 ITransientDependenc">
+    <meta name="description" content="本篇将介绍 Abp 框架中的依赖注入（DI）机制及服务生命周期管理，帮助你在实际开发中更好地理解和应用 Abp 的 IoC 容器。 1. Abp 的依赖注入简介Abp 框架内置了强大的依赖注入系统，默认基于 Microsoft.Extensions.DependencyInjection，支持属性注入、构造函数注入、方法注入等多种方式。  自动注册：继承自 ITransientDependency">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Abp框架学习笔记（八）：Abp中的依赖注入与服务生命周期">
 <meta property="og:url" content="https://www.52dzd.com/abplearn/abplearn-8/index.html">
 <meta property="og:site_name" content="心雨纷扬的博客">
-<meta property="og:description" content="本篇将介绍 Abp 框架中的依赖注入（DI）机制及服务生命周期管理，帮助你在实际开发中更好地理解和应用 Abp 的 IoC 容器。 1. Abp 的依赖注入简介 Abp 框架内置了强大的依赖注入系统，默认基于 Microsoft.Extensions.DependencyInjection，支持属性注入、构造函数注入、方法注入等多种方式。  自动注册：继承自 ITransientDependenc">
+<meta property="og:description" content="本篇将介绍 Abp 框架中的依赖注入（DI）机制及服务生命周期管理，帮助你在实际开发中更好地理解和应用 Abp 的 IoC 容器。 1. Abp 的依赖注入简介Abp 框架内置了强大的依赖注入系统，默认基于 Microsoft.Extensions.DependencyInjection，支持属性注入、构造函数注入、方法注入等多种方式。  自动注册：继承自 ITransientDependency">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-27T02:00:00.000Z">
 <meta property="article:modified_time" content="2025-06-26T16:18:49.096Z">
@@ -133,7 +133,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -254,88 +254,82 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>本篇将介绍 Abp 框架中的依赖注入（DI）机制及服务生命周期管理，帮助你在实际开发中更好地理解和应用 Abp 的 IoC 容器。</p>
-<h2 id="1-Abp-的依赖注入简介">1. Abp 的依赖注入简介</h2>
-<p>Abp 框架内置了强大的依赖注入系统，默认基于 Microsoft.Extensions.DependencyInjection，支持属性注入、构造函数注入、方法注入等多种方式。</p>
+<h2 id="1-Abp-的依赖注入简介"><a href="#1-Abp-的依赖注入简介" class="headerlink" title="1. Abp 的依赖注入简介"></a>1. Abp 的依赖注入简介</h2><p>Abp 框架内置了强大的依赖注入系统，默认基于 Microsoft.Extensions.DependencyInjection，支持属性注入、构造函数注入、方法注入等多种方式。</p>
 <ul>
 <li><strong>自动注册</strong>：继承自 <code>ITransientDependency</code>、<code>ISingletonDependency</code>、<code>IScopedDependency</code> 的服务会被自动注册到 IoC 容器。</li>
 <li><strong>模块化注册</strong>：可在模块的 <code>ConfigureServices</code> 方法中手动注册服务。</li>
 </ul>
-<h2 id="2-服务生命周期">2. 服务生命周期</h2>
-<ul>
+<h2 id="2-服务生命周期"><a href="#2-服务生命周期" class="headerlink" title="2. 服务生命周期"></a>2. 服务生命周期</h2><ul>
 <li><strong>瞬时（Transient）</strong>：每次请求都会创建新实例。适合无状态服务。</li>
 <li><strong>作用域（Scoped）</strong>：同一次请求（如 Web 请求）内共享同一实例。适合有状态但仅在请求内共享的服务。</li>
-<li><strong>单例（Singleton）</strong>：全局唯一实例，应用程序生命周期内只创建一次。适合全局缓存、配置等。</li>
+<li><strong>单例（Singleton）</strong>：全局唯一实例，应用程序生命周期内只创建一次。适合全局缓存、配置等。<span id="more"></span></li>
 </ul>
-<span id="more"></span>
-<h2 id="3-常用注入方式">3. 常用注入方式</h2>
-<h3 id="构造函数注入">构造函数注入</h3>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyService</span> : <span class="title">ITransientDependency</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IOtherService _otherService;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyService</span>(<span class="params">IOtherService otherService</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        _otherService = otherService;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="属性注入">属性注入</h3>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyService</span> : <span class="title">ITransientDependency</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> IOtherService OtherService &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="方法注入">方法注入</h3>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyService</span> : <span class="title">ITransientDependency</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DoSomething</span>(<span class="params">[FromServices] IOtherService otherService</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 使用 otherService</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="4-手动注册服务">4. 手动注册服务</h2>
-<p>在模块的 <code>ConfigureServices</code> 方法中：</p>
+<h2 id="3-常用注入方式"><a href="#3-常用注入方式" class="headerlink" title="3. 常用注入方式"></a>3. 常用注入方式</h2><h3 id="构造函数注入"><a href="#构造函数注入" class="headerlink" title="构造函数注入"></a>构造函数注入</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyService</span> : <span class="title">ITransientDependency</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IOtherService _otherService;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyService</span>(<span class="params">IOtherService otherService</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        _otherService = otherService;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="属性注入"><a href="#属性注入" class="headerlink" title="属性注入"></a>属性注入</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyService</span> : <span class="title">ITransientDependency</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> IOtherService OtherService &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法注入"><a href="#方法注入" class="headerlink" title="方法注入"></a>方法注入</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyService</span> : <span class="title">ITransientDependency</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DoSomething</span>(<span class="params">[FromServices] IOtherService otherService</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 使用 otherService</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-手动注册服务"><a href="#4-手动注册服务" class="headerlink" title="4. 手动注册服务"></a>4. 手动注册服务</h2><p>在模块的 <code>ConfigureServices</code> 方法中：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">context.Services.AddTransient&lt;IMyService, MyService&gt;();</span><br><span class="line">context.Services.AddScoped&lt;IOtherService, OtherService&gt;();</span><br><span class="line">context.Services.AddSingleton&lt;IConfigService, ConfigService&gt;();</span><br></pre></td></tr></table></figure>
-<h2 id="5-生命周期选择建议">5. 生命周期选择建议</h2>
-<ul>
+
+<h2 id="5-生命周期选择建议"><a href="#5-生命周期选择建议" class="headerlink" title="5. 生命周期选择建议"></a>5. 生命周期选择建议</h2><ul>
 <li>无状态服务优先用 Transient</li>
-<li>需要跨方法/类共享但仅限于一次请求的用 Scoped</li>
+<li>需要跨方法&#x2F;类共享但仅限于一次请求的用 Scoped</li>
 <li>全局唯一、线程安全的用 Singleton</li>
 </ul>
-<h2 id="6-注意事项">6. 注意事项</h2>
-<ul>
-<li>避免在 Singleton 服务中注入 Scoped/Transient 服务，否则可能导致生命周期冲突。</li>
+<h2 id="6-注意事项"><a href="#6-注意事项" class="headerlink" title="6. 注意事项"></a>6. 注意事项</h2><ul>
+<li>避免在 Singleton 服务中注入 Scoped&#x2F;Transient 服务，否则可能导致生命周期冲突。</li>
 <li>推荐优先使用构造函数注入，便于测试和维护。</li>
 </ul>
-<h2 id="7-依赖注入在实际项目中的应用案例">7. 依赖注入在实际项目中的应用案例</h2>
-<p>以典型的电商系统为例，假设有订单服务（OrderService）、库存服务（StockService）、日志服务（LoggerService）：</p>
+<h2 id="7-依赖注入在实际项目中的应用案例"><a href="#7-依赖注入在实际项目中的应用案例" class="headerlink" title="7. 依赖注入在实际项目中的应用案例"></a>7. 依赖注入在实际项目中的应用案例</h2><p>以典型的电商系统为例，假设有订单服务（OrderService）、库存服务（StockService）、日志服务（LoggerService）：</p>
 <ul>
 <li>订单服务 OrderService 依赖库存服务和日志服务。</li>
 <li>库存服务为 Scoped 生命周期，日志服务为 Singleton。</li>
 </ul>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">OrderService</span> : <span class="title">IScopedDependency</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IStockService _stockService;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> ILoggerService _loggerService;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">OrderService</span>(<span class="params">IStockService stockService, ILoggerService loggerService</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        _stockService = stockService;</span><br><span class="line">        _loggerService = loggerService;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CreateOrder</span>(<span class="params">OrderDto order</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        _stockService.Deduct(order.ProductId, order.Quantity);</span><br><span class="line">        _loggerService.Log(<span class="string">$&quot;创建订单: <span class="subst">&#123;order.Id&#125;</span>&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="生命周期冲突示例与解决">生命周期冲突示例与解决</h3>
-<p>如果你在 Singleton 服务中注入 Scoped 服务，会导致运行时异常。推荐做法是：</p>
+
+<h3 id="生命周期冲突示例与解决"><a href="#生命周期冲突示例与解决" class="headerlink" title="生命周期冲突示例与解决"></a>生命周期冲突示例与解决</h3><p>如果你在 Singleton 服务中注入 Scoped 服务，会导致运行时异常。推荐做法是：</p>
 <ul>
 <li>通过 IServiceProvider 动态获取 Scoped 服务</li>
 <li>或者重构服务设计，避免生命周期倒挂</li>
 </ul>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SingletonService</span> : <span class="title">ISingletonDependency</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IServiceProvider _serviceProvider;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SingletonService</span>(<span class="params">IServiceProvider serviceProvider</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        _serviceProvider = serviceProvider;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DoWork</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">var</span> scopedService = _serviceProvider.GetRequiredService&lt;IScopedService&gt;();</span><br><span class="line">        scopedService.DoSomething();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="8-Abp-依赖注入的扩展与高级用法">8. Abp 依赖注入的扩展与高级用法</h2>
-<ul>
+
+<h2 id="8-Abp-依赖注入的扩展与高级用法"><a href="#8-Abp-依赖注入的扩展与高级用法" class="headerlink" title="8. Abp 依赖注入的扩展与高级用法"></a>8. Abp 依赖注入的扩展与高级用法</h2><ul>
 <li><strong>拦截器（Interceptor）</strong>：可通过依赖注入实现 AOP 拦截，如日志、缓存、权限校验等横切关注点。</li>
 <li><strong>条件注入</strong>：可根据配置或环境注册不同实现。</li>
 <li><strong>多实现注入</strong>：同一接口可注册多个实现，通过 <code>IEnumerable&lt;T&gt;</code> 注入全部实例。</li>
 </ul>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MultiHandler</span> : <span class="title">ITransientDependency</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IEnumerable&lt;IHandler&gt; _handlers;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MultiHandler</span>(<span class="params">IEnumerable&lt;IHandler&gt; handlers</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        _handlers = handlers;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="9-常见问题与调试技巧">9. 常见问题与调试技巧</h2>
-<ul>
-<li><strong>服务未注入/未生效</strong>：检查是否正确实现了依赖接口，或手动注册。</li>
-<li><strong>生命周期不一致</strong>：关注依赖链，避免 Singleton 依赖 Scoped/Transient。</li>
+
+<h2 id="9-常见问题与调试技巧"><a href="#9-常见问题与调试技巧" class="headerlink" title="9. 常见问题与调试技巧"></a>9. 常见问题与调试技巧</h2><ul>
+<li><strong>服务未注入&#x2F;未生效</strong>：检查是否正确实现了依赖接口，或手动注册。</li>
+<li><strong>生命周期不一致</strong>：关注依赖链，避免 Singleton 依赖 Scoped&#x2F;Transient。</li>
 <li><strong>循环依赖</strong>：尽量通过事件总线、消息队列等解耦。</li>
-<li><strong>调试技巧</strong>：可在 Startup/模块注册时输出所有已注册服务，辅助排查。</li>
+<li><strong>调试技巧</strong>：可在 Startup&#x2F;模块注册时输出所有已注册服务，辅助排查。</li>
 </ul>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> service <span class="keyword">in</span> context.Services)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;service.ServiceType&#125;</span> =&gt; <span class="subst">&#123;service.ImplementationType&#125;</span> [<span class="subst">&#123;service.Lifetime&#125;</span>]&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="10-业务场景实战：订单支付流程中的依赖注入">10. 业务场景实战：订单支付流程中的依赖注入</h2>
-<p>以“订单支付”为例，演示依赖注入在实际业务中的价值：</p>
+
+<h2 id="10-业务场景实战：订单支付流程中的依赖注入"><a href="#10-业务场景实战：订单支付流程中的依赖注入" class="headerlink" title="10. 业务场景实战：订单支付流程中的依赖注入"></a>10. 业务场景实战：订单支付流程中的依赖注入</h2><p>以“订单支付”为例，演示依赖注入在实际业务中的价值：</p>
 <ul>
 <li>订单服务（OrderAppService）依赖支付服务（IPaymentService）、库存服务（IStockService）、消息通知服务（INotificationService）。</li>
 <li>不同支付方式（如支付宝、微信、余额）可通过多实现注入灵活扩展。</li>
 </ul>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IPaymentService</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">Task <span class="title">PayAsync</span>(<span class="params">Order order</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AliPayService</span> : <span class="title">IPaymentService</span>, <span class="title">ITransientDependency</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Task <span class="title">PayAsync</span>(<span class="params">Order order</span>)</span> &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">WeChatPayService</span> : <span class="title">IPaymentService</span>, <span class="title">ITransientDependency</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Task <span class="title">PayAsync</span>(<span class="params">Order order</span>)</span> &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">OrderAppService</span> : <span class="title">ApplicationService</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IEnumerable&lt;IPaymentService&gt; _paymentServices;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IStockService _stockService;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> INotificationService _notificationService;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">OrderAppService</span>(<span class="params">IEnumerable&lt;IPaymentService&gt; paymentServices, IStockService stockService, INotificationService notificationService</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        _paymentServices = paymentServices;</span><br><span class="line">        _stockService = stockService;</span><br><span class="line">        _notificationService = notificationService;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">PayOrderAsync</span>(<span class="params">Order order, <span class="built_in">string</span> payType</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">var</span> payment = _paymentServices.First(p =&gt; p.GetType().Name.StartsWith(payType));</span><br><span class="line">        <span class="keyword">await</span> payment.PayAsync(order);</span><br><span class="line">        _stockService.Deduct(order.ProductId, order.Quantity);</span><br><span class="line">        <span class="keyword">await</span> _notificationService.NotifyAsync(order.UserId, <span class="string">&quot;支付成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="业务场景图示说明">业务场景图示说明</h3>
-<p>假设有如下依赖关系图：</p>
+
+<h3 id="业务场景图示说明"><a href="#业务场景图示说明" class="headerlink" title="业务场景图示说明"></a>业务场景图示说明</h3><p>假设有如下依赖关系图：</p>
 <pre class="mermaid">graph TD;
   OrderAppService --> AliPayService
   OrderAppService --> WeChatPayService
   OrderAppService --> StockService
   OrderAppService --> NotificationService</pre>
+
 <p>每个服务都可独立扩展和替换，极大提升了系统的灵活性和可维护性。</p>
-<h2 id="11-Abp-源码分析：依赖注入自动注册原理">11. Abp 源码分析：依赖注入自动注册原理</h2>
-<p>Abp 框架在启动时会自动扫描所有实现了 <code>ITransientDependency</code>、<code>IScopedDependency</code>、<code>ISingletonDependency</code> 的类型，并注册到 IoC 容器。</p>
+<h2 id="11-Abp-源码分析：依赖注入自动注册原理"><a href="#11-Abp-源码分析：依赖注入自动注册原理" class="headerlink" title="11. Abp 源码分析：依赖注入自动注册原理"></a>11. Abp 源码分析：依赖注入自动注册原理</h2><p>Abp 框架在启动时会自动扫描所有实现了 <code>ITransientDependency</code>、<code>IScopedDependency</code>、<code>ISingletonDependency</code> 的类型，并注册到 IoC 容器。</p>
 <p>核心源码片段（伪代码简化）：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> type <span class="keyword">in</span> AssemblyTypes)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span>(ITransientDependency).IsAssignableFrom(type))</span><br><span class="line">        services.AddTransient(type);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span>(IScopedDependency).IsAssignableFrom(type))</span><br><span class="line">        services.AddScoped(type);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span>(ISingletonDependency).IsAssignableFrom(type))</span><br><span class="line">        services.AddSingleton(type);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>这样开发者只需实现对应接口，无需手动注册，大幅提升开发效率。</p>
 <p>下一篇将介绍 Abp 框架中的中间件与请求管道扩展，敬请期待！</p>
 
@@ -396,6 +390,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/abplearn/abplearn-9/" rel="next" title="abp学习第九篇">
+                  abp学习第九篇 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>

@@ -130,7 +130,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -263,42 +263,33 @@
 <li><a href="#4-maui-%E8%B7%A8%E5%B9%B3%E5%8F%B0%E8%83%BD%E5%8A%9B%E5%A2%9E%E5%BC%BA">4. MAUI 跨平台能力增强</a></li>
 <li><a href="#5-%E4%BA%91%E5%8E%9F%E7%94%9F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%94%AF%E6%8C%81">5. 云原生与微服务支持</a></li>
 <li><a href="#6-%E6%96%B0%E7%9A%84-api-%E4%B8%8E%E5%BA%93">6. 新的 API 与库</a></li>
-<li><a href="#7-%E5%85%BC%E5%AE%B9%E6%80%A7%E4%B8%8E%E8%BF%81%E7%A7%BB">7. 兼容性与迁移</a></li>
+<li><a href="#7-%E5%85%BC%E5%AE%B9%E6%80%A7%E4%B8%8E%E8%BF%81%E7%A7%BB">7. 兼容性与迁移</a><span id="more"></span>
+.NET 10 作为微软推出的最新一代跨平台开发框架，带来了诸多令人兴奋的新特性和改进。本文将为大家梳理 .NET 10 的主要亮点，帮助开发者快速了解和上手。</li>
 </ul>
-<span id="more"></span>
-<p>.NET 10 作为微软推出的最新一代跨平台开发框架，带来了诸多令人兴奋的新特性和改进。本文将为大家梳理 .NET 10 的主要亮点，帮助开发者快速了解和上手。</p>
-<h2 id="1-性能再提升">1. 性能再提升</h2>
-<p>.NET 10 在运行时和 JIT 编译器方面进行了大量优化，提升了应用启动速度和整体吞吐量。无论是 Web、桌面还是云原生场景，性能表现都更上一层楼。</p>
-<h2 id="2-C-12-语言增强">2. C# 12 语言增强</h2>
-<p>.NET 10 默认支持 C# 12，带来了如下新语法：</p>
+<h2 id="1-性能再提升"><a href="#1-性能再提升" class="headerlink" title="1. 性能再提升"></a>1. 性能再提升</h2><p>.NET 10 在运行时和 JIT 编译器方面进行了大量优化，提升了应用启动速度和整体吞吐量。无论是 Web、桌面还是云原生场景，性能表现都更上一层楼。</p>
+<h2 id="2-C-12-语言增强"><a href="#2-C-12-语言增强" class="headerlink" title="2. C# 12 语言增强"></a>2. C# 12 语言增强</h2><p>.NET 10 默认支持 C# 12，带来了如下新语法：</p>
 <ul>
-<li>
-<p><strong>Primary Constructors</strong>（主构造函数）</p>
+<li><p><strong>Primary Constructors</strong>（主构造函数）</p>
 <p>允许直接在类声明中定义构造函数参数，简化了数据类的写法，减少了样板代码。</p>
 <p>示例：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Point</span>(<span class="params"><span class="built_in">int</span> x, <span class="built_in">int</span> y</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> X =&gt; x;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Y =&gt; y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Point(<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">Console.WriteLine(<span class="string">$&quot;(<span class="subst">&#123;p.X&#125;</span>, <span class="subst">&#123;p.Y&#125;</span>)&quot;</span>);</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p><strong>Collection Expressions</strong>（集合表达式）</p>
+<li><p><strong>Collection Expressions</strong>（集合表达式）</p>
 <p>通过方括号 <code>[]</code> 直接创建数组或集合，语法更简洁，支持嵌套和解包。</p>
 <p>示例：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span>[] arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">List&lt;<span class="built_in">string</span>&gt; names = [<span class="string">&quot;Alice&quot;</span>, <span class="string">&quot;Bob&quot;</span>, <span class="string">&quot;Charlie&quot;</span>];</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p><strong>参数默认值的改进</strong></p>
+<li><p><strong>参数默认值的改进</strong></p>
 <p>现在可以为方法参数设置更灵活的默认值，提升了 API 设计的便利性。</p>
 <p>示例：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Print</span>(<span class="params"><span class="built_in">string</span> message = <span class="string">&quot;Hello, World!&quot;</span></span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(message);</span><br><span class="line">&#125;</span><br><span class="line">Print(); <span class="comment">// 输出 Hello, World!</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p><strong>Lambda 表达式增强</strong></p>
+<li><p><strong>Lambda 表达式增强</strong></p>
 <p>Lambda 支持更多类型推断和语法糖，表达能力更强。</p>
 <p>示例：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">add</span> = (<span class="built_in">int</span> x, <span class="built_in">int</span> y) =&gt; x + y;</span><br><span class="line">Console.WriteLine(<span class="keyword">add</span>(<span class="number">2</span>, <span class="number">3</span>)); <span class="comment">// 输出 5</span></span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">add</span> = (<span class="built_in">int</span> x, <span class="built_in">int</span> y) =&gt; x + y;</span><br><span class="line">Console.WriteLine(<span class="keyword">add</span>(<span class="number">2</span>, <span class="number">3</span>)); <span class="comment">// 输出 5</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="3-原生-AOT-支持">3. 原生 AOT 支持</h2>
-<p>AOT（Ahead-of-Time）编译让 .NET 应用在发布时就被编译为机器码，启动速度极快，内存占用更低。适合云原生、微服务、Serverless 等场景。</p>
+<h2 id="3-原生-AOT-支持"><a href="#3-原生-AOT-支持" class="headerlink" title="3. 原生 AOT 支持"></a>3. 原生 AOT 支持</h2><p>AOT（Ahead-of-Time）编译让 .NET 应用在发布时就被编译为机器码，启动速度极快，内存占用更低。适合云原生、微服务、Serverless 等场景。</p>
 <ul>
 <li>支持更多平台（如 Linux、Windows、macOS）</li>
 <li>适用于控制台、Web API、微服务等多种类型</li>
@@ -306,8 +297,8 @@
 </ul>
 <p>示例：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 发布为原生 AOT</span></span><br><span class="line"> dotnet publish -c Release -r linux-x64 -p:PublishAot=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-MAUI-跨平台能力增强">4. MAUI 跨平台能力增强</h2>
-<p>.NET MAUI 让开发者用一套代码即可构建多平台应用（Windows、macOS、iOS、Android）。.NET 10 下 MAUI 支持更多原生控件、性能更优。</p>
+
+<h2 id="4-MAUI-跨平台能力增强"><a href="#4-MAUI-跨平台能力增强" class="headerlink" title="4. MAUI 跨平台能力增强"></a>4. MAUI 跨平台能力增强</h2><p>.NET MAUI 让开发者用一套代码即可构建多平台应用（Windows、macOS、iOS、Android）。.NET 10 下 MAUI 支持更多原生控件、性能更优。</p>
 <ul>
 <li>新增更多平台 API 支持</li>
 <li>性能和启动速度提升</li>
@@ -315,8 +306,8 @@
 </ul>
 <p>示例：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">partial</span> <span class="keyword">class</span> <span class="title">MainPage</span> : <span class="title">ContentPage</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MainPage</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        InitializeComponent();</span><br><span class="line">        Content = <span class="keyword">new</span> Label &#123; Text = <span class="string">&quot;Hello, .NET 10 MAUI!&quot;</span> &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="5-云原生与微服务支持">5. 云原生与微服务支持</h2>
-<p>.NET 10 深度集成 Dapr、gRPC、OpenTelemetry 等云原生技术，微服务开发更高效。</p>
+
+<h2 id="5-云原生与微服务支持"><a href="#5-云原生与微服务支持" class="headerlink" title="5. 云原生与微服务支持"></a>5. 云原生与微服务支持</h2><p>.NET 10 深度集成 Dapr、gRPC、OpenTelemetry 等云原生技术，微服务开发更高效。</p>
 <ul>
 <li>Dapr 支持：简化分布式系统开发</li>
 <li>gRPC 性能提升，支持更多协议特性</li>
@@ -324,36 +315,32 @@
 </ul>
 <p>Dapr 示例：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 发布消息到 Dapr pub/sub 主题</span></span><br><span class="line"><span class="keyword">using</span> Dapr.Client;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> daprClient = <span class="keyword">new</span> DaprClientBuilder().Build();</span><br><span class="line"><span class="keyword">await</span> daprClient.PublishEventAsync(<span class="string">&quot;pubsub&quot;</span>, <span class="string">&quot;order-created&quot;</span>, <span class="keyword">new</span> &#123; OrderId = <span class="number">123</span>, Amount = <span class="number">99.9</span> &#125;);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;订单创建事件已发布到 Dapr pubsub&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p>// 你还可以通过 Dapr 侧车调用其他微服务、状态管理、服务发现等，极大简化分布式系统开发。</p>
+
+<p>&#x2F;&#x2F; 你还可以通过 Dapr 侧车调用其他微服务、状态管理、服务发现等，极大简化分布式系统开发。</p>
 <p>示例：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// gRPC 服务定义</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">GreeterService</span> : <span class="title">Greeter.GreeterBase</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> Task&lt;HelloReply&gt; <span class="title">SayHello</span>(<span class="params">HelloRequest request, ServerCallContext context</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> Task.FromResult(<span class="keyword">new</span> HelloReply &#123; Message = <span class="string">$&quot;Hello <span class="subst">&#123;request.Name&#125;</span>&quot;</span> &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="6-新的-API-与库">6. 新的 API 与库</h2>
-<p>.NET 10 基础类库持续增强，开发体验更好，主要体现在以下几个方面：</p>
+
+<h2 id="6-新的-API-与库"><a href="#6-新的-API-与库" class="headerlink" title="6. 新的 API 与库"></a>6. 新的 API 与库</h2><p>.NET 10 基础类库持续增强，开发体验更好，主要体现在以下几个方面：</p>
 <ul>
-<li>
-<p><strong>System.Text.Json 性能提升</strong></p>
+<li><p><strong>System.Text.Json 性能提升</strong></p>
 <p>新版本对序列化和反序列化性能进行了优化，支持更多自定义转换器和高级配置，适合高性能 Web API 场景。</p>
 <p>示例：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义命名策略和序列化选项</span></span><br><span class="line"><span class="keyword">var</span> options = <span class="keyword">new</span> JsonSerializerOptions &#123; PropertyNamingPolicy = JsonNamingPolicy.CamelCase &#125;;</span><br><span class="line"><span class="built_in">string</span> json = JsonSerializer.Serialize(<span class="keyword">new</span> &#123; Name = <span class="string">&quot;Tom&quot;</span>, Age = <span class="number">18</span> &#125;, options);</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p><strong><span class="exturl" data-url="aHR0cDovL1N5c3RlbS5JTw==">System.IO<i class="fa fa-external-link-alt"></i></span>、<span class="exturl" data-url="aHR0cDovL1N5c3RlbS5OZXQ=">System.Net<i class="fa fa-external-link-alt"></i></span> 新增实用 API</strong></p>
-<p>文件和网络操作更高效，支持异步流、文件监控、HTTP/3 等新协议。</p>
+<li><p><strong>System.IO、System.Net 新增实用 API</strong></p>
+<p>文件和网络操作更高效，支持异步流、文件监控、HTTP&#x2F;3 等新协议。</p>
 <p>示例：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 异步读取文件内容</span></span><br><span class="line"><span class="keyword">await</span> <span class="keyword">foreach</span> (<span class="keyword">var</span> line <span class="keyword">in</span> File.ReadLinesAsync(<span class="string">&quot;data.txt&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(line);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// HTTP/3 支持</span></span><br><span class="line"><span class="keyword">var</span> handler = <span class="keyword">new</span> SocketsHttpHandler &#123; EnableMultipleHttp2Connections = <span class="literal">true</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> client = <span class="keyword">new</span> HttpClient(handler);</span><br><span class="line"><span class="keyword">var</span> response = <span class="keyword">await</span> client.GetAsync(<span class="string">&quot;https://example.com&quot;</span>);</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p><strong>诊断与监控 API 更丰富</strong></p>
+<li><p><strong>诊断与监控 API 更丰富</strong></p>
 <p>新增了更多诊断工具和 API，便于线上排查和性能分析，如 EventPipe、OpenTelemetry 集成等。</p>
 <p>示例：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// OpenTelemetry 集成</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">var</span> tracerProvider = Sdk.CreateTracerProviderBuilder()</span><br><span class="line">    .AddSource(<span class="string">&quot;MyCompany.MyProduct.MyLibrary&quot;</span>)</span><br><span class="line">    .AddConsoleExporter()</span><br><span class="line">    .Build();</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// OpenTelemetry 集成</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">var</span> tracerProvider = Sdk.CreateTracerProviderBuilder()</span><br><span class="line">    .AddSource(<span class="string">&quot;MyCompany.MyProduct.MyLibrary&quot;</span>)</span><br><span class="line">    .AddConsoleExporter()</span><br><span class="line">    .Build();</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>这些增强让 .NET 10 在高性能、可观测性和现代网络开发方面更具竞争力。</p>
-<h2 id="7-兼容性与迁移">7. 兼容性与迁移</h2>
-<p>.NET 10 保持良好向后兼容性，升级路径平滑。</p>
+<h2 id="7-兼容性与迁移"><a href="#7-兼容性与迁移" class="headerlink" title="7. 兼容性与迁移"></a>7. 兼容性与迁移</h2><p>.NET 10 保持良好向后兼容性，升级路径平滑。</p>
 <ul>
-<li>支持从 .NET 6/7/8/9 直接升级</li>
+<li>支持从 .NET 6&#x2F;7&#x2F;8&#x2F;9 直接升级</li>
 <li>官方提供迁移工具和文档</li>
 <li>兼容主流第三方库</li>
 </ul>

@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -166,6 +166,103 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://www.52dzd.com/deploy-docker-on-ubuntu18-04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xyfy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/deploy-docker-on-ubuntu18-04/" class="post-title-link" itemprop="url">deploy_docker_on_ubuntu18.04</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-12 16:42:27" itemprop="dateCreated datePublished" datetime="2020-09-12T16:42:27+08:00">2020-09-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-06-01 07:32:09" itemprop="dateModified" datetime="2023-06-01T07:32:09+08:00">2023-06-01</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/deploy-docker-on-ubuntu18-04/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="deploy-docker-on-ubuntu18-04/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Deploy-in-Ubuntu-–dev"><a href="#Deploy-in-Ubuntu-–dev" class="headerlink" title="Deploy in Ubuntu –dev"></a>Deploy in Ubuntu –dev</h2><h3 id="System-Init"><a href="#System-Init" class="headerlink" title="System Init"></a>System Init</h3><h4 id="阿里云上的ECS"><a href="#阿里云上的ECS" class="headerlink" title="阿里云上的ECS"></a>阿里云上的ECS</h4><h4 id="数据盘挂载【按需操作】"><a href="#数据盘挂载【按需操作】" class="headerlink" title="数据盘挂载【按需操作】"></a>数据盘挂载【按需操作】</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> apt update</span><br><span class="line">$ <span class="built_in">sudo</span> apt upgrade -y</span><br><span class="line">$ <span class="built_in">sudo</span> apt autoremove</span><br><span class="line">$ <span class="built_in">sudo</span> fdisk -l</span><br><span class="line"><span class="comment"># 执行命令后，如果不存在/dev/vdb，表示您的实例没有数据盘。确认数据盘是否已挂载。</span></span><br><span class="line">$ <span class="built_in">sudo</span> fdisk -u /dev/vdb  <span class="comment"># 执行后输入n开始新分区，后续均可回车使用默认值，最后输入 w 保存</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/deploy-docker-on-ubuntu18-04/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -238,10 +335,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>vscode 插件列表 推荐</h1>
-<ul>
+          <h1 id="vscode-插件列表-推荐"><a href="#vscode-插件列表-推荐" class="headerlink" title="vscode 插件列表 推荐"></a>vscode 插件列表 推荐</h1><ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9tYXJrZXRwbGFjZS52aXN1YWxzdHVkaW8uY29tL2l0ZW1zP2l0ZW1OYW1lPWZvcm11bGFoZW5kcnkuYXV0by1jbG9zZS10YWc=">auto-close-tag<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9tYXJrZXRwbGFjZS52aXN1YWxzdHVkaW8uY29tL2l0ZW1zP2l0ZW1OYW1lPWZvcm11bGFoZW5kcnkuYXV0by1yZW5hbWUtdGFn">Auto Rename Tag<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tYXJrZXRwbGFjZS52aXN1YWxzdHVkaW8uY29tL2l0ZW1zP2l0ZW1OYW1lPWZvcm11bGFoZW5kcnkuYXV0by1yZW5hbWUtdGFn">Auto Rename Tag<i class="fa fa-external-link-alt"></i></span>  </li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9tYXJrZXRwbGFjZS52aXN1YWxzdHVkaW8uY29tL2l0ZW1zP2l0ZW1OYW1lPWRiYWV1bWVyLnZzY29kZS1lc2xpbnQ=">eslint<i class="fa fa-external-link-alt"></i></span>        代码格式校验</li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9tYXJrZXRwbGFjZS52aXN1YWxzdHVkaW8uY29tL2l0ZW1zP2l0ZW1OYW1lPWRvbmpheWFtYW5uZS5naXRoaXN0b3J5">githistory<i class="fa fa-external-link-alt"></i></span>   git工具</li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9tYXJrZXRwbGFjZS52aXN1YWxzdHVkaW8uY29tL2l0ZW1zP2l0ZW1OYW1lPWVhbW9kaW8uZ2l0bGVucw==">gitlens<i class="fa fa-external-link-alt"></i></span>  强大的git工具</li>
@@ -340,8 +436,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>通用枚举遍历</h1>
-<p>如果你确认你的枚举类型是 int32，可以使用以下方法</p>
+          <h1 id="通用枚举遍历"><a href="#通用枚举遍历" class="headerlink" title="通用枚举遍历"></a>通用枚举遍历</h1><p>如果你确认你的枚举类型是 int32，可以使用以下方法</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 将一个指定的枚举定义(Int)转换成集合对象.</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;typeparam name=&quot;T&quot;&gt;</span><span class="doctag">&lt;/typeparam&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ToList</span>&lt;<span class="title">T</span>&gt;() <span class="keyword">where</span> T:Enum</span></span><br><span class="line">&#123;</span><br><span class="line">    Array datas = Enum.GetValues(<span class="keyword">typeof</span>(T));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; datas.Length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">object</span> <span class="keyword">value</span> = datas.GetValue(i);</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;&#123;0,-9&#125; &#123;1&#125;&quot;</span>, <span class="keyword">value</span> + <span class="string">&quot;:&quot;</span>,</span><br><span class="line">                              (<span class="built_in">int</span>)<span class="keyword">value</span>);</span><br><span class="line">        <span class="comment">//需要注意的是这里的强转(int)value ,所以这里需要你事先确认枚举基础类型，如果是byte，此处会抛出异常</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
@@ -439,10 +534,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>C#控制台启动程序或者执行命令</h1>
-<h2 id="C-启动程序">C#启动程序</h2>
-<p>调用示例</p>
+          <h1 id="C-控制台启动程序或者执行命令"><a href="#C-控制台启动程序或者执行命令" class="headerlink" title="C#控制台启动程序或者执行命令"></a>C#控制台启动程序或者执行命令</h1><h2 id="C-启动程序"><a href="#C-启动程序" class="headerlink" title="C#启动程序"></a>C#启动程序</h2><p>调用示例</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StartAConsoleProcess(ygcApiExePath);</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">StartAConsoleProcess</span>(<span class="params"><span class="built_in">string</span> exePath, <span class="keyword">params</span> <span class="built_in">string</span>[] cmdText</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    Process p = <span class="keyword">new</span> Process();</span><br><span class="line">    p.StartInfo = <span class="keyword">new</span> ProcessStartInfo(exePath);</span><br><span class="line">    p.StartInfo.UseShellExecute = <span class="literal">false</span>;    <span class="comment">//是否使用操作系统shell启动</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (exePath.Contains(Path.DirectorySeparatorChar))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="keyword">file</span> = <span class="keyword">new</span> FileInfo(exePath);</span><br><span class="line">        p.StartInfo.WorkingDirectory = <span class="keyword">file</span>.Directory.FullName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    p.StartInfo.RedirectStandardInput = <span class="literal">true</span>;<span class="comment">//接受来自调用程序的输入信息</span></span><br><span class="line">    p.StartInfo.RedirectStandardOutput = <span class="literal">true</span>;<span class="comment">//由调用程序获取输出信息</span></span><br><span class="line">    p.StartInfo.RedirectStandardError = <span class="literal">true</span>;<span class="comment">//重定向标准错误输出</span></span><br><span class="line">    p.StartInfo.CreateNoWindow = <span class="literal">true</span>;<span class="comment">//不显示程序窗口</span></span><br><span class="line">    p.OutputDataReceived += YgcApi_OutputDataReceived;</span><br><span class="line">    p.ErrorDataReceived += YgcApi_ErrorDataReceived;</span><br><span class="line">    p.Start();</span><br><span class="line">    p.BeginOutputReadLine();</span><br><span class="line">    p.BeginErrorReadLine();</span><br><span class="line">    <span class="keyword">if</span> (cmdText.Length &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> cmdText)</span><br><span class="line">        &#123;</span><br><span class="line">            p.StandardInput.WriteLine(item);</span><br><span class="line">            <span class="comment">//向cmd窗口发送输入信息</span></span><br><span class="line">            p.StandardInput.AutoFlush = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
@@ -540,18 +634,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>windows删除无法访问的文件</h1>
-<h2 id="现象">现象</h2>
-<p>通过文件/文件夹的属性的安全选项卡，无法修改所有者和权限</p>
+          <h1 id="windows删除无法访问的文件"><a href="#windows删除无法访问的文件" class="headerlink" title="windows删除无法访问的文件"></a>windows删除无法访问的文件</h1><h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>通过文件&#x2F;文件夹的属性的安全选项卡，无法修改所有者和权限</p>
 <p>界面上提示：win10 你没有权限查看或编辑这个对象</p>
-<h2 id="解决办法">解决办法</h2>
-<p>按下 （Windows 徽标键 +X键），点击“命令提示符（管理员）”，复制以下命令并在命令提示符中点击鼠标右键，点击“粘贴”，随后按回车键（Enter）执行：</p>
-<p><code>del  /Q '待删除文件路径'</code></p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>按下 （Windows 徽标键 +X键），点击“命令提示符（管理员）”，复制以下命令并在命令提示符中点击鼠标右键，点击“粘贴”，随后按回车键（Enter）执行：</p>
+<p><code>del  /Q &#39;待删除文件路径&#39;</code></p>
 <p>命令完成后重新启动计算机，查看截图3.png是否依然存在，如果存在，再次打开命令提示符（管理员）复制以下命令并粘贴执行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ATTRIB 待删除文件路径&gt;%temp%\pngA.txt &amp; FSUTIL usn readdata 待删除文件路径&gt;&gt;%temp%\pngA.txt &amp; icacls 待删除文件路径&gt;&gt;%temp%\pngA.txt &amp; %temp%\pngA.txt</span><br></pre></td></tr></table></figure>
+
 <p>我试过执行完第一个命令，然后重启电脑就正常了。</p>
-<h2 id="参考文档">参考文档</h2>
-<ul>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9hbnN3ZXJzLm1pY3Jvc29mdC5jb20vemgtaGFucy93aW5kb3dzL2ZvcnVtL2FsbC93aW4xMC81MjUzNGFiZC02YzQyLTQxY2QtOGY4ZS0xNGJkYTQxMzJkNGM=">https://answers.microsoft.com/zh-hans/windows/forum/all/win10/52534abd-6c42-41cd-8f8e-14bda4132d4c<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 
@@ -644,12 +735,10 @@
     
     <div class="post-body" itemprop="articleBody">
           <ul>
-<li><a href="#aspnet-webapi-%E6%8E%A5%E5%85%A5identity-server4-%E5%85%A8%E8%AE%B0%E5%BD%95">Asp.Net WebApi 接入Identity Server4 全记录</a>
-<ul>
+<li><a href="#aspnet-webapi-%E6%8E%A5%E5%85%A5identity-server4-%E5%85%A8%E8%AE%B0%E5%BD%95">Asp.Net WebApi 接入Identity Server4 全记录</a><ul>
 <li><a href="#%E5%BD%93%E5%89%8D%E7%8E%AF%E5%A2%83">当前环境</a></li>
 <li><a href="#%E6%96%B0%E5%A2%9E%E7%A9%BA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">新增空的解决方案</a></li>
-<li><a href="#%E6%96%B0%E5%A2%9Eidentity-server4-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%9C%AC%E6%96%87%E4%B8%8D%E8%AE%A8%E8%AE%BA%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98">新增Identity Server4 服务端【本文不讨论服务端配置问题】</a>
-<ul>
+<li><a href="#%E6%96%B0%E5%A2%9Eidentity-server4-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%9C%AC%E6%96%87%E4%B8%8D%E8%AE%A8%E8%AE%BA%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98">新增Identity Server4 服务端【本文不讨论服务端配置问题】</a><ul>
 <li><a href="#%E6%96%B0%E5%A2%9E%E9%A1%B9%E7%9B%AE%E5%B9%B6%E6%B7%BB%E5%8A%A0%E5%88%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E9%87%8C">新增项目并添加到解决方案里</a></li>
 <li><a href="#%E6%96%B0%E5%A2%9E%E4%B8%80%E4%B8%AA%E7%A9%BA%E7%9A%84webapi%E9%A1%B9%E7%9B%AE">新增一个空的WebApi项目</a></li>
 <li><a href="#%E9%85%8D%E7%BD%AEwebapi%E6%8E%A5%E5%85%A5identity-server">配置WebApi接入Identity Server</a></li>
@@ -659,19 +748,12 @@
 </ul>
 </li>
 </ul>
-<h1><span class="exturl" data-url="aHR0cDovL0FzcC5OZXQ=">Asp.Net<i class="fa fa-external-link-alt"></i></span> WebApi 接入Identity Server4 全记录</h1>
-<h2 id="当前环境">当前环境</h2>
-<ol>
-<li>
-<p>Net Core 2.2+ //建议使用Net Core 3.0</p>
+<h1 id="Asp-Net-WebApi-接入Identity-Server4-全记录"><a href="#Asp-Net-WebApi-接入Identity-Server4-全记录" class="headerlink" title="Asp.Net WebApi 接入Identity Server4 全记录"></a>Asp.Net WebApi 接入Identity Server4 全记录</h1><h2 id="当前环境"><a href="#当前环境" class="headerlink" title="当前环境"></a>当前环境</h2><ol>
+<li><p>Net Core 2.2+ &#x2F;&#x2F;建议使用Net Core 3.0</p>
 </li>
-<li>
-<p><span class="exturl" data-url="aHR0cDovL0FzcC5OZXQ=">Asp.Net<i class="fa fa-external-link-alt"></i></span> Framework 4.6.2+</p>
+<li><p>Asp.Net Framework 4.6.2+</p>
 </li>
-<li>
-<p>Visual Studio 2019//如果使用Net Core 3.0，你可能需要预览版</p>
-</li>
-</ol>
+<li><p>Visual Studio 2019&#x2F;&#x2F;如果使用Net Core 3.0，你可能需要预览版</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Asp.NetWebApi%E6%8E%A5%E5%85%A5IdentityServer4%E5%85%A8%E8%AE%B0%E5%BD%95/#more" rel="contents">
@@ -681,7 +763,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </li></ol></div>
 
     
     
@@ -768,12 +850,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="新建空白分支">新建空白分支</h2>
-<ol>
-<li>
-<p>创建一个不跟踪历史分支</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout --orphan &lt;new_branch&gt;</span><br></pre></td></tr></table></figure>
-</li>
+          <h2 id="新建空白分支"><a href="#新建空白分支" class="headerlink" title="新建空白分支"></a>新建空白分支</h2><ol>
+<li><p>创建一个不跟踪历史分支</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout --orphan &lt;new_branch&gt;</span><br></pre></td></tr></table></figure></li>
 </ol>
           <!--noindex-->
             <div class="post-button">
@@ -872,30 +951,23 @@
     
     <div class="post-body" itemprop="articleBody">
           <ul>
-<li><a href="#%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91ecs%E5%9C%A8ubuntu-1804%E5%8F%8Aoss%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEnextcloud">使用阿里云ECS在Ubuntu 18.04及OSS安装配置NextCloud</a>
-<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91ecs%E5%9C%A8ubuntu-1804%E5%8F%8Aoss%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEnextcloud">使用阿里云ECS在Ubuntu 18.04及OSS安装配置NextCloud</a><ul>
 <li><a href="#%E9%85%8D%E7%BD%AE%E5%90%AF%E7%94%A8ossfs">配置启用OssFs</a></li>
 <li><a href="#%E5%AE%89%E8%A3%85nextcloud">安装NextCloud</a></li>
 <li><a href="#%E9%85%8D%E7%BD%AEnextcloud">配置NextCloud</a></li>
-<li><a href="#%E9%99%84%E4%BB%B6">附件</a>
-<ul>
+<li><a href="#%E9%99%84%E4%BB%B6">附件</a><ul>
 <li><a href="#nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%A0%B7%E6%9C%AC">nginx配置文件样本</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h1>使用阿里云ECS在Ubuntu 18.04及OSS安装配置NextCloud</h1>
-<h2 id="配置启用OssFs">配置启用OssFs</h2>
-<ol>
-<li>
-<p>源码编译安装</p>
+<h1 id="使用阿里云ECS在Ubuntu-18-04及OSS安装配置NextCloud"><a href="#使用阿里云ECS在Ubuntu-18-04及OSS安装配置NextCloud" class="headerlink" title="使用阿里云ECS在Ubuntu 18.04及OSS安装配置NextCloud"></a>使用阿里云ECS在Ubuntu 18.04及OSS安装配置NextCloud</h1><h2 id="配置启用OssFs"><a href="#配置启用OssFs" class="headerlink" title="配置启用OssFs"></a>配置启用OssFs</h2><ol>
+<li><p>源码编译安装</p>
  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/aliyun/ossfs.git</span><br><span class="line"><span class="built_in">cd</span> ossfs</span><br><span class="line">./autogen.sh</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>配置</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#密码配置</span></span><br><span class="line"><span class="built_in">echo</span> my-bucket:my-access-key-id:my-access-key-secret &gt; /etc/passwd-ossfs</span><br><span class="line"><span class="comment">#多个节点请直接编辑文件，一行一个记录</span></span><br><span class="line"><span class="built_in">chmod</span> 640 /etc/passwd-ossfs</span><br><span class="line"><span class="comment">#目录准备</span></span><br><span class="line"><span class="built_in">mkdir</span> /mnt/ossfs</span><br><span class="line"><span class="built_in">sudo</span> vi /etc/fstab</span><br><span class="line"><span class="comment">## 添加以下行到文件尾，保存后退出</span></span><br><span class="line"><span class="comment"># ossfs#your_bucket_name your_mount_point  fuse _netdev,url=your_url,allow_other 0 0</span></span><br><span class="line"><span class="comment">## your_url    http://oss-cn-shenzhen-internal.aliyuncs.com 深圳节点内部访问【节约流量】</span></span><br><span class="line"><span class="built_in">sudo</span> mount -a</span><br><span class="line"><span class="comment"># df -h  可以查看挂载详情</span></span><br></pre></td></tr></table></figure>
-</li>
+<li><p>配置</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#密码配置</span></span><br><span class="line"><span class="built_in">echo</span> my-bucket:my-access-key-id:my-access-key-secret &gt; /etc/passwd-ossfs</span><br><span class="line"><span class="comment">#多个节点请直接编辑文件，一行一个记录</span></span><br><span class="line"><span class="built_in">chmod</span> 640 /etc/passwd-ossfs</span><br><span class="line"><span class="comment">#目录准备</span></span><br><span class="line"><span class="built_in">mkdir</span> /mnt/ossfs</span><br><span class="line"><span class="built_in">sudo</span> vi /etc/fstab</span><br><span class="line"><span class="comment">## 添加以下行到文件尾，保存后退出</span></span><br><span class="line"><span class="comment"># ossfs#your_bucket_name your_mount_point  fuse _netdev,url=your_url,allow_other 0 0</span></span><br><span class="line"><span class="comment">## your_url    http://oss-cn-shenzhen-internal.aliyuncs.com 深圳节点内部访问【节约流量】</span></span><br><span class="line"><span class="built_in">sudo</span> mount -a</span><br><span class="line"><span class="comment"># df -h  可以查看挂载详情</span></span><br></pre></td></tr></table></figure></li>
 </ol>
           <!--noindex-->
             <div class="post-button">
@@ -994,12 +1066,10 @@
     
     <div class="post-body" itemprop="articleBody">
           <ul>
-<li><a href="#aspnet-mvc%E6%8E%A5%E5%85%A5identity-server4-%E5%85%A8%E8%AE%B0%E5%BD%95">Asp.Net MVC接入Identity Server4 全记录</a>
-<ul>
+<li><a href="#aspnet-mvc%E6%8E%A5%E5%85%A5identity-server4-%E5%85%A8%E8%AE%B0%E5%BD%95">Asp.Net MVC接入Identity Server4 全记录</a><ul>
 <li><a href="#%E5%BD%93%E5%89%8D%E7%8E%AF%E5%A2%83">当前环境</a></li>
 <li><a href="#%E6%96%B0%E5%A2%9E%E7%A9%BA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">新增空的解决方案</a></li>
-<li><a href="#%E6%96%B0%E5%A2%9Eidentity-server4-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%9C%AC%E6%96%87%E4%B8%8D%E8%AE%A8%E8%AE%BA%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98">新增Identity Server4 服务端【本文不讨论服务端配置问题】</a>
-<ul>
+<li><a href="#%E6%96%B0%E5%A2%9Eidentity-server4-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%9C%AC%E6%96%87%E4%B8%8D%E8%AE%A8%E8%AE%BA%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98">新增Identity Server4 服务端【本文不讨论服务端配置问题】</a><ul>
 <li><a href="#%E6%96%B0%E5%A2%9E%E9%A1%B9%E7%9B%AE%E5%B9%B6%E6%B7%BB%E5%8A%A0%E5%88%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E9%87%8C">新增项目并添加到解决方案里</a></li>
 <li><a href="#%E6%96%B0%E5%A2%9E%E4%B8%80%E4%B8%AA%E7%A9%BA%E7%9A%84mvc5%E9%A1%B9%E7%9B%AE">新增一个空的MVC5项目</a></li>
 <li><a href="#%E9%85%8D%E7%BD%AEmvc5%E6%8E%A5%E5%85%A5identity-server">配置MVC5接入Identity Server</a></li>
@@ -1009,19 +1079,12 @@
 </ul>
 </li>
 </ul>
-<h1><span class="exturl" data-url="aHR0cDovL0FzcC5OZXQ=">Asp.Net<i class="fa fa-external-link-alt"></i></span> MVC接入Identity Server4 全记录</h1>
-<h2 id="当前环境">当前环境</h2>
-<ol>
-<li>
-<p>Net Core 2.2+ //建议使用Net Core 3.0</p>
+<h1 id="Asp-Net-MVC接入Identity-Server4-全记录"><a href="#Asp-Net-MVC接入Identity-Server4-全记录" class="headerlink" title="Asp.Net MVC接入Identity Server4 全记录"></a>Asp.Net MVC接入Identity Server4 全记录</h1><h2 id="当前环境"><a href="#当前环境" class="headerlink" title="当前环境"></a>当前环境</h2><ol>
+<li><p>Net Core 2.2+ &#x2F;&#x2F;建议使用Net Core 3.0</p>
 </li>
-<li>
-<p><span class="exturl" data-url="aHR0cDovL0FzcC5OZXQ=">Asp.Net<i class="fa fa-external-link-alt"></i></span> Framework 4.6.2+</p>
+<li><p>Asp.Net Framework 4.6.2+</p>
 </li>
-<li>
-<p>Visual Studio 2019//如果使用Net Core 3.0，你可能需要预览版</p>
-</li>
-</ol>
+<li><p>Visual Studio 2019&#x2F;&#x2F;如果使用Net Core 3.0，你可能需要预览版</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Asp.Net%20Mvc%E6%8E%A5%E5%85%A5IdentityServer4%E7%9A%84%E9%85%8D%E7%BD%AE/#more" rel="contents">
@@ -1031,7 +1094,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </li></ol></div>
 
     
     
@@ -1119,138 +1182,30 @@
     
     <div class="post-body" itemprop="articleBody">
           <ul>
-<li><a href="#powershell%e8%ae%be%e7%bd%ae%e4%bb%a3%e7%90%86">PowerShell设置代理</a></li>
-<li><a href="#%e5%91%bd%e4%bb%a4%e8%a1%8c%e8%ae%be%e7%bd%ae%e4%bb%a3%e7%90%86">命令行设置代理</a></li>
+<li><a href="#powershell%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86">PowerShell设置代理</a></li>
+<li><a href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86">命令行设置代理</a></li>
 </ul>
-<h2 id="PowerShell设置代理">PowerShell设置代理</h2>
-<ul>
+<h2 id="PowerShell设置代理"><a href="#PowerShell设置代理" class="headerlink" title="PowerShell设置代理"></a>PowerShell设置代理</h2><ul>
 <li>设置代理</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh winhttp <span class="built_in">set</span> proxy <span class="string">&quot;127.0.0.1:1080&quot;</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>恢复默认</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh winhttp reset proxy</span><br></pre></td></tr></table></figure>
+
 <p>注意要在管理员模式运行，不然提示权限不足。</p>
-<h2 id="命令行设置代理">命令行设置代理</h2>
-<ul>
+<h2 id="命令行设置代理"><a href="#命令行设置代理" class="headerlink" title="命令行设置代理"></a>命令行设置代理</h2><ul>
 <li>设置代理</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#HTTP 代理设置：</span></span><br><span class="line"><span class="built_in">set</span> http_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> https_proxy=http://127.0.0.1:1080</span><br><span class="line"><span class="comment"># SOCKS5 代理设置：</span></span><br><span class="line"><span class="built_in">set</span> http_proxy=socks5://127.0.0.1:1080</span><br><span class="line"><span class="built_in">set</span> https_proxy=socks5://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="comment">#  如果有用户名密码</span></span><br><span class="line"><span class="built_in">set</span> http_proxy_user=user</span><br><span class="line"><span class="built_in">set</span> http_proxy_pass=pass</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> https_proxy_user=user</span><br><span class="line"><span class="built_in">set</span> https_proxy_pass=pass</span><br><span class="line"></span><br><span class="line"><span class="comment"># 不走代理的ＩＰ</span></span><br><span class="line"><span class="comment"># set NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Ubuntu 下命令为 export</span></span><br><span class="line"><span class="comment"># export http_proxy=http://127.0.0.1:1080</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>恢复默认</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 恢复</span></span><br><span class="line"><span class="built_in">set</span> http_proxy=</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> https_proxy=</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://www.52dzd.com/%E4%BD%BF%E7%94%A8.NetCore2.2%E5%88%9B%E5%BB%BAwindows%E6%9C%8D%E5%8A%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xyfy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心雨纷扬的博客">
-      <meta itemprop="description" content>
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心雨纷扬的博客">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E4%BD%BF%E7%94%A8.NetCore2.2%E5%88%9B%E5%BB%BAwindows%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">使用.Net Core 2.2创建windows服务</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-06-14 16:45:56" itemprop="dateCreated datePublished" datetime="2019-06-14T16:45:56+08:00">2019-06-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-06-01 07:32:09" itemprop="dateModified" datetime="2023-06-01T07:32:09+08:00">2023-06-01</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/%E4%BD%BF%E7%94%A8.NetCore2.2%E5%88%9B%E5%BB%BAwindows%E6%9C%8D%E5%8A%A1/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="使用.NetCore2.2创建windows服务/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1><span class="exturl" data-url="aHR0cDovL3huLS0ycnF6MTNnLk5ldA==">使用.Net<i class="fa fa-external-link-alt"></i></span> Core 2.2创建windows服务</h1>
-<h2 id="我的环境">我的环境</h2>
-<ul>
-<li>win 10 home</li>
-<li>Visual Studio 2019  v16.1.3</li>
-<li><span class="exturl" data-url="aHR0cDovL3huLS00OXNvMXlobDFhLm5ldA==">安装有.net<i class="fa fa-external-link-alt"></i></span> core 2.2</li>
-</ul>
-<h2 id="创建项目">创建项目</h2>
-<p><img src="/images/20190614-01.jpg" alt><br>
-<img src="/images/20190614-02.jpg" alt></p>
-<h2 id="编辑项目文件">编辑项目文件</h2>
-<p>在 PropertyGroup 配置节 加入属性 <code>&lt;RuntimeIdentifier&gt;win-x64&lt;/RuntimeIdentifier&gt;</code><br>
-<img src="/images/20190614-03.jpg" alt></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E4%BD%BF%E7%94%A8.NetCore2.2%E5%88%9B%E5%BB%BAwindows%E6%9C%8D%E5%8A%A1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 

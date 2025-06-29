@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.52dzd.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="表ChooseAuthorize和membership的User表,联合查询 123456789101112&#x2F;&#x2F;&#x2F; &lt;summary&gt; &#x2F;&#x2F;&#x2F; 取得当前登陆用户收藏授权记录的用户集合 &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt; &#x2F;&#x2F;&#x2F; &lt;returns&gt;&lt;&#x2F;returns&gt; public static DataTable GetAuthorizeUserList(">
+    <meta name="description" content="表ChooseAuthorize和membership的User表,联合查询  123456789101112&#x2F;&#x2F;&#x2F; &lt;summary&gt; &#x2F;&#x2F;&#x2F; 取得当前登陆用户收藏授权记录的用户集合 &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt; &#x2F;&#x2F;&#x2F; &lt;returns&gt;&lt;&#x2F;returns&gt; public static DataTable GetAuthorizeUserList">
 <meta property="og:type" content="article">
 <meta property="og:title" content="subsonic的group by的使用">
 <meta property="og:url" content="https://www.52dzd.com/subsonic%E7%9A%84group-by%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="心雨纷扬的博客">
-<meta property="og:description" content="表ChooseAuthorize和membership的User表,联合查询 123456789101112&#x2F;&#x2F;&#x2F; &lt;summary&gt; &#x2F;&#x2F;&#x2F; 取得当前登陆用户收藏授权记录的用户集合 &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt; &#x2F;&#x2F;&#x2F; &lt;returns&gt;&lt;&#x2F;returns&gt; public static DataTable GetAuthorizeUserList(">
+<meta property="og:description" content="表ChooseAuthorize和membership的User表,联合查询  123456789101112&#x2F;&#x2F;&#x2F; &lt;summary&gt; &#x2F;&#x2F;&#x2F; 取得当前登陆用户收藏授权记录的用户集合 &#x2F;&#x2F;&#x2F; &lt;&#x2F;summary&gt; &#x2F;&#x2F;&#x2F; &lt;returns&gt;&lt;&#x2F;returns&gt; public static DataTable GetAuthorizeUserList">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2011-02-25T01:31:55.000Z">
 <meta property="article:modified_time" content="2023-05-31T23:32:09.000Z">
@@ -129,7 +129,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -251,7 +251,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>表ChooseAuthorize和membership的User表,联合查询</p>
+    <div class="post-body" itemprop="articleBody"><p>表ChooseAuthorize和membership的User表,联合查询 </p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span> </span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 取得当前登陆用户收藏授权记录的用户集合 </span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span> </span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span> </span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DataTable <span class="title">GetAuthorizeUserList</span>()</span> &#123; </span><br><span class="line">  <span class="built_in">string</span> uid = <span class="keyword">new</span> ChooseAuthorizeInfo().GetCurrentUserId(); </span><br><span class="line">  Aggregate AuthorizerId = <span class="keyword">new</span> Aggregate(ChooseAuthorize.AuthorizerIdColumn, <span class="string">&quot;AuthorizerId&quot;</span>, AggregateFunction.GroupBy); </span><br><span class="line">  Aggregate RealName = <span class="keyword">new</span> Aggregate(UserInfo.RealNameColumn, <span class="string">&quot;RealName&quot;</span>, AggregateFunction.GroupBy); </span><br><span class="line">  Aggregate ReceiverId = <span class="keyword">new</span> Aggregate(ChooseAuthorize.ReceiverIdColumn, <span class="string">&quot;ReceiverId&quot;</span>, AggregateFunction.GroupBy); </span><br><span class="line">  DataTable dt = <span class="keyword">new</span> Select(ChooseAuthorize.Columns.ReceiverId, UserInfo.Columns.RealName).From&lt;ChooseAuthorize&gt;().InnerJoin(UserInfo.UserIdColumn, ChooseAuthorize.ReceiverIdColumn).Where(ChooseAuthorize.Columns.AuthorizerId).IsEqualTo(uid).ExecuteDataSet().Tables[<span class="number">0</span>];</span><br><span class="line">   <span class="keyword">return</span> dt; </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
     </div>

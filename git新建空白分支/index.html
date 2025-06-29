@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.52dzd.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="新建空白分支   创建一个不跟踪历史分支  1git checkout --orphan &lt;new_branch&gt;">
+    <meta name="description" content="新建空白分支 创建一个不跟踪历史分支  1git checkout --orphan &lt;new_branch&gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git新建空白分支">
 <meta property="og:url" content="https://www.52dzd.com/git%E6%96%B0%E5%BB%BA%E7%A9%BA%E7%99%BD%E5%88%86%E6%94%AF/index.html">
 <meta property="og:site_name" content="心雨纷扬的博客">
-<meta property="og:description" content="新建空白分支   创建一个不跟踪历史分支  1git checkout --orphan &lt;new_branch&gt;">
+<meta property="og:description" content="新建空白分支 创建一个不跟踪历史分支  1git checkout --orphan &lt;new_branch&gt;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-10-23T02:47:00.000Z">
 <meta property="article:modified_time" content="2023-05-31T23:32:09.000Z">
@@ -131,7 +131,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -244,27 +244,20 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="新建空白分支">新建空白分支</h2>
-<ol>
-<li>
-<p>创建一个不跟踪历史分支</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout --orphan &lt;new_branch&gt;</span><br></pre></td></tr></table></figure>
-</li>
+    <div class="post-body" itemprop="articleBody"><h2 id="新建空白分支"><a href="#新建空白分支" class="headerlink" title="新建空白分支"></a>新建空白分支</h2><ol>
+<li><p>创建一个不跟踪历史分支</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout --orphan &lt;new_branch&gt;</span><br></pre></td></tr></table></figure></li>
 </ol>
 <span id="more"></span>
 <ol start="2">
-<li>
-<p>清空文件</p>
+<li><p>清空文件</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">rm</span> --cached -r .</span><br><span class="line">git clean -f -d</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>创建空的commit</p>
+<li><p>创建空的commit</p>
  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --allow-empty -m <span class="string">&quot;[empty] initial commit&quot;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>推送新分支</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;new_branch&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>推送新分支</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;new_branch&gt;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
     </div>

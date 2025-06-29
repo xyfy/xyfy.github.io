@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.52dzd.com/abplearn/abplearn-9/</loc>
+    
+    <lastmod>2025-06-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.52dzd.com/abplearn/abplearn-8/</loc>
     
     <lastmod>2025-06-26</lastmod>
@@ -38,15 +47,6 @@
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/Asp.NetWebApi%E6%8E%A5%E5%85%A5IdentityServer4%E5%85%A8%E8%AE%B0%E5%BD%95/</loc>
-    
-    <lastmod>2023-05-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.52dzd.com/Asp.Net%20Mvc%E6%8E%A5%E5%85%A5IdentityServer4%E7%9A%84%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2023-05-31</lastmod>
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/CSharp%E6%8E%A7%E5%88%B6%E5%8F%B0%E5%90%AF%E5%8A%A8%E7%A8%8B%E5%BA%8F%E6%88%96%E8%80%85%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://www.52dzd.com/Asp.NetWebApi%E6%8E%A5%E5%85%A5IdentityServer4%E5%85%A8%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2023-05-31</lastmod>
     
@@ -83,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/Sql2005%E4%BB%A5%E4%B8%8A%E9%87%8D%E5%BB%BA%E4%BA%8B%E5%8A%A1%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6/</loc>
+    <loc>https://www.52dzd.com/CSharp%E6%8E%A7%E5%88%B6%E5%8F%B0%E5%90%AF%E5%8A%A8%E7%A8%8B%E5%BA%8F%E6%88%96%E8%80%85%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2023-05-31</lastmod>
     
@@ -92,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/TFS2010%E5%8F%96%E6%B6%88%E9%94%81%E5%AE%9A/</loc>
+    <loc>https://www.52dzd.com/Sql2005%E4%BB%A5%E4%B8%8A%E9%87%8D%E5%BB%BA%E4%BA%8B%E5%8A%A1%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6/</loc>
     
     <lastmod>2023-05-31</lastmod>
     
@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/certbotforaliyun/</loc>
+    <loc>https://www.52dzd.com/TFS2010%E5%8F%96%E6%B6%88%E9%94%81%E5%AE%9A/</loc>
     
     <lastmod>2023-05-31</lastmod>
     
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/change-storagelocation-of-wsl2/</loc>
+    <loc>https://www.52dzd.com/deploy-docker-on-ubuntu18-04/</loc>
     
     <lastmod>2023-05-31</lastmod>
     
@@ -137,7 +137,16 @@
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/deploy-docker-on-ubuntu18-04/</loc>
+    <loc>https://www.52dzd.com/certbotforaliyun/</loc>
+    
+    <lastmod>2023-05-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/change-storagelocation-of-wsl2/</loc>
     
     <lastmod>2023-05-31</lastmod>
     
@@ -155,25 +164,16 @@
   </url>
   
   <url>
+    <loc>https://www.52dzd.com/Windbg%E5%88%86%E6%9E%90%E9%AB%98%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2023-05-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.52dzd.com/elastic%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B-Win7/</loc>
-    
-    <lastmod>2023-05-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/gitlab-ee-cracked/</loc>
-    
-    <lastmod>2023-05-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/git%E6%96%B0%E5%BB%BA%E7%A9%BA%E7%99%BD%E5%88%86%E6%94%AF/</loc>
     
     <lastmod>2023-05-31</lastmod>
     
@@ -200,7 +200,25 @@
   </url>
   
   <url>
+    <loc>https://www.52dzd.com/gitlab-ee-cracked/</loc>
+    
+    <lastmod>2023-05-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.52dzd.com/jenkins%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2023-05-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/git%E6%96%B0%E5%BB%BA%E7%A9%BA%E7%99%BD%E5%88%86%E6%94%AF/</loc>
     
     <lastmod>2023-05-31</lastmod>
     
@@ -245,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/Windbg%E5%88%86%E6%9E%90%E9%AB%98%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://www.52dzd.com/windows%E5%88%A0%E9%99%A4%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E6%96%87%E4%BB%B6/</loc>
     
     <lastmod>2023-05-31</lastmod>
     
@@ -263,6 +281,24 @@
   </url>
   
   <url>
+    <loc>https://www.52dzd.com/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91ECS%E5%9C%A8Ubuntu%E5%8F%8AOSS%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AENextCloud/</loc>
+    
+    <lastmod>2023-05-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/%E4%BD%BF%E7%94%A8.NetCore2.2%E5%88%9B%E5%BB%BAwindows%E6%9C%8D%E5%8A%A1/</loc>
+    
+    <lastmod>2023-05-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.52dzd.com/%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAgridview%E7%9A%84%E5%88%97/</loc>
     
     <lastmod>2023-05-31</lastmod>
@@ -272,7 +308,7 @@
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8F%96%E5%89%8D%E5%87%A0%E5%88%97/</loc>
+    <loc>https://www.52dzd.com/%E5%AF%BC%E5%85%A5%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8E%9F%E5%88%99/</loc>
     
     <lastmod>2023-05-31</lastmod>
     
@@ -281,7 +317,7 @@
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/%E5%AF%BC%E5%85%A5%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8E%9F%E5%88%99/</loc>
+    <loc>https://www.52dzd.com/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%8F%96%E5%89%8D%E5%87%A0%E5%88%97/</loc>
     
     <lastmod>2023-05-31</lastmod>
     
@@ -308,42 +344,6 @@
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91ECS%E5%9C%A8Ubuntu%E5%8F%8AOSS%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AENextCloud/</loc>
-    
-    <lastmod>2023-05-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/windows%E5%88%A0%E9%99%A4%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E6%96%87%E4%BB%B6/</loc>
-    
-    <lastmod>2023-05-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/%E4%BD%BF%E7%94%A8.NetCore2.2%E5%88%9B%E5%BB%BAwindows%E6%9C%8D%E5%8A%A1/</loc>
-    
-    <lastmod>2023-05-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/abplearn/abp-learn-second/</loc>
-    
-    <lastmod>2023-05-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.52dzd.com/abplearn/fifth/</loc>
     
     <lastmod>2023-05-31</lastmod>
@@ -353,7 +353,7 @@
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/abplearn/fourth/</loc>
+    <loc>https://www.52dzd.com/abplearn/abp-learn-second/</loc>
     
     <lastmod>2023-05-31</lastmod>
     
@@ -380,15 +380,6 @@
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/masa/stack/kubernetes%E5%88%9D%E6%8E%A5%E8%A7%A6/</loc>
-    
-    <lastmod>2023-05-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.52dzd.com/abplearn/seventh/</loc>
     
     <lastmod>2023-05-31</lastmod>
@@ -398,7 +389,16 @@
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/masa/stack/usehelm/</loc>
+    <loc>https://www.52dzd.com/abplearn/fourth/</loc>
+    
+    <lastmod>2023-05-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/masa/stack/kubernetes%E5%88%9D%E6%8E%A5%E8%A7%A6/</loc>
     
     <lastmod>2023-05-31</lastmod>
     
@@ -408,6 +408,15 @@
   
   <url>
     <loc>https://www.52dzd.com/masa/framework/starter1/</loc>
+    
+    <lastmod>2023-05-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/masa/stack/usehelm/</loc>
     
     <lastmod>2023-05-31</lastmod>
     
@@ -427,211 +436,211 @@
 
   <url>
     <loc>https://www.52dzd.com/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://www.52dzd.com/tags/Asp-Net-WebApi-Identity-Server/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <loc>https://www.52dzd.com/tags/Asp-Net-MVC-Identity-Server/</loc>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/tags/Asp-Net-MVC-Identity-Server/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <loc>https://www.52dzd.com/tags/Asp-Net-WebApi-Identity-Server/</loc>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/AI/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/tags/aliyun/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/tags/certbot/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/tags/ubuntu/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/tags/nginx/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/hexo/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/permalink/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/Permanent-Link/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/tags/wsl/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/ubuntu-docker/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/tags/aliyun/</loc>
+    <lastmod>2025-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/tags/certbot/</loc>
+    <lastmod>2025-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/tags/ubuntu/</loc>
+    <lastmod>2025-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/tags/nginx/</loc>
+    <lastmod>2025-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/tags/wsl/</loc>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/elastic/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/tags/gitlab/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/tags/git/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/tags/vscode/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/dump/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/tags/regex/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <loc>https://www.52dzd.com/tags/gitlab/</loc>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/tags/Abp-vNext/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <loc>https://www.52dzd.com/tags/git/</loc>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.52dzd.com/tags/DDD/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <loc>https://www.52dzd.com/tags/vscode/</loc>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/Ubuntu-NextCloud-OSS/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/net-core/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/windows-service/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/tags/regex/</loc>
+    <lastmod>2025-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/tags/Abp-vNext/</loc>
+    <lastmod>2025-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/tags/DDD/</loc>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/BookStore/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/kubernetes/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/kubectl/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/tags/MASA-masastack-helm/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/MASA-Framework/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/tags/CQRS/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/tags/MASA-masastack-helm/</loc>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -640,70 +649,70 @@
   
   <url>
     <loc>https://www.52dzd.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/</loc>
-    <lastmod>2025-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.52dzd.com/categories/certbot/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/categories/hexo/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.52dzd.com/categories/certbot/</loc>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/categories/NET/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/categories/NET/%E6%96%B0%E7%89%B9%E6%80%A7/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/categories/Abp/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/categories/Abp/abplearn/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/categories/kubernetes/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.52dzd.com/categories/MASA/</loc>
-    <lastmod>2025-06-26</lastmod>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -166,6 +166,128 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://www.52dzd.com/abplearn/abplearn-9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xyfy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/abplearn/abplearn-9/" class="post-title-link" itemprop="url">abp学习第九篇</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-06-29 00:00:00 / 修改时间：09:18:32" itemprop="dateCreated datePublished" datetime="2025-06-29T00:00:00+08:00">2025-06-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Abp/" itemprop="url" rel="index"><span itemprop="name">Abp</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/abplearn/abplearn-9/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="abplearn/abplearn-9/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本篇将介绍 ABP 框架中的中间件（Middleware）与请求管道扩展机制，帮助你理解如何在 ABP 项目中自定义和扩展 HTTP 请求处理流程。</p>
+<h2 id="1-ABP-中的中间件机制"><a href="#1-ABP-中的中间件机制" class="headerlink" title="1. ABP 中的中间件机制"></a>1. ABP 中的中间件机制</h2><p>ABP 基于 ASP.NET Core，天然支持 ASP.NET Core 的中间件机制。你可以像在原生 ASP.NET Core 项目中一样，在 <code>Startup</code> 或 <code>Program</code> 中通过 <code>app.UseXXX()</code> 注册中间件。</p>
+<p>ABP 还提供了模块化的中间件注册方式，可以在模块的 <code>OnApplicationInitialization</code> 方法中注册自定义中间件，实现更灵活的请求管道扩展。</p>
+<h3 id="示例：自定义中间件"><a href="#示例：自定义中间件" class="headerlink" title="示例：自定义中间件"></a>示例：自定义中间件</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyCustomMiddleware</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> RequestDelegate _next;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyCustomMiddleware</span>(<span class="params">RequestDelegate next</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        _next = next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">InvokeAsync</span>(<span class="params">HttpContext context</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 在这里处理请求前逻辑</span></span><br><span class="line">        <span class="keyword">await</span> _next(context);</span><br><span class="line">        <span class="comment">// 在这里处理请求后逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注册方式：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseMiddleware&lt;MyCustomMiddleware&gt;();</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-在-ABP-模块中扩展请求管道"><a href="#2-在-ABP-模块中扩展请求管道" class="headerlink" title="2. 在 ABP 模块中扩展请求管道"></a>2. 在 ABP 模块中扩展请求管道</h2><p>在 ABP 的模块类（继承自 <code>AbpModule</code>）中，可以重写 <code>OnApplicationInitialization</code> 方法，获取 <code>IApplicationBuilder</code>，并注册中间件。例如：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnApplicationInitialization</span>(<span class="params">ApplicationInitializationContext context</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> app = context.GetApplicationBuilder();</span><br><span class="line">    app.UseMiddleware&lt;MyCustomMiddleware&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样可以实现模块级别的请求管道扩展，便于功能解耦和复用。</p>
+<h2 id="3-中间件顺序调整"><a href="#3-中间件顺序调整" class="headerlink" title="3. 中间件顺序调整"></a>3. 中间件顺序调整</h2><p>中间件的执行顺序非常重要，决定了请求和响应经过各个中间件的先后顺序。在 ABP（以及 ASP.NET Core）中，中间件的注册顺序就是其执行顺序。</p>
+<ul>
+<li>在 <code>Program.cs</code> 或 <code>Startup.cs</code> 中，<code>app.UseXXX()</code> 的调用顺序决定了中间件的排列。</li>
+<li>在 ABP 模块中注册的中间件，会插入到 <code>OnApplicationInitialization</code> 方法被调用的位置。</li>
+<li>如果有多个模块注册中间件，模块的依赖顺序（<code>DependsOn</code>）会影响初始化顺序。</li>
+</ul>
+<h3 id="示例：调整顺序"><a href="#示例：调整顺序" class="headerlink" title="示例：调整顺序"></a>示例：调整顺序</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.UseMiddleware&lt;FirstMiddleware&gt;();</span><br><span class="line">app.UseMiddleware&lt;SecondMiddleware&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>上例中，<code>FirstMiddleware</code> 会先于 <code>SecondMiddleware</code> 处理请求。</p>
+<blockquote>
+<p>建议：将全局性、通用性强的中间件（如异常处理、日志）放在前面，业务相关的中间件放在后面。</p>
+</blockquote>
+<h2 id="4-实践建议"><a href="#4-实践建议" class="headerlink" title="4. 实践建议"></a>4. 实践建议</h2><ul>
+<li>优先使用 ABP 的模块化机制注册中间件，便于维护和扩展。</li>
+<li>合理划分中间件职责，避免单一中间件过于臃肿。</li>
+<li>善用 ABP 的依赖注入能力，将服务注入到中间件中。</li>
+</ul>
+<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h2><p>ABP 框架充分利用了 ASP.NET Core 的中间件和请求管道机制，并通过模块化方式进一步增强了扩展性。掌握中间件的注册、顺序调整与使用，有助于构建灵活、可维护的企业级应用。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -246,18 +368,15 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>本篇将介绍 Abp 框架中的依赖注入（DI）机制及服务生命周期管理，帮助你在实际开发中更好地理解和应用 Abp 的 IoC 容器。</p>
-<h2 id="1-Abp-的依赖注入简介">1. Abp 的依赖注入简介</h2>
-<p>Abp 框架内置了强大的依赖注入系统，默认基于 Microsoft.Extensions.DependencyInjection，支持属性注入、构造函数注入、方法注入等多种方式。</p>
+<h2 id="1-Abp-的依赖注入简介"><a href="#1-Abp-的依赖注入简介" class="headerlink" title="1. Abp 的依赖注入简介"></a>1. Abp 的依赖注入简介</h2><p>Abp 框架内置了强大的依赖注入系统，默认基于 Microsoft.Extensions.DependencyInjection，支持属性注入、构造函数注入、方法注入等多种方式。</p>
 <ul>
 <li><strong>自动注册</strong>：继承自 <code>ITransientDependency</code>、<code>ISingletonDependency</code>、<code>IScopedDependency</code> 的服务会被自动注册到 IoC 容器。</li>
 <li><strong>模块化注册</strong>：可在模块的 <code>ConfigureServices</code> 方法中手动注册服务。</li>
 </ul>
-<h2 id="2-服务生命周期">2. 服务生命周期</h2>
-<ul>
+<h2 id="2-服务生命周期"><a href="#2-服务生命周期" class="headerlink" title="2. 服务生命周期"></a>2. 服务生命周期</h2><ul>
 <li><strong>瞬时（Transient）</strong>：每次请求都会创建新实例。适合无状态服务。</li>
 <li><strong>作用域（Scoped）</strong>：同一次请求（如 Web 请求）内共享同一实例。适合有状态但仅在请求内共享的服务。</li>
-<li><strong>单例（Singleton）</strong>：全局唯一实例，应用程序生命周期内只创建一次。适合全局缓存、配置等。</li>
-</ul>
+<li><strong>单例（Singleton）</strong>：全局唯一实例，应用程序生命周期内只创建一次。适合全局缓存、配置等。
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/abplearn/abplearn-8/#more" rel="contents">
@@ -267,7 +386,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </li></ul></div>
 
     
     
@@ -374,8 +493,7 @@
 <li><a href="#4-maui-%E8%B7%A8%E5%B9%B3%E5%8F%B0%E8%83%BD%E5%8A%9B%E5%A2%9E%E5%BC%BA">4. MAUI 跨平台能力增强</a></li>
 <li><a href="#5-%E4%BA%91%E5%8E%9F%E7%94%9F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%94%AF%E6%8C%81">5. 云原生与微服务支持</a></li>
 <li><a href="#6-%E6%96%B0%E7%9A%84-api-%E4%B8%8E%E5%BA%93">6. 新的 API 与库</a></li>
-<li><a href="#7-%E5%85%BC%E5%AE%B9%E6%80%A7%E4%B8%8E%E8%BF%81%E7%A7%BB">7. 兼容性与迁移</a></li>
-</ul>
+<li><a href="#7-%E5%85%BC%E5%AE%B9%E6%80%A7%E4%B8%8E%E8%BF%81%E7%A7%BB">7. 兼容性与迁移</a>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/dotnet10-features/#more" rel="contents">
@@ -385,7 +503,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </li></ul></div>
 
     
     
@@ -475,8 +593,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>Dive into the New Features of .NET 8</h1>
-<p>In today’s rapidly evolving technological landscape, the .NET framework is constantly evolving to adapt to new demands and challenges. As the latest iteration, .NET 8 brings numerous exciting new features and improvements, empowering developers to build applications more efficiently. Below, we delve into several key features of .NET 8.</p>
+          <h1 id="Dive-into-the-New-Features-of-NET-8"><a href="#Dive-into-the-New-Features-of-NET-8" class="headerlink" title="Dive into the New Features of .NET 8"></a>Dive into the New Features of .NET 8</h1><p>In today’s rapidly evolving technological landscape, the .NET framework is constantly evolving to adapt to new demands and challenges. As the latest iteration, .NET 8 brings numerous exciting new features and improvements, empowering developers to build applications more efficiently. Below, we delve into several key features of .NET 8.</p>
 <p>First and foremost, let’s look at the performance enhancements. Performance has always been a key focus area for the .NET framework. In .NET 8, Microsoft introduces a new feature called “performance counters,” which helps developers gain insights into their application’s performance bottlenecks and take appropriate optimization measures. Additionally, .NET 8 includes optimizations to many existing components and libraries, aiming to enhance the overall performance of applications. This includes improvements to the asynchronous programming model and better support for cloud-native applications.</p>
 <p>When it comes to the asynchronous programming model, .NET 8 introduces a new type of coroutine. Coroutines are lightweight threads that can handle asynchronous operations and long-running tasks more naturally. Compared to traditional threads, coroutines can execute multiple asynchronous operations on the same thread, eliminating the overhead of thread switching and context switching. This not only improves the efficiency of program execution but also makes code easier to write and understand.</p>
 <p>For cloud-native applications, .NET 8 provides improved support. Cloud-native applications are designed according to a set of principles that enable them to better adapt to containerized and microservices architectures. .NET 8 makes it easier to deploy applications to platforms like Kubernetes, while supporting the use of containerization tools like Docker for packaging and distribution. These features make .NET 8 an ideal choice for building cloud-native applications.</p>
@@ -689,14 +806,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="概念">概念</h2>
-<h3 id="kubectl">kubectl</h3>
-<p>Kubernetes 命令行工具 <span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL3poLWNuL2RvY3MvcmVmZXJlbmNlL2t1YmVjdGwva3ViZWN0bC8=">kubectl<i class="fa fa-external-link-alt"></i></span>， 让你可以对 Kubernetes 集群运行命令。 你可以使用 kubectl 来部署应用、监测和管理集群资源以及查看日志。</p>
-<h2 id="安装">安装</h2>
-<p>Windows 11 使用 winget：</p>
+          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="kubectl"><a href="#kubectl" class="headerlink" title="kubectl"></a>kubectl</h3><p>Kubernetes 命令行工具 <span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL3poLWNuL2RvY3MvcmVmZXJlbmNlL2t1YmVjdGwva3ViZWN0bC8=">kubectl<i class="fa fa-external-link-alt"></i></span>， 让你可以对 Kubernetes 集群运行命令。 你可以使用 kubectl 来部署应用、监测和管理集群资源以及查看日志。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Windows 11 使用 winget：</p>
 <figure class="highlight shell"><figcaption><span>Powershell</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">winget install -e --id Kubernetes.kubectl</span><br><span class="line"></span><br><span class="line">kubectl version --output=yaml</span><br><span class="line"></span><br><span class="line">cd ~</span><br><span class="line"></span><br><span class="line">mkdir .kube</span><br><span class="line">cd .kube</span><br><span class="line">New-Item config -type file</span><br></pre></td></tr></table></figure>
-<h2 id="验证-kubectl-配置">验证 kubectl 配置</h2>
-<p>如果你想在自己的笔记本上（本地）运行 Kubernetes 集群，你需要先安装一个 Minikube 这样的工具</p>
+
+<h2 id="验证-kubectl-配置"><a href="#验证-kubectl-配置" class="headerlink" title="验证 kubectl 配置"></a>验证 kubectl 配置</h2><p>如果你想在自己的笔记本上（本地）运行 Kubernetes 集群，你需要先安装一个 Minikube 这样的工具</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">winget install minikube</span><br><span class="line">minikube start</span><br><span class="line"></span><br><span class="line">kubectl cluster-info</span><br></pre></td></tr></table></figure>
 
       
@@ -796,15 +910,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="环境">环境</h2>
-<p>参考文档： <span class="exturl" data-url="aHR0cHM6Ly9tYXNhc3RhY2suZ2l0aHViLmlvL2hlbG0v">https://masastack.github.io/helm/<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="docker">docker</h3>
-<p>安装 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZG9ja2VyLmNvbS9wcm9kdWN0cy9kb2NrZXItZGVza3RvcC8=">Docker Desktop<i class="fa fa-external-link-alt"></i></span>，目前版本的 <code>Docker Desktop</code> 附带一个 <code>kubernetes</code> ，在设置里启用 <code>kubernetes</code> ， 就可以跳过后续的 <code>kubernetes</code> 和 <code>kubectl</code> 的安装.</p>
+          <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>参考文档： <span class="exturl" data-url="aHR0cHM6Ly9tYXNhc3RhY2suZ2l0aHViLmlvL2hlbG0v">https://masastack.github.io/helm/<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p>安装 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZG9ja2VyLmNvbS9wcm9kdWN0cy9kb2NrZXItZGVza3RvcC8=">Docker Desktop<i class="fa fa-external-link-alt"></i></span>，目前版本的 <code>Docker Desktop</code> 附带一个 <code>kubernetes</code> ，在设置里启用 <code>kubernetes</code> ， 就可以跳过后续的 <code>kubernetes</code> 和 <code>kubectl</code> 的安装.</p>
 <p><img src="/images/202304/1.png" alt="docker"></p>
-<h3 id="kubernetes">kubernetes</h3>
-<p>参考：<span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL3poLWNuL2RvY3MvdGFza3MvdG9vbHMv">https://kubernetes.io/zh-cn/docs/tasks/tools/<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="kubectl">kubectl</h3>
-<p>参考：<span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL3poLWNuL2RvY3MvdGFza3MvdG9vbHMv">https://kubernetes.io/zh-cn/docs/tasks/tools/<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="kubernetes"><a href="#kubernetes" class="headerlink" title="kubernetes"></a>kubernetes</h3><p>参考：<span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL3poLWNuL2RvY3MvdGFza3MvdG9vbHMv">https://kubernetes.io/zh-cn/docs/tasks/tools/<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="kubectl"><a href="#kubectl" class="headerlink" title="kubectl"></a>kubectl</h3><p>参考：<span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL3poLWNuL2RvY3MvdGFza3MvdG9vbHMv">https://kubernetes.io/zh-cn/docs/tasks/tools/<i class="fa fa-external-link-alt"></i></span></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/masa/stack/usehelm/#more" rel="contents">
@@ -910,14 +1020,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hc2FzdGFjay9NQVNBLkZyYW1ld29yaw==">MASA Framework<i class="fa fa-external-link-alt"></i></span><br>
-全新的.NET现代应用开发，提供分布式应用运行时–基于Dapr云原生最佳实践，能够快速实现分布式、微服务、DDD，SaaS等现代应用开发。<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1hc2FzdGFjay5jb20vZnJhbWV3b3JrL2NvbmNlcHRzL292ZXJ2aWV3">官方文档参阅<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="先决条件">先决条件</h2>
-<p>开发计算机上应安装以下工具:</p>
+          <p> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hc2FzdGFjay9NQVNBLkZyYW1ld29yaw==">MASA Framework<i class="fa fa-external-link-alt"></i></span><br>全新的.NET现代应用开发，提供分布式应用运行时–基于Dapr云原生最佳实践，能够快速实现分布式、微服务、DDD，SaaS等现代应用开发。<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1hc2FzdGFjay5jb20vZnJhbWV3b3JrL2NvbmNlcHRzL292ZXJ2aWV3">官方文档参阅<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><p>开发计算机上应安装以下工具:</p>
 <p>一个集成开发环境 (比如: <span class="exturl" data-url="aHR0cHM6Ly92aXN1YWxzdHVkaW8ubWljcm9zb2Z0LmNvbS92cy8=">Visual Studio<i class="fa fa-external-link-alt"></i></span>) 它需要支持 <span class="exturl" data-url="aHR0cHM6Ly9kb3RuZXQubWljcm9zb2Z0LmNvbS96aC1jbi9kb3dubG9hZC9kb3RuZXQvNi4w">.NET 6.0<i class="fa fa-external-link-alt"></i></span> 的开发.</p>
-<h2 id="环境配置">环境配置</h2>
-<h3 id="MacOS-dotnet环境配置">MacOS dotnet环境配置</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载对应脚本进行安装 https://dotnet.microsoft.com/zh-cn/download/dotnet/scripts </span></span><br><span class="line">./dotnet-install.sh --channel 6.0</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export DOTNET_ROOT=$HOME/.dotnet&#x27;</span> &gt;&gt; ~/.zshrc   </span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="MacOS-dotnet环境配置"><a href="#MacOS-dotnet环境配置" class="headerlink" title="MacOS dotnet环境配置"></a>MacOS dotnet环境配置</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载对应脚本进行安装 https://dotnet.microsoft.com/zh-cn/download/dotnet/scripts </span></span><br><span class="line">./dotnet-install.sh --channel 6.0</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export DOTNET_ROOT=$HOME/.dotnet&#x27;</span> &gt;&gt; ~/.zshrc   </span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/masa/framework/starter1/#more" rel="contents">
@@ -1023,11 +1129,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>Abp vNext 学习第七弹 - 作者</h1>
-<p>参考上一篇 ：<a href="/abplearn/sixth/" title="Abp vNext 学习(6)">Abp vNext 学习(6)</a>.</p>
-<h2 id="领域层">领域层</h2>
-<h3 id="简介">简介</h3>
-<p>在前面的章节中, 我们使用 ABP 框架轻松地构建了一些服务;</p>
+          <h1 id="Abp-vNext-学习第七弹-作者"><a href="#Abp-vNext-学习第七弹-作者" class="headerlink" title="Abp vNext 学习第七弹 - 作者"></a>Abp vNext 学习第七弹 - 作者</h1><p>参考上一篇 ：<a href="/abplearn/sixth/" title="Abp vNext 学习(6)">Abp vNext 学习(6)</a>.</p>
+<h2 id="领域层"><a href="#领域层" class="headerlink" title="领域层"></a>领域层</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>在前面的章节中, 我们使用 ABP 框架轻松地构建了一些服务;</p>
 <ul>
 <li>使用 <code>CrudAppService</code> 基类, 而不是为标准的增删改查操作手工开发应用服务.</li>
 <li>使用 <code>generic repositories</code> 自动完成数据层功能.</li>
@@ -1145,123 +1248,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>Hexo Change Permanent Link Format</h1>
-<p>Recently I would like to simplify permanent link for each post. From:</p>
-<p>/2020/09/12/deploy-docker-on-ubuntu18-04<br>
-/2022/12/15/abplearn/sixth<br>
-To:</p>
-<p>/deploy-docker-on-ubuntu18-04<br>
-/abplearn/sixth</p>
+          <h1 id="Hexo-Change-Permanent-Link-Format"><a href="#Hexo-Change-Permanent-Link-Format" class="headerlink" title="Hexo Change Permanent Link Format"></a>Hexo Change Permanent Link Format</h1><p>Recently I would like to simplify permanent link for each post. From:</p>
+<p>&#x2F;2020&#x2F;09&#x2F;12&#x2F;deploy-docker-on-ubuntu18-04<br>&#x2F;2022&#x2F;12&#x2F;15&#x2F;abplearn&#x2F;sixth<br>To:</p>
+<p>&#x2F;deploy-docker-on-ubuntu18-04<br>&#x2F;abplearn&#x2F;sixth</p>
 <p>If you don’t care about the search engine drop right after directly changing the permalink， you can change the config in <code>_config.yml</code> ,change <code>permalink</code> from <code>:year/:month/:day/:title/</code> to <code>:title/</code> directly.  otherwise, please read on.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/change-hexo-permalink-with301/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://www.52dzd.com/abplearn/sixth/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xyfy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="心雨纷扬的博客">
-      <meta itemprop="description" content>
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 心雨纷扬的博客">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/abplearn/sixth/" class="post-title-link" itemprop="url">Abp vNext 学习(6)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-12-15 16:52:43" itemprop="dateCreated datePublished" datetime="2022-12-15T16:52:43+08:00">2022-12-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-06-01 07:32:09" itemprop="dateModified" datetime="2023-06-01T07:32:09+08:00">2023-06-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Abp/" itemprop="url" rel="index"><span itemprop="name">Abp</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/abplearn/sixth/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="abplearn/sixth/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Abp vNext 学习第六弹 - 授权，定义权限，使用权限</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/abplearn/sixth/">
                 阅读全文 &raquo;
               </a>
             </div>

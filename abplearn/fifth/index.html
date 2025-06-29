@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.52dzd.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Abp vNext 学习第五弹 - 集成测试 参考上一篇 ：Abp vNext 学习(4). 解决方案中的测试项目 这一部分涵盖了 服务器端 测试. 解决方案中有多个测试项目:">
+    <meta name="description" content="Abp vNext 学习第五弹 - 集成测试参考上一篇 ：Abp vNext 学习(4). 解决方案中的测试项目这一部分涵盖了 服务器端 测试. 解决方案中有多个测试项目:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Abp vNext 学习(5)">
 <meta property="og:url" content="https://www.52dzd.com/abplearn/fifth/index.html">
 <meta property="og:site_name" content="心雨纷扬的博客">
-<meta property="og:description" content="Abp vNext 学习第五弹 - 集成测试 参考上一篇 ：Abp vNext 学习(4). 解决方案中的测试项目 这一部分涵盖了 服务器端 测试. 解决方案中有多个测试项目:">
+<meta property="og:description" content="Abp vNext 学习第五弹 - 集成测试参考上一篇 ：Abp vNext 学习(4). 解决方案中的测试项目这一部分涵盖了 服务器端 测试. 解决方案中有多个测试项目:">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.52dzd.com/images/202212/1.png">
 <meta property="og:image" content="https://www.52dzd.com/images/202212/2.png">
@@ -123,7 +123,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Abp vNext 学习第五弹 - 集成测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B8%AD%E7%9A%84%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">解决方案中的测试项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.</span> <span class="nav-text">添加测试数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-BookAppService"><span class="nav-number">1.3.</span> <span class="nav-text">测试 BookAppService</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo-Codes"><span class="nav-number">1.4.</span> <span class="nav-text">Demo Codes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E7%AB%A0"><span class="nav-number">1.5.</span> <span class="nav-text">下一章</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Abp-vNext-%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%94%E5%BC%B9-%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95"><span class="nav-number">1.</span> <span class="nav-text">Abp vNext 学习第五弹 - 集成测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B8%AD%E7%9A%84%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">解决方案中的测试项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.</span> <span class="nav-text">添加测试数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-BookAppService"><span class="nav-number">1.3.</span> <span class="nav-text">测试 BookAppService</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo-Codes"><span class="nav-number">1.4.</span> <span class="nav-text">Demo Codes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E7%AB%A0"><span class="nav-number">1.5.</span> <span class="nav-text">下一章</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -136,7 +136,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -258,13 +258,12 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1>Abp vNext 学习第五弹 - 集成测试</h1>
-<p>参考上一篇 ：<a href="/abplearn/fourth/" title="Abp vNext 学习(4)">Abp vNext 学习(4)</a>.</p>
-<h2 id="解决方案中的测试项目">解决方案中的测试项目</h2>
-<p>这一部分涵盖了 服务器端 测试. 解决方案中有多个测试项目:</p>
-<p><img src="/images/202212/1.png" alt="bookstore test projects"></p>
+    <div class="post-body" itemprop="articleBody"><h1 id="Abp-vNext-学习第五弹-集成测试"><a href="#Abp-vNext-学习第五弹-集成测试" class="headerlink" title="Abp vNext 学习第五弹 - 集成测试"></a>Abp vNext 学习第五弹 - 集成测试</h1><p>参考上一篇 ：<a href="/abplearn/fourth/" title="Abp vNext 学习(4)">Abp vNext 学习(4)</a>.</p>
+<h2 id="解决方案中的测试项目"><a href="#解决方案中的测试项目" class="headerlink" title="解决方案中的测试项目"></a>解决方案中的测试项目</h2><p>这一部分涵盖了 服务器端 测试. 解决方案中有多个测试项目:</p>
+<p>   <img src="/images/202212/1.png" alt="bookstore test projects"></p>
 <span id="more"></span>
-<p>每个项目用于测试相关的应用程序项目.测试项目使用以下库进行测试:</p>
+
+<p> 每个项目用于测试相关的应用程序项目.测试项目使用以下库进行测试:</p>
 <ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly94dW5pdC5naXRodWIuaW8v">xunit<i class="fa fa-external-link-alt"></i></span> 作为主测试框架.</li>
 <li><span class="exturl" data-url="aHR0cDovL3Nob3VsZGx5LnJlYWR0aGVkb2NzLmlvL2VuL2xhdGVzdC8=">Shoudly<i class="fa fa-external-link-alt"></i></span> 作为断言库.</li>
@@ -273,30 +272,29 @@
 <blockquote>
 <p>测试项目配置为使用 <strong>SQLite内存</strong> 作为数据库. 创建一个单独的数据库实例并使用 <strong>DataSeeder System</strong> 初始化种子数据,为每个测试准备一个新的数据库.</p>
 </blockquote>
-<h2 id="添加测试数据">添加测试数据</h2>
-<p>如果你已经按照<a href="/abplearn/abp-learn-second/" title="Abp vNext 学习(2)">第二弹</a>中的描述创建了<code>DataSeedContributor</code>,则相同的数据也在测试中可用. 因此你可以跳过此部分. 如果你尚未创建,可以使用 <code>BookStoreTestDataSeedContributor</code> 来为创建在以下测试中使用的相同数据种子.</p>
-<h2 id="测试-BookAppService">测试 BookAppService</h2>
-<p>在 <code>Acme.BookStore.Application.Tests</code> 项目的 <code>Books</code> 命名空间(文件夹)中创建一个名叫 <code>BookAppService_Tests</code> 的测试类:</p>
+<h2 id="添加测试数据"><a href="#添加测试数据" class="headerlink" title="添加测试数据"></a>添加测试数据</h2><p>如果你已经按照<a href="/abplearn/abp-learn-second/" title="Abp vNext 学习(2)">第二弹</a>中的描述创建了<code>DataSeedContributor</code>,则相同的数据也在测试中可用. 因此你可以跳过此部分. 如果你尚未创建,可以使用 <code>BookStoreTestDataSeedContributor</code> 来为创建在以下测试中使用的相同数据种子.</p>
+<h2 id="测试-BookAppService"><a href="#测试-BookAppService" class="headerlink" title="测试 BookAppService"></a>测试 BookAppService</h2><p>在 <code>Acme.BookStore.Application.Tests</code> 项目的 <code>Books</code> 命名空间(文件夹)中创建一个名叫 <code>BookAppService_Tests</code> 的测试类:</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"><span class="keyword">using</span> Shouldly;</span><br><span class="line"><span class="keyword">using</span> Volo.Abp.Application.Dtos;</span><br><span class="line"><span class="keyword">using</span> Volo.Abp.Validation;</span><br><span class="line"><span class="keyword">using</span> Xunit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Acme.BookStore.Books</span></span><br><span class="line">&#123; </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BookAppService_Tests</span> : <span class="title">BookStoreApplicationTestBase</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">readonly</span> IBookAppService _bookAppService;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">BookAppService_Tests</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            _bookAppService = GetRequiredService&lt;IBookAppService&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">Fact</span>]</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">Should_Get_List_Of_Books</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//Act</span></span><br><span class="line">            <span class="keyword">var</span> result = <span class="keyword">await</span> _bookAppService.GetListAsync(</span><br><span class="line">                <span class="keyword">new</span> PagedAndSortedResultRequestDto()</span><br><span class="line">            );</span><br><span class="line"></span><br><span class="line">            <span class="comment">//Assert</span></span><br><span class="line">            result.TotalCount.ShouldBeGreaterThan(<span class="number">0</span>);</span><br><span class="line">            result.Items.ShouldContain(b =&gt; b.Name == <span class="string">&quot;1984&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>测试方法 <code>Should_Get_List_Of_Books</code> 直接使用 <code>BookAppService.GetListAsync</code> 方法来获取用户列表,并执行检查.</li>
 <li>我们可以安全地检查 “1984” 这本书的名称,因为我们知道这本书可以在数据库中找到,我们已将其添加到种子数据中.</li>
 </ul>
 <p>新增测试方法,用以测试创建一个合法book实体的场景:</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">Fact</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">Should_Create_A_Valid_Book</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//Act</span></span><br><span class="line">    <span class="keyword">var</span> result = <span class="keyword">await</span> _bookAppService.CreateAsync(</span><br><span class="line">        <span class="keyword">new</span> CreateUpdateBookDto</span><br><span class="line">        &#123;</span><br><span class="line">            Name = <span class="string">&quot;New test book 42&quot;</span>,</span><br><span class="line">            Price = <span class="number">10</span>,</span><br><span class="line">            PublishDate = DateTime.Now,</span><br><span class="line">            Type = BookType.ScienceFiction</span><br><span class="line">        &#125;</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Assert</span></span><br><span class="line">    result.Id.ShouldNotBe(Guid.Empty);</span><br><span class="line">    result.Name.ShouldBe(<span class="string">&quot;New test book 42&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>新增测试方法,用以测试创建一个非法book实体失败的场景:</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">Fact</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">Should_Not_Create_A_Book_Without_Name</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> exception = <span class="keyword">await</span> Assert.ThrowsAsync&lt;AbpValidationException&gt;(<span class="keyword">async</span> () =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">await</span> _bookAppService.CreateAsync(</span><br><span class="line">            <span class="keyword">new</span> CreateUpdateBookDto</span><br><span class="line">            &#123;</span><br><span class="line">                Name = <span class="string">&quot;&quot;</span>,</span><br><span class="line">                Price = <span class="number">10</span>,</span><br><span class="line">                PublishDate = DateTime.Now,</span><br><span class="line">                Type = BookType.ScienceFiction</span><br><span class="line">            &#125;</span><br><span class="line">        );</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    exception.ValidationErrors</span><br><span class="line">        .ShouldContain(err =&gt; err.MemberNames.Any(mem =&gt; mem == <span class="string">&quot;Name&quot;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>由于 Name 是空值, ABP 抛出一个 AbpValidationException 异常.</li>
 </ul>
 <p>打开测试资源管理器(测试 -&gt; Windows -&gt; 测试资源管理器)并执行所有测试:</p>
-<p><img src="/images/202212/2.png" alt="Test Result"></p>
-<h2 id="Demo-Codes">Demo Codes</h2>
-<blockquote>
+<p>   <img src="/images/202212/2.png" alt="Test Result"></p>
+<h2 id="Demo-Codes"><a href="#Demo-Codes" class="headerlink" title="Demo Codes"></a>Demo Codes</h2><blockquote>
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3h5ZnkvQWJwLUxlYXJuLTIwMjIvY29tbWl0Lzk2YTk1YTFhODk3MzZlOTQ0OWUxMTIxZjQzZmUyZDljNTU1NTUyYTI=">github commit<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
-<h2 id="下一章">下一章</h2>
-<p>参阅的<a href="/abplearn/sixth/" title="Abp vNext 学习(6)">Abp vNext 学习(6)</a>。</p>
+<h2 id="下一章"><a href="#下一章" class="headerlink" title="下一章"></a>下一章</h2><p>参阅的<a href="/abplearn/sixth/" title="Abp vNext 学习(6)">Abp vNext 学习(6)</a>。</p>
 
     </div>
 
