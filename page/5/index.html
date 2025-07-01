@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -166,6 +166,162 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://www.52dzd.com/Tfs2010%E4%BD%BF%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xyfy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 心雨纷扬的博客">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Tfs2010%E4%BD%BF%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">Tfs 2010使用小技巧</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2011-02-26 09:51:27" itemprop="dateCreated datePublished" datetime="2011-02-26T09:51:27+08:00">2011-02-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-06-01 07:32:09" itemprop="dateModified" datetime="2023-06-01T07:32:09+08:00">2023-06-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/Tfs2010%E4%BD%BF%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Tfs2010使用小技巧/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li><p>如何删除工作项 </p>
+<ol>
+<li><p>使用Tfs管理员账户登录 </p>
+</li>
+<li><p>使用Cmd打开命令行窗口</p>
+</li>
+</ol>
+<ul>
+<li><p>如果是32位系统</p>
+<p>  <code>cd &quot;C:\\Program Files\\Microsoft Visual Studio 10.0\\Common7\\IDE&quot;</code></p>
+</li>
+<li><p>64位系统</p>
+<p><code>cd &quot;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE&quot;</code></p>
+</li>
+</ul>
+<ol start="3">
+<li>使用 <code>witadmin.exe destroywi</code>命令，按下面的方式<br> &#96;&#96;witadmin.exe destroywi &#x2F;Collection:http:\\[ServerName]:8080\tfs\[CollectionName] &#x2F;id:[WI ID]&#96;</li>
+</ol>
+<p> 可以一次删除多个工作项，使用逗号分隔工作项Id，比如10,22,30。可以使用 &#x2F;noprompt屏蔽提示消息 </p>
+<ol start="4">
+<li>假设服务器名称为ServerDemo，团队项目集合名称为TeamDemo，要删除Id为17、18的工作项，则使用如下命令：</li>
+</ol>
+<p> <code>witadmin.exe destroywi /Collection:http:\\\ServerDemo:8080\\tfs\\TeamDemo /id:17,18 </code></p>
+<ol start="5">
+<li>上述方法为微软工作人员答疑，经测试，在Tfs2010 简体中文正式版，能够正常的删除工作项。请注意，在做这个操作之前，先关闭Vs2010。</li>
+</ol>
+</li>
+<li><p>使用Ghost或者Windows 镜像备份的情形下，如何备份项目集？</p>
+<p>当我们安装了操作系统、开发环境之后，我们常常为此时干净的系统，做一个镜像备份，有时候是使用Ghost，有时候是使用Windows 7或者Sql Server 2008 R2的Server Backup功能做镜像备份。当然，因为安装了Sql server 2008 R2和Tfs2010、Vs2010之后，C:盘往往有17G左右，因为速度的关系我们推荐使用Ghost，能在20分钟之内恢复C:\盘，使用Windows Server Backup功能，常常需要数个小时。 </p>
+<p>我们一般做两个Ghost镜像，第一个是操作系统安装好、驱动安装好、操作系统各项更新完成、常用软件如Live Writer、QQ、网银、迅雷、Winrar之类安装好、操作系统配置好(比如关机不要输入关机原因、登录不需要按Ctrl+Alt+Del、或者自动使用某个账户登录而无需输入密码等等)，这些完成之后做一个镜像，叫做工作镜像。在这个镜像做好之后，安装开发环境，然后做第二个镜像：开发环境镜像。请注意做镜像前关闭休眠功能并删除休眠文件、禁用虚拟内存或将虚拟内存文件放在D:盘，这样会大大的减少镜像文件的大小。 </p>
+<p>那么，每次恢复镜像，会造成Tfs的项目管理信息丢失。所以，这之前需要备份Tfs的数据库，这是件很麻烦的事情，下面列出我目前采用的一个取巧的方法，请注意我在自己个人的开发机器上安装的是Tfs的Basic版本： </p>
+<ol>
+<li>安装Sql 2008 R2和Tfs 2010之后，默认的项目集保存在C:盘，此时我们在C盘将三个Tfs数据库，备份在C:盘默认的Sql Server备份位置。这是为了防止Tfs系统完全不匹配，造成不能正常工作的最后挽救方法。</li>
+<li>在Sql server中设置默认的数据库位置在D:\Database或D:盘的其他目录 </li>
+<li>重新启动系统，注意，不要忽略这一步，我们在上一步的设置或许仅仅是修改了一个配置项，目前Sql的默认数据库文件存放路径，还是在C:盘，没有改变。 </li>
+<li>使用Tfs 2010的管理控制台，创建新的团队项目集合，假设我们为其命名为TeamWork。 </li>
+<li>此时，你会发现在D:\Database下，有了一个新的数据库Tfs_TeamWork </li>
+<li>将Sql server的三个Tfs_开头的数据库，同样备份到C:盘，这个时候再开始为系统做Ghost镜像，今后每次使用Ghost恢复干净的开发环境，就不用考虑Tfs数据库的问题，直接用Ghost恢复就行了。当然，前提是你不要删除掉D:\Database目录下的相关数据库。以后，只需要随时备份Tfs_TeamWork以策万全。 </li>
+<li>如果D:\盘的数据库出现意外，最坏的情况，我们使用C:盘的初始备份能让系统正常运行起来，然后再用平常做的Tfs_TeamWork的备份，按照标准的恢复模式进行。 注意，如果我们仅备份某个团队项目集合的数据库，而没有备份Tfs_Configuration数据库，则在上次创建镜像到此次恢复镜像期间创建的团队项目会丢失。</li>
+</ol>
+</li>
+<li><p>安装好Scrum模版后，创建新的团队项目集合时，如何使用？ 选择该团队项目集合，右键，运行过程模版管理器。选上载，找到安装目录：默认是C:\Program Files (x86)\Microsoft\Microsoft Visual Studio Scrum 1.0\Process Template 此后创建团队项目时，就多了Scrum项目这一项。</p>
+</li>
+<li><p>如何清除Vs2010的工作区影射关系的缓存信息？ 在原有的团队项目集合移除，或者更换Tfs服务器后，一些工作区的影射关系仍然存在，这会导致“将解决方案添加到源代码管理”之类的功能不可使用。 这些信息缓存于文件C:\Users\Administrator\AppData\Local\Microsoft\TeamFoundation\3.0\Cache\VersionControl.config中，只要把跟旧服务器相关的 ServerInfo 节点删掉，问题即可解决。 </p>
+</li>
+<li><p>如何还原已经备份的团队项目集合数据库？ </p>
+<ol>
+<li>关闭Tfs服务： 运行： “C:\Program Files\Microsoft Team Foundation Server 2010”\Tools\TFSServiceControl quiesce </li>
+<li>还原数据库，请注意两个选项：选择从设备恢复、选择覆盖原数据库 </li>
+<li>启动Tfs服务： 运行： “C:\Program Files\Microsoft Team Foundation Server 2010”\Tools\TFSServiceControl unquiesce</li>
+</ol>
+</li>
+<li><p>删除团队项目 </p>
+<p><code>&quot;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE\\TFSDeleteProject&quot; /force /collection:http://x200:8080/Stock Faster</code></p>
+<p>其中<span class="exturl" data-url="aHR0cDovL3gyMDA6ODA4MOaYr+acjeWKoeWZqOWQjeensOWSjOerr+WPo++8jFN0b2Nr5piv5Zui6Zif6aG555uu6ZuG5ZCI55qE5ZCN56ew77yMRmFzdGVy5pivU3RvY2vlm6LpmJ/pobnnm67pm4blkIjkuK3opoHliKDpmaTnmoTpobnnm64=">http://x200:8080是服务器名称和端口，Stock是团队项目集合的名称，Faster是Stock团队项目集合中要删除的项目<i class="fa fa-external-link-alt"></i></span></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
